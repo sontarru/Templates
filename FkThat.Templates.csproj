@@ -1,0 +1,57 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- Version -->
+  <PropertyGroup>
+    <VersionPrefix>0.0.1</VersionPrefix>
+  </PropertyGroup>
+
+  <!-- Build properties -->
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+  </PropertyGroup>
+
+  <!-- Package properties -->
+  <PropertyGroup>
+    <IsPackable>true</IsPackable>
+    <PackageType>Template</PackageType>
+    <IncludeContentInPack>true</IncludeContentInPack>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <ContentTargetFolders>content</ContentTargetFolders>
+    <NoDefaultExcludes>true</NoDefaultExcludes>
+    <Product>FkThat .NET CLI Templates</Product>
+    <Description>The collection of custom .NET CLI templates.</Description>
+    <Company>fkthat</Company>
+    <Authors>fkthat</Authors>
+    <Copyright>© fkthat, 2025</Copyright>
+    <RepositoryName>Templates</RepositoryName>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/fkthat/FkThat.Templates.Solution</RepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/fkthat/FkThat.Templates.S0olution</PackageProjectUrl>
+    <PackageTags>dotnet;cli;template</PackageTags>
+  </PropertyGroup>
+
+  <!-- Package README file: https://devblogs.microsoft.com/nuget/add-a-readme-to-your-nuget-package/ -->
+  <PropertyGroup>
+      <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+  <ItemGroup>
+      <None Include="README.md" Pack="true" PackagePath="\"/>
+  </ItemGroup>
+
+  <!-- Embed release notes into the package -->
+  <PropertyGroup>
+    <PackageReleaseNotes>@(ReleaseNotes, '%0a')</PackageReleaseNotes>
+  </PropertyGroup>
+  <Target Name="PreparePackageReleaseNotesFromFile" BeforeTargets="GenerateNuspec">
+    <ReadLinesFromFile File="RELEASE-NOTES" >
+      <Output TaskParameter="Lines" ItemName="ReleaseNotes"/>
+    </ReadLinesFromFile>
+  </Target>
+
+  <ItemGroup>
+    <Compile Remove="**\*"/>
+    <Content Include="templates\**\*" Exclude="templates\**\bin\**;templates\**\obj\**"/>
+  </ItemGroup>
+
+</Project>

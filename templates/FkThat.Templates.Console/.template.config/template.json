@@ -1,0 +1,29 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "FkThat",
+  "classifications": [
+    "FkThat"
+  ],
+  "identity": "FkThat.Templates.Console",
+  "name": "FkThat console application",
+  "shortName": "ft-console",
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+  "sourceName": "FkThat.Templates.Console",
+  "primaryOutputs": [{
+    "path": "FkThat.Templates.Console.csproj"
+  }],
+  "postActions": [
+    {
+      "description": "Add project to solution.",
+      "actionId": "D396686C-DE0E-4DE6-906D-291CD29FC5DE",
+      "continueOnError": true,
+      "manualInstructions": [],
+      "args": {
+        "primaryOutputIndexes": "0"
+      }
+    }
+  ]
+}

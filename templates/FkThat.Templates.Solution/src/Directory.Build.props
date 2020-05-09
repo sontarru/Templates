@@ -1,0 +1,44 @@
+<Project>
+  <Import Project="$([MSBuild]::GetPathOfFileAbove('Directory.Build.props', '$(MSBuildThisFileDirectory)..\'))" />
+
+  <!-- Code analysis and Xml docs -->
+  <PropertyGroup>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    <AnalysisLevel>latest-All</AnalysisLevel>
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <!-- Suppress warnings on 'dotnet pack' -->
+    <WarnOnPackingNonPackableProject>false</WarnOnPackingNonPackableProject>
+  </PropertyGroup>
+
+  <!-- Package README file: https://devblogs.microsoft.com/nuget/add-a-readme-to-your-nuget-package/ -->
+  <PropertyGroup>
+      <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+  <ItemGroup>
+      <None Include="..\..\README.md" Pack="true" PackagePath="\"/>
+  </ItemGroup>
+
+  <!-- Embed release notes into the package (if the project is packable) -->
+  <PropertyGroup>
+    <PackageReleaseNotes>@(ReleaseNotes, '%0a')</PackageReleaseNotes>
+  </PropertyGroup>
+  <Target Name="PreparePackageReleaseNotesFromFile" BeforeTargets="GenerateNuspec">
+    <ReadLinesFromFile File="..\..\RELEASE-NOTES.txt" >
+      <Output TaskParameter="Lines" ItemName="ReleaseNotes"/>
+    </ReadLinesFromFile>
+  </Target>
+
+  <!-- Assembly attributes -->
+  <ItemGroup>
+    <InternalsVisibleTo Include="$(MSBuildProjectName).Tests" />
+    <AssemblyAttribute Include="System.CLSCompliantAttribute">
+      <_Parameter1>true</_Parameter1>
+    </AssemblyAttribute>
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,10 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "fkthat",
+  "classifications": [ "FkThat" ],
+  "identity": "FkThat.Templates.Solution",
+  "name": "FkThat solution",
+  "shortName": "ft-sln",
+  "tags": { "language": "C#", "type": "project" },
+  "sourceName": "FkThat.Templates.Solution"
+}

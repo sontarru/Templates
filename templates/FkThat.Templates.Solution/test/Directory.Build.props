@@ -1,0 +1,55 @@
+<Project>
+  <Import Project="$([MSBuild]::GetPathOfFileAbove('Directory.Build.props', '$(MSBuildThisFileDirectory)..\'))" />
+
+  <!-- Determine the 'SUT' project name -->
+  <PropertyGroup>
+    <SutProjectName>$([System.Text.RegularExpressions.Regex]::Replace('$(MSBuildProjectName)', '\.Tests$', ''))</SutProjectName>
+  </PropertyGroup>
+
+  <!-- Ajust the root namespace -->
+  <PropertyGroup>
+    <RootNamespace>$(SutProjectName)</RootNamespace>
+  </PropertyGroup>
+
+  <!-- Code coverage -->
+  <PropertyGroup>
+    <CollectCoverage>true</CollectCoverage>
+    <CoverletOutputFormat>cobertura</CoverletOutputFormat>
+    <CoverletOutput>TestResults/</CoverletOutput>
+    <DefaultItemExcludes>TestResults\**</DefaultItemExcludes>
+    <!-- Include only the Sut project into code coverage -->
+    <Include>[$(SutProjectName)]*</Include>
+    <!-- Exclude the bootstrap code from code coverage -->
+    <Exclude>[*]Program,[*]*.Program,[*]*.Startup</Exclude>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="coverlet.msbuild">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <!-- References for test projects -->
+  <ItemGroup>
+    <PackageReference Include="FakeItEasy" />
+    <PackageReference Include="FluentAssertions" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" />
+    <PackageReference Include="xunit" />
+    <PackageReference Include="xunit.runner.visualstudio">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <Using Include="FakeItEasy" />
+    <Using Include="FluentAssertions" />
+    <Using Include="Xunit" />
+  </ItemGroup>
+
+  <!-- SUT project reference -->
+  <PropertyGroup>
+    <SutProjectPath>..\..\src\$(SutProjectName)\$(SutProjectName).csproj</SutProjectPath>
+  </PropertyGroup>
+  <ItemGroup Condition="Exists($(SutProjectPath))">
+    <ProjectReference Include="$(SutProjectPath)"/>
+  </ItemGroup>
+
+</Project>

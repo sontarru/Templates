@@ -1,0 +1,37 @@
+<Project>
+
+  <!-- Version -->
+  <PropertyGroup>
+    <VersionPrefix>0.0.1</VersionPrefix>
+  </PropertyGroup>
+
+  <!-- Build properties -->
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <!-- Assembly & Package properties -->
+  <PropertyGroup>
+    <!-- By default is not packable -->
+    <IsPackable>false</IsPackable>
+    <Product>FkThat.Templates.Solution</Product>
+    <Description>FkThat.Templates.Solution</Description>
+    <Authors>fkthat</Authors>
+    <Company>fkthat</Company>
+    <Copyright>© fkthat, 2025</Copyright>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryName>FkThat.Templates.Solution</RepositoryName>
+    <RepositoryUrl>https://github.com/fkthat/FkThat.Templates.Solution</RepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/fkthat/FkThat.Templates.Solution</PackageProjectUrl>
+    <PackageTags></PackageTags>
+  </PropertyGroup>
+
+  <!-- Make internals visible to Castle (for tests) -->
+  <ItemGroup>
+    <InternalsVisibleTo Include="DynamicProxyGenAssembly2"/>
+  </ItemGroup>
+
+</Project>

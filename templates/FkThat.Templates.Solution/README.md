@@ -1,0 +1,1 @@
+# FkThat.Templates.Solution
