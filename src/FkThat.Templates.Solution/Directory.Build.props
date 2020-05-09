@@ -1,0 +1,30 @@
+<Project>
+  <PropertyGroup>
+    <!-- Build properties -->
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <IsPackable>false</IsPackable>
+    <!-- Assembly and package properties -->
+    <VersionPrefix>0.0.0</VersionPrefix>
+    <AssemblyVersion>$(VersionPrefix).0</AssemblyVersion>
+    <FileVersion>$(VersionPrefix).0</FileVersion>
+    <Company>FkThat</Company>
+    <Authors>FkThat</Authors>
+    <Copyright>© FkThat, 2022</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/fkthat/FkThat.Templates.Solution</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/fkthat/FkThat.Templates.Solution</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageReleaseNotes>@(ReleaseNotes, '%0a')</PackageReleaseNotes>
+    <PackageTags></PackageTags>
+    <Description>FkThat.Templates.Solution</Description>
+  </PropertyGroup>
+  <!-- Read release notes from the file -->
+  <Target Name="PreparePackageReleaseNotesFromFile" BeforeTargets="GenerateNuspec"
+    Condition="Exists('$(MSBuildThisFileDirectory)RELEASE-NOTES')">
+    <ReadLinesFromFile File="$(MSBuildThisFileDirectory)RELEASE-NOTES" >
+      <Output TaskParameter="Lines" ItemName="ReleaseNotes"/>
+    </ReadLinesFromFile>
+  </Target>
+</Project>

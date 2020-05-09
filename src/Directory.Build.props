@@ -1,0 +1,33 @@
+<!-- Stuff common for the src projects -->
+<Project>
+  <Import Project="$([MSBuild]::GetPathOfFileAbove('Directory.Build.props', '$(MSBuildThisFileDirectory)../'))" />
+
+  <!-- Build properties -->
+  <PropertyGroup>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <IsTransformWebConfigDisabled>true</IsTransformWebConfigDisabled>
+  </PropertyGroup>
+
+  <!-- CA/SA -->
+  <PropertyGroup>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    <!-- Use '6' since '7' is broken by now (7.0.100) -->
+    <AnalysisLevel>6-All</AnalysisLevel>
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+  </PropertyGroup>
+
+  <!-- Assembly attributes -->
+  <ItemGroup>
+    <!-- allow tests access to internal types -->
+    <InternalsVisibleTo Include="UnitTests.$(ProjectName)"/>
+    <InternalsVisibleTo Include="IntegrationTests.$(ProjectName)"/>
+    <!-- allow mocking internal types -->
+    <InternalsVisibleTo Include="DynamicProxyGenAssembly2"/>
+    <!-- default CLS compliance -->
+    <AssemblyAttribute Include="System.CLSCompliantAttribute">
+        <_Parameter1>true</_Parameter1>
+    </AssemblyAttribute>
+  </ItemGroup>
+
+</Project>

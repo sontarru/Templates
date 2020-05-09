@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <IsPackable>true</IsPackable>
+    <PackageType>Template</PackageType>
+    <NoDefaultExcludes>true</NoDefaultExcludes>
+    <IncludeContentInPack>true</IncludeContentInPack>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <ContentTargetFolders>content</ContentTargetFolders>
+    <SuppressDependenciesWhenPacking>true</SuppressDependenciesWhenPacking>
+    <PackageTags>dotnet CLI;templates;C#</PackageTags>
+    <Description>Custom .NET CLI templates.</Description>
+    <PackageTags>dotnet CLI;templates;C#</PackageTags>
+    <Description>Custom .NET CLI templates.</Description>
+    <PackageProjectUrl>https://github.com/fkthat/Templates</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/fkthat/Templates</RepositoryUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="..\FkThat.Templates.*\**\*" Exclude="**\bin\**;**\obj\**"/>
+    <Compile Remove="**\*"/>
+  </ItemGroup>
+</Project>

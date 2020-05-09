@@ -1,0 +1,72 @@
+<Project>
+  <Import Project="$([MSBuild]::GetPathOfFileAbove('Directory.Build.props', '$(MSBuildThisFileDirectory)../'))" />
+
+  <!-- If unit test project -->
+  <PropertyGroup Condition="$(MSBuildProjectName.StartsWith('UnitTests.'))">
+    <IsTestProject>true</IsTestProject>
+    <IsUnitTestProject>true</IsUnitTestProject>
+    <TargetProjectName>$(MSBuildProjectName.Substring(10))</TargetProjectName>
+  </PropertyGroup>
+
+  <!-- If integration test project -->
+  <PropertyGroup Condition="$(MSBuildProjectName.StartsWith('IntegrationTests.'))">
+    <IsTestProject>true</IsTestProject>
+    <IsIntegrationTestProject>true</IsIntegrationTestProject>
+    <TargetProjectName>$(MSBuildProjectName.Substring(17))</TargetProjectName>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="$(IsTestProject)">
+    <RootNamespace>$(TargetProjectName)</RootNamespace>
+    <TargetProjectPath>..\..\src\$(TargetProjectName)\$(TargetProjectName).csproj</TargetProjectPath>
+  </PropertyGroup>
+
+  <!-- Code coverage settings -->
+  <PropertyGroup Condition="$(IsUnitTestProject)">
+    <CollectCoverage>true</CollectCoverage>
+    <CoverletOutputFormat>cobertura</CoverletOutputFormat>
+    <CoverletOutput>TestResults/</CoverletOutput>
+    <Include>[$(TargetProjectName)]*</Include>
+  </PropertyGroup>
+  <ItemGroup Condition="$(IsUnitTestProject)">
+    <PackageReference Include="coverlet.msbuild">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <!-- Default package references -->
+  <ItemGroup>
+    <PackageReference Include="FakeItEasy" />
+    <PackageReference Include="FluentAssertions" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" />
+    <PackageReference Include="xunit" />
+    <PackageReference Include="xunit.runner.visualstudio">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <!-- Default usings -->
+  <ItemGroup>
+    <Using Include="FakeItEasy" />
+    <Using Include="FluentAssertions" />
+    <Using Include="Xunit" />
+  </ItemGroup>
+
+  <!-- Hide TestResults folders -->
+  <PropertyGroup>
+    <DefaultItemExcludes>TestResults\**</DefaultItemExcludes>
+  </PropertyGroup>
+
+  <!-- Default project reference -->
+  <ItemGroup Condition="$(IsTestProject) And Exists('$(TargetProjectPath)')">
+    <ProjectReference Include="$(TargetProjectPath)" />
+  </ItemGroup>
+
+  <!-- Assembly attributes -->
+  <ItemGroup>
+    <!-- allow mocking internal types -->
+    <InternalsVisibleTo Include="DynamicProxyGenAssembly2"/>
+  </ItemGroup>
+
+</Project>
