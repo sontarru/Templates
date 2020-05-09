@@ -1,0 +1,10 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "FkThat",
+  "classifications": [ "FkThat" ],
+  "identity": "FkThat.Templates.Cli",
+  "name": "FkThat Console Application",
+  "shortName": "ft-cli",
+  "tags": { "language": "C#" },
+  "sourceName": "FkThat.Templates.Cli"
+}

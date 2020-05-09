@@ -1,0 +1,15 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "FkThat",
+  "classifications": [
+    "FkThat"
+  ],
+  "identity": "FkThat.Templates.Lib",
+  "name": "FkThat Class Library",
+  "shortName": "ft-lib",
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+  "sourceName": "FkThat.Templates.Lib"
+}

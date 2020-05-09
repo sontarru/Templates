@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "FkThat.Templates.Quartz": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "DOTNET_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

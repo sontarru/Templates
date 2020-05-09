@@ -1,0 +1,15 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Item">
+  <TemplateData>
+    <DefaultName>Interface.cs</DefaultName>
+    <Name>FkThat Interface</Name>
+    <Description>&lt;No description available&gt;</Description>
+    <TemplateGroupID>AspNetCore</TemplateGroupID>
+    <ProjectType>CSharp</ProjectType>
+    <SortOrder>10</SortOrder>
+    <Icon>TemplateIcon.ico</Icon>
+  </TemplateData>
+  <TemplateContent>
+    <References />
+    <ProjectItem SubType="" TargetFileName="$fileinputname$.cs" ReplaceParameters="true">Interface.cs</ProjectItem>
+  </TemplateContent>
+</VSTemplate>

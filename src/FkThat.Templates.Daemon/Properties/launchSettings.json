@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "FkThat.Templates.Daemon": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "DOTNET_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

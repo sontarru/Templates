@@ -1,0 +1,9 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "FkThat",
+  "classifications": [ "FkThat" ],
+  "identity": "FkThat.Templates.CodeMaid",
+  "name": "FkThat CodeMaid Config File",
+  "shortName": "ft-codemaid",
+  "tags": { "language": "C#" }
+}

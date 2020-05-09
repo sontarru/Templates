@@ -1,0 +1,10 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "FkThat",
+  "classifications": [ "FkThat" ],
+  "identity": "FkThat.Templates.Daemon",
+  "name": "FkThat Daemon Application",
+  "shortName": "ft-daemon",
+  "tags": { "language": "C#" },
+  "sourceName": "FkThat.Templates.Daemon"
+}

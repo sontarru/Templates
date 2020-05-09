@@ -1,0 +1,34 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "FkThat",
+  "classifications": [ "FkThat" ],
+  "identity": "FkThat.Templates.XUnit",
+  "name": "FkThat xUnit Test Project",
+  "shortName": "ft-xunit",
+  "tags": { "language": "C#" },
+  "sourceName": "FkThat.Templates.XUnit",
+  "symbols": {
+      "target-project": {
+          "description": "The name of the project to test.",
+          "type": "parameter",
+          "datatype":"text",
+          "isRequired": false,
+          "defaultValue": "",
+          "replaces": "__TargetProject"
+      },
+      "mock": {
+        "description": "Mocking framework to use.",
+        "type": "parameter",
+        "datatype": "choice",
+        "choices": [{
+            "choice": "moq",
+            "description": "Use the Moq framework."
+          },{
+            "choice": "fakeiteasy",
+            "description": "Use the FakeItEasy framework."
+          }],
+        "isRequired": false,
+        "defaultValue": "fakeiteasy"
+      }
+  }
+}
