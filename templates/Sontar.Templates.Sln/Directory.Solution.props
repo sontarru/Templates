@@ -1,0 +1,22 @@
+<!-- Properties not overritable on template update -->
+<Project>
+  <!-- Version -->
+  <PropertyGroup>
+    <VersionPrefix>0.0.1</VersionPrefix>
+  </PropertyGroup>
+
+  <!-- Assembly & Package properties -->
+  <PropertyGroup>
+    <Product>Sontar.Templates.Solution</Product>
+    <Description>Sontar.Templates.Solution</Description>
+    <Authors>sontar.ru</Authors>
+    <Company>sontar.ru</Company>
+    <Copyright>© sontar.ru, 2025</Copyright>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryName>Sontar.Templates.Solution</RepositoryName>
+    <RepositoryUrl>https://github.com/sontarru/Sontar.Templates.Solution</RepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/sontarru/Sontar.Templates.Solution</PackageProjectUrl>
+    <PackageTags></PackageTags>
+  </PropertyGroup>
+</Project>

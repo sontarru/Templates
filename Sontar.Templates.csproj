@@ -1,0 +1,59 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- Version -->
+  <PropertyGroup>
+    <VersionPrefix>0.0.1</VersionPrefix>
+  </PropertyGroup>
+
+  <!-- Build properties -->
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <NoWarn>NU5128</NoWarn>
+  </PropertyGroup>
+
+  <!-- Package properties -->
+  <PropertyGroup>
+    <VersionPrefix>1.0.0</VersionPrefix>
+    <IsPackable>true</IsPackable>
+    <PackageType>Template</PackageType>
+    <IncludeContentInPack>true</IncludeContentInPack>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <ContentTargetFolders>content</ContentTargetFolders>
+    <NoDefaultExcludes>true</NoDefaultExcludes>
+    <Product>.NET CLI Templates</Product>
+    <Description>The collection of custom .NET CLI templates.</Description>
+    <Company>sontar.ru</Company>
+    <Authors>sontar.ru</Authors>
+    <Copyright>© sontar.ru, 2025</Copyright>
+    <RepositoryName>Templates</RepositoryName>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/sontarru/Templates</RepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/sontarru/Templates</PackageProjectUrl>
+    <PackageTags>dotnet;cli;template</PackageTags>
+  </PropertyGroup>
+
+  <!-- Package README file: https://devblogs.microsoft.com/nuget/add-a-readme-to-your-nuget-package/ -->
+  <PropertyGroup>
+      <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+  <ItemGroup>
+      <None Include="README.md" Pack="true" PackagePath="\"/>
+  </ItemGroup>
+
+  <!-- Embed release notes into the package -->
+  <PropertyGroup>
+    <PackageReleaseNotes>@(ReleaseNotes, '%0a')</PackageReleaseNotes>
+  </PropertyGroup>
+  <Target Name="PreparePackageReleaseNotesFromFile" BeforeTargets="GenerateNuspec">
+    <ReadLinesFromFile File="RELEASE-NOTES.txt" >
+      <Output TaskParameter="Lines" ItemName="ReleaseNotes"/>
+    </ReadLinesFromFile>
+  </Target>
+
+  <ItemGroup>
+    <Compile Remove="**\*"/>
+    <Content Include="templates\**\*" Exclude="templates\**\bin\**;templates\**\obj\**"/>
+  </ItemGroup>
+
+</Project>

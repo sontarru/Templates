@@ -1,0 +1,43 @@
+name: CI
+
+on:
+  workflow_dispatch:
+
+  pull_request:
+    branches:
+      - main
+
+  push:
+    branches:
+      - main
+
+  release:
+    types:
+      - published
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  CI:
+    name: Build and publish
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          source-url: https://nuget.pkg.github.com/fkthat/index.json
+        env:
+          NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
+      - name: Pack NuGet
+        run: dotnet pack -c Release
+
+      - name: Push NuGet
+        if: github.event_name == 'release'
+        run: dotnet nuget push **/*.nupkg --skip-duplicate
