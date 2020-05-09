@@ -1,0 +1,48 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "FkThat",
+  "classifications": [
+    "FkThat"
+  ],
+  "identity": "FkThat.Templates.ClassLib",
+  "name": "FkThat class library",
+  "shortName": "ft-classlib",
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+  "sourceName": "FkThat.Templates.ClassLib",
+  "symbols": {
+    "packable": {
+      "type": "parameter",
+      "description": "Set IsPackable to true.",
+      "isRequired": false,
+      "datatype": "bool",
+      "defaultValue": "false"
+    }
+  },
+  "sources": [{
+    "modifiers": [
+      {
+        "condition": "(!packable)",
+        "exclude": [
+          "RELEASE-NOTES"
+        ]
+      }
+    ]
+  }],
+  "primaryOutputs": [{
+    "path": "FkThat.Templates.ClassLib.csproj"
+  }],
+  "postActions": [
+    {
+      "description": "Add project to solution.",
+      "actionId": "D396686C-DE0E-4DE6-906D-291CD29FC5DE",
+      "continueOnError": true,
+      "manualInstructions": [],
+      "args": {
+        "primaryOutputIndexes": "0"
+      }
+    }
+  ]
+}

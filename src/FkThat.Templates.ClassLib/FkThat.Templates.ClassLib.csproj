@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <VersionPrefix>1.0.0</VersionPrefix>
+    <VersionSuffix></VersionSuffix>
+    <Description>FkThat.Templates.ClassLib</Description>
+  </PropertyGroup>
+  <!--#if(packable)
+  <PropertyGroup>
+    <IsPackable>true</IsPackable>
+    <PackageTags></PackageTags>
+    <PackageReleaseNotes>@(ReleaseNotes, '%0a')</PackageReleaseNotes>
+  </PropertyGroup>
+  <Target Name="PreparePackageReleaseNotesFromFile" BeforeTargets="GenerateNuspec"
+    Condition="Exists('$(MSBuildProjectDir)RELEASE-NOTES')">
+    <ReadLinesFromFile File="$(MSBuildProjectDir)RELEASE-NOTES" >
+      <Output TaskParameter="Lines" ItemName="ReleaseNotes"/>
+    </ReadLinesFromFile>
+  </Target>
+  #endif-->
+</Project>

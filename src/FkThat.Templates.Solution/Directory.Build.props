@@ -1,0 +1,19 @@
+<Project>
+  <PropertyGroup>
+    <!-- Build -->
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <!-- Assembly -->
+    <Product>FkThat.Templates.Solution</Product>
+    <Company>FkThat</Company>
+    <Copyright>© FkThat, 2022</Copyright>
+    <!-- Package -->
+    <IsPackable>false</IsPackable>
+    <Authors>FkThat</Authors>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/fkthat/FkThat.Templates.Solution</RepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/fkthat/FkThat.Templates.Solution</PackageProjectUrl>
+  </PropertyGroup>
+</Project>

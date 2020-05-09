@@ -1,0 +1,5 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <Target Name="ShowProps">
+    <Message Text="TargetProjectName = $(TargetProjectName)"/>
+  </Target>
+</Project>
