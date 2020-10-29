@@ -1,6 +1,11 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>netcoreapp3.1;net5.0</TargetFrameworks>
+    <!--#if(target-framework == '31')-->
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <!--#endif-->
+    <!--#if(target-framework == '50')-->
+    <TargetFramework>net5.0</TargetFramework>
+    <!--#endif-->
     <IsPackable>false</IsPackable>
     <!--#if(target-project != '')-->
     <RootNamespace>__TargetProject</RootNamespace>
