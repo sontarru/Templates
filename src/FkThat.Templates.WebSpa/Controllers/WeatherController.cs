@@ -11,6 +11,9 @@ namespace FkThat.Templates.Spa.Controllers
     [Route("api/weather")]
     public class WeatherController : ControllerBase
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Performance",
+            "CA1822:Mark members as static",
+            Justification = "Actions should be instance methods")]
         [HttpGet("")]
         public IEnumerable<WeatherModel> GetWeather() => new[] {
           new WeatherModel {
