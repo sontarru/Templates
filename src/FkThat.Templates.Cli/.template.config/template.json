@@ -5,6 +5,22 @@
   "identity": "FkThat.Templates.Cli",
   "name": "FkThat Console Application",
   "shortName": "ft-cli",
-  "tags": { "language": "C#" },
-  "sourceName": "FkThat.Templates.Cli"
+  "tags": { "language": "C#", "type": "project" },
+  "sourceName": "FkThat.Templates.Cli",
+  "symbols": {
+     "target-framework": {
+        "description": ".NET framework version to target",
+        "type": "parameter",
+        "datatype": "choice",
+        "choices": [{
+            "choice": "31",
+            "description": "Target .NET Core 3.1"
+          },{
+            "choice": "50",
+            "description": "Target .NET Core 3.1"
+          }],
+        "isRequired": false,
+        "defaultValue": "50"
+      }
+  }
 }
