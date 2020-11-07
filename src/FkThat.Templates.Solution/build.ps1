@@ -24,7 +24,6 @@ param (
 if($Target -eq 'run' || $Target -eq 'watch') {
     if(-not $StartProject) {
         Write-Error '-StartProject parameter required'
-        Pop-Location
         break
     }
 
