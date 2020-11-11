@@ -43,16 +43,16 @@ switch($Target) {
         dotnet build -c $Config
     }
     'test' {
-        dotnet test -c $Config || break
+        dotnet test -c $Config && &{
+            if($ShowCoverageReport) {
+                dotnet tool restore &&
 
-        if($ShowCoverageReport) {
-            dotnet tool restore &&
+                dotnet tool run reportgenerator `
+                    -reports:**\coverage.cobertura.xml `
+                    -targetdir:.coverage &&
 
-            dotnet tool run reportgenerator `
-                -reports:**\coverage.cobertura.xml `
-                -targetdir:.coverage &&
-
-            Start-Process '.coverage\index.htm'
+                Start-Process '.coverage\index.htm'
+            }
         }
     }
     'pack' {
