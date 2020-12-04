@@ -5,6 +5,6 @@
   "identity": "FkThat.Templates.Solution",
   "name": "FkThat Solution",
   "shortName": "ft-sln",
-  "tags": { "language": "C#" },
+  "tags": { "language": "C#", "type": "project" },
   "sourceName": "FkThat.Templates.Solution"
 }
