@@ -1,9 +1,0 @@
-{
-  "$schema": "http://json.schemastore.org/template",
-  "author": "FkThat",
-  "classifications": [ "FkThat" ],
-  "identity": "FkThat.Templates.EditorConfig",
-  "name": "FkThat .editorconfig File",
-  "shortName": "ft-editorconfig",
-  "tags": { "language": "C#" }
-}
