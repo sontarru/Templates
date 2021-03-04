@@ -1,10 +1,10 @@
 [CmdletBinding()]
 param(
     [Parameter(Position = 0)]
-    [ValidateSet('clean', 'restore', 'build', 'test', 'coverage')]
+    [ValidateSet('clean', 'restore', 'build', 'test', 'coverage', 'pack')]
     $Target = 'build',
     [Parameter()]
-    [ValidateSet('Debug', 'Release')] 
+    [ValidateSet('Debug', 'Release')]
     $Config = 'Debug'
 )
 
@@ -28,6 +28,9 @@ try {
             dotnet tool restore &&
             dotnet tool run reportgenerator -reports:**\coverage.cobertura.xml `
                 -targetdir:.coverage && Start-Process '.coverage\index.htm'
+        }
+        'pack' {
+            dotnet pack -c $Config -o '.build'
         }
     }
 }
