@@ -34,6 +34,14 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
   </ItemGroup>
+  <!--#if(target-project != '')-->
+  <PropertyGroup>
+    <TargetProjectPath>..\..\src\__TargetProject\__TargetProject.csproj</TargetProjectPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="$(TargetProjectPath)" Condition="Exists($(TargetProjectPath))"/>
+  </ItemGroup>
+  <!--#endif-->
   <PropertyGroup>
     <CollectCoverage>true</CollectCoverage>
     <CoverletOutputFormat>cobertura</CoverletOutputFormat>
