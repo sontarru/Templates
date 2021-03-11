@@ -38,6 +38,7 @@ steps:
     arguments: -c $(BuildConfiguration) --no-build
 
 - task: PublishCodeCoverageResults@1
+  displayName: CodeCoverage
   inputs:
     codeCoverageTool: 'Cobertura'
     summaryFileLocation: 'test/**/coverage.cobertura.xml'

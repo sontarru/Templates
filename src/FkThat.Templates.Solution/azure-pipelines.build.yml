@@ -1,0 +1,36 @@
+#
+# Azupe Pipelines script for build a NuGet package
+#
+
+# Custom run only
+trigger: none
+pr: none
+
+variables:
+  VersionSuffix: CI-$(Build.BuildNumber)
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+
+  - task: UseDotNet@2
+    inputs:
+      packageType: 'sdk'
+      useGlobalJson: true
+
+  - task: DotNetCoreCLI@2
+    displayName: Pack
+    inputs:
+      command: 'custom'
+      projects: 'src/**/*.csproj'
+      custom: 'pack'
+      arguments: '-c $(BuildConfiguration) -o $(Build.ArtifactStagingDirectory) -p:VersionSuffix=$(VersionSuffix)'
+
+  - task: NuGetCommand@2
+    displayName: Push (MyGet)
+    inputs:
+      command: 'push'
+      packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg'
+      nuGetFeedType: 'external'
+      publishFeedCredentials: 'MyGet'
