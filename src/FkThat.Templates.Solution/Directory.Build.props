@@ -15,7 +15,6 @@
     <RepositoryUrl>https://github.com/fkthat/FkThat.Templates.Solution</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>fkthat</PackageTags>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Description>FkThat.Templates.Solution</Description>
     <PackageReleaseNotes>@(ReleaseNoteLines, '%0a')</PackageReleaseNotes>
    </PropertyGroup>
