@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <!--#if(target-framework == '31')-->
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -10,6 +10,7 @@
     <!--#if(target-project != '')-->
     <RootNamespace>__TargetProject</RootNamespace>
     <!--#endif-->
+    <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
     <NoWarn>CA1062;$(NoWarn)</NoWarn>
   </PropertyGroup>
