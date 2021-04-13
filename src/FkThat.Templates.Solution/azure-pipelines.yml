@@ -56,7 +56,7 @@ steps:
 
 - task: Bash@3
   displayName: Set version suffix
-  condition: and(eq(variables.Pack, 'Yes'), ne(variables['Build.SourceBranch'], 'master'))
+  condition: and(eq(variables.Pack, 'Yes'), ne(variables['Build.SourceBranchName'], 'master'))
   inputs:
     targetType: 'inline'
     script: echo "##vso[task.setvariable variable=VersionSuffix]CI-$(Build.BuildNumber)"
