@@ -44,5 +44,19 @@
         "isRequired": false,
         "defaultValue": "fakeiteasy"
       }
-  }
+  },
+  "primaryOutputs": [{
+    "path": "FkThat.Templates.XUnit.csproj"
+  }],
+  "postActions": [
+    {
+      "description": "Add projects to solution",
+      "actionId": "D396686C-DE0E-4DE6-906D-291CD29FC5DE",
+      "continueOnError": true,
+      "manualInstructions": [],
+      "args": {
+        "primaryOutputIndexes": "0"
+      }
+    }
+  ]
 }
