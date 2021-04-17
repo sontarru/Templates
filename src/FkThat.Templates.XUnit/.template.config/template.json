@@ -8,20 +8,6 @@
   "tags": { "language": "C#", "type": "project" },
   "sourceName": "FkThat.Templates.XUnit",
   "symbols": {
-      "target-framework": {
-        "description": ".NET framework version to target",
-        "type": "parameter",
-        "datatype": "choice",
-        "choices": [{
-            "choice": "31",
-            "description": "Target .NET Core 3.1"
-          },{
-            "choice": "50",
-            "description": "Target .NET Core 3.1"
-          }],
-        "isRequired": false,
-        "defaultValue": "50"
-      },
       "target-project": {
         "description": "The name of the project to test.",
         "type": "parameter",
