@@ -1,0 +1,46 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "FkThat",
+  "classifications": [
+    "FkThat"
+  ],
+  "identity": "FkThat.Templates.Item",
+  "name": "FkThat Item",
+  "shortName": "ft-item",
+  "tags": {
+    "language": "C#",
+    "type": "item"
+  },
+  "sourceName": "Item",
+  "symbols": {
+    "item-type": {
+      "type": "parameter",
+      "choices": [
+        "class",
+        "interface",
+        "xunit"
+      ]
+    },
+    "namespace": {
+      "type": "parameter",
+      "datatype":"text",
+      "isRequired": false,
+      "replaces": "@namespace"
+    },
+    "isclass": {
+      "type": "computed",
+      "datatype":"bool",
+      "value": "(item-type == \"class\")"
+    },
+    "isinterface": {
+      "type": "computed",
+      "datatype":"bool",
+      "value": "(item-type == \"interface\")"
+    },
+    "isxunit": {
+      "type": "computed",
+      "datatype":"bool",
+      "value": "(item-type == \"xunit\")"
+    }
+  }
+}
