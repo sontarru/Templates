@@ -1,32 +1,44 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <IsPackable>false</IsPackable>
-    <!--#if(target-project != '')-->
-    <RootNamespace>__TargetProject</RootNamespace>
-    <!--#endif-->
+    <RootNamespace>TesteeProject</RootNamespace>
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
     <NoWarn>CA1062;$(NoWarn)</NoWarn>
   </PropertyGroup>
-  <!--#if(target-project != '')-->
-  <PropertyGroup>
-    <TargetProjectPath>..\..\src\__TargetProject\__TargetProject.csproj</TargetProjectPath>
-  </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="$(TargetProjectPath)" Condition="Exists($(TargetProjectPath))" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.9.4" />
+    <PackageReference Include="xunit" Version="2.4.1" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.3">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="FluentAssertions" Version="5.10.3" />
+    <!--#if(mock == 'moq')-->
+    <PackageReference Include="Moq" Version="4.16.1" />
+    <PackageReference Include="Moq.AutoMock" Version="2.3.0" />
+    <!--#endif-->
+    <!--#if(mock == 'fakeiteasy')-->
+    <PackageReference Include="FakeItEasy" Version="7.0.1" />
+    <PackageReference Include="FakeItEasy.AutoFake" Version="3.1.0" />
+    <!--#endif-->
+    <PackageReference Include="coverlet.msbuild" Version="3.0.3">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
-  <!--#endif-->
   <PropertyGroup>
     <CollectCoverage>true</CollectCoverage>
     <CoverletOutputFormat>cobertura</CoverletOutputFormat>
-    <!--#if(target-project != '')-->
-    <Include>[__TargetProject]*</Include>
-    <!--#endif-->
+    <Include>[TesteeProject]*</Include>
     <Exclude>[*]*.Program,[*]*.Startup</Exclude>
     <ExcludeByAttribute>Obsolete,GeneratedCodeAttribute,CompilerGeneratedAttribute</ExcludeByAttribute>
   </PropertyGroup>
   <ItemGroup>
     <None Remove="coverage.cobertura.xml" />
+  </ItemGroup>
+  <ItemGroup Condition="Exists('..\..\src\TesteeProject\TesteeProject.csproj')">
+    <ProjectReference Include="..\..\src\TesteeProject\TesteeProject.csproj" />
   </ItemGroup>
 </Project>

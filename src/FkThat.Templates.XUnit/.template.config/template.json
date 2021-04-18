@@ -5,139 +5,50 @@
   "identity": "FkThat.Templates.XUnit",
   "name": "FkThat xUnit Test Project",
   "shortName": "ft-xunit",
-  "tags": { "language": "C#", "type": "project" },
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
   "sourceName": "FkThat.Templates.XUnit",
   "symbols": {
-      "target-project": {
-        "description": "The name of the project to test.",
-        "type": "parameter",
-        "datatype":"text",
-        "isRequired": false,
-        "defaultValue": "",
-        "replaces": "__TargetProject"
-      },
-      "mock": {
-        "description": "Mocking framework to use.",
-        "type": "parameter",
-        "datatype": "choice",
-        "choices": [{
-            "choice": "moq",
-            "description": "Use the Moq framework."
-          },{
-            "choice": "fakeiteasy",
-            "description": "Use the FakeItEasy framework."
-          }],
-        "isRequired": false,
-        "defaultValue": "fakeiteasy"
-      }
+    "TesteeProject": {
+      "description": "The name of the project to test.",
+      "type": "derived",
+      "replaces": "TesteeProject",
+      "valueSource": "name",
+      "valueTransform": "GetTesteeProject"
+    },
+    "mock": {
+      "description": "Mocking framework to use.",
+      "type": "parameter",
+      "datatype": "choice",
+      "choices": [
+        {
+          "choice": "moq",
+          "description": "Use the Moq framework."
+        },
+        {
+          "choice": "fakeiteasy",
+          "description": "Use the FakeItEasy framework."
+        }
+      ],
+      "isRequired": false,
+      "defaultValue": "fakeiteasy"
+    }
   },
-  "primaryOutputs": [{
-    "path": "FkThat.Templates.XUnit.csproj"
-  }],
+  "forms": {
+    "GetTesteeProject": {
+      "identifier": "replace",
+      "pattern": "^Test\\.",
+      "replacement": ""
+    }
+  },
+  "primaryOutputs": [
+    {
+      "path": "FkThat.Templates.XUnit.csproj"
+    }
+  ],
   "postActions": [
-    {
-      "description": "Add reference to Microsoft.NET.Test.Sdk",
-      "actionId": "B17581D1-C5C9-4489-8F0A-004BE667B814",
-      "continueOnError": true,
-      "manualInstructions": [],
-      "args": {
-        "referenceType": "package",
-        "projectFileExtensions": ".csproj",
-        "reference": "Microsoft.NET.Test.Sdk"
-      }
-    },
-    {
-      "description": "Add reference to xunit",
-      "actionId": "B17581D1-C5C9-4489-8F0A-004BE667B814",
-      "continueOnError": true,
-      "manualInstructions": [],
-      "args": {
-        "referenceType": "package",
-        "projectFileExtensions": ".csproj",
-        "reference": "xunit"
-      }
-    },
-    {
-      "description": "Add reference to xunit.runner.visualstudio",
-      "actionId": "B17581D1-C5C9-4489-8F0A-004BE667B814",
-      "continueOnError": true,
-      "manualInstructions": [],
-      "args": {
-        "referenceType": "package",
-        "projectFileExtensions": ".csproj",
-        "reference": "xunit.runner.visualstudio"
-      }
-    },
-    {
-      "description": "Add reference to FluentAssertions",
-      "actionId": "B17581D1-C5C9-4489-8F0A-004BE667B814",
-      "continueOnError": true,
-      "manualInstructions": [],
-      "args": {
-        "referenceType": "package",
-        "projectFileExtensions": ".csproj",
-        "reference": "FluentAssertions"
-      }
-    },
-    {
-      "condition": "(mock == \"fakeiteasy\")",
-      "description": "Add reference to FakeItEasy",
-      "actionId": "B17581D1-C5C9-4489-8F0A-004BE667B814",
-      "continueOnError": true,
-      "manualInstructions": [],
-      "args": {
-        "referenceType": "package",
-        "projectFileExtensions": ".csproj",
-        "reference": "FakeItEasy"
-      }
-    },
-    {
-      "condition": "(mock == \"fakeiteasy\")",
-      "description": "Add reference to FakeItEasy.AutoFake",
-      "actionId": "B17581D1-C5C9-4489-8F0A-004BE667B814",
-      "continueOnError": true,
-      "manualInstructions": [],
-      "args": {
-        "referenceType": "package",
-        "projectFileExtensions": ".csproj",
-        "reference": "FakeItEasy.AutoFake"
-      }
-    },
-    {
-      "condition": "(mock == \"moq\")",
-      "description": "Add reference to Moq",
-      "actionId": "B17581D1-C5C9-4489-8F0A-004BE667B814",
-      "continueOnError": true,
-      "manualInstructions": [],
-      "args": {
-        "referenceType": "package",
-        "projectFileExtensions": ".csproj",
-        "reference": "Moq"
-      }
-    },
-    {
-      "condition": "(mock == \"moq\")",
-      "description": "Add reference to Moq.AutoMock",
-      "actionId": "B17581D1-C5C9-4489-8F0A-004BE667B814",
-      "continueOnError": true,
-      "manualInstructions": [],
-      "args": {
-        "referenceType": "package",
-        "projectFileExtensions": ".csproj",
-        "reference": "Moq.AutoMock"
-      }
-    },
-    {
-      "description": "Add reference to coverlet.msbuild",
-      "actionId": "B17581D1-C5C9-4489-8F0A-004BE667B814",
-      "continueOnError": true,
-      "manualInstructions": [],
-      "args": {
-        "referenceType": "package",
-        "projectFileExtensions": ".csproj",
-        "reference": "coverlet.msbuild"
-      }
-    },
     {
       "description": "Add project to solution",
       "actionId": "D396686C-DE0E-4DE6-906D-291CD29FC5DE",
