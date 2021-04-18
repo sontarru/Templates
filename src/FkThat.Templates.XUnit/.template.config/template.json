@@ -11,13 +11,6 @@
   },
   "sourceName": "FkThat.Templates.XUnit",
   "symbols": {
-    "TesteeProject": {
-      "description": "The name of the project to test.",
-      "type": "derived",
-      "replaces": "TesteeProject",
-      "valueSource": "name",
-      "valueTransform": "GetTesteeProject"
-    },
     "mock": {
       "description": "Mocking framework to use.",
       "type": "parameter",
@@ -34,6 +27,17 @@
       ],
       "isRequired": false,
       "defaultValue": "fakeiteasy"
+    },
+    "TesteeProject": {
+      "description": "The name of the project to test.",
+      "type": "derived",
+      "replaces": "TesteeProject",
+      "valueSource": "name",
+      "valueTransform": "GetTesteeProject"
+    },
+    "HasTestee": {
+      "type": "computed",
+      "value": "(!(TesteeProject == name))"
     }
   },
   "forms": {

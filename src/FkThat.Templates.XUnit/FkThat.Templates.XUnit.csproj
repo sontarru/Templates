@@ -2,7 +2,9 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <IsPackable>false</IsPackable>
+    <!--#if(HasTestee)-->
     <RootNamespace>TesteeProject</RootNamespace>
+    <!--#endif-->
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
     <NoWarn>CA1062;$(NoWarn)</NoWarn>
@@ -31,14 +33,22 @@
   <PropertyGroup>
     <CollectCoverage>true</CollectCoverage>
     <CoverletOutputFormat>cobertura</CoverletOutputFormat>
+    <!--#if(!HasTestee)-->
+    <!-- Include here projects to collect test coverage -->
+    <!--<Include>[MyProject]*</Include>-->
+    <!--#endif-->
+    <!--#if(HasTestee)-->
     <Include>[TesteeProject]*</Include>
+    <!--#endif-->
     <Exclude>[*]*.Program,[*]*.Startup</Exclude>
     <ExcludeByAttribute>Obsolete,GeneratedCodeAttribute,CompilerGeneratedAttribute</ExcludeByAttribute>
   </PropertyGroup>
   <ItemGroup>
     <None Remove="coverage.cobertura.xml" />
   </ItemGroup>
+  <!--#if(HasTestee)-->
   <ItemGroup Condition="Exists('..\..\src\TesteeProject\TesteeProject.csproj')">
     <ProjectReference Include="..\..\src\TesteeProject\TesteeProject.csproj" />
   </ItemGroup>
+  <!--#endif-->
 </Project>
