@@ -10,20 +10,6 @@
   "primaryOutputs": [{
     "path": "FkThat.Templates.WebApi.csproj"
   }],
-  "sources": [
-    {
-      "source": "./",
-      "exclude": [
-        "**/[Bb]in/**",
-        "**/[Oo]bj/**",
-        ".template.config/**/*",
-        "**/*.filelist",
-        "**/*.user",
-        "**/*.lock.json",
-        "**/log/**"
-      ]
-    }
-  ],
   "symbols": {
     "HttpPort": {
       "type": "generated",
