@@ -1,11 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
-    <!--#if(target-framework == '31')-->
-    <TargetFramework>netcoreapp3.1</TargetFramework>
-    <!--#endif-->
-    <!--#if(target-framework == '50')-->
     <TargetFramework>net5.0</TargetFramework>
-    <!--#endif-->
     <Nullable>enable</Nullable>
     <NoWarn>CA1062;$(NoWarn)</NoWarn>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
