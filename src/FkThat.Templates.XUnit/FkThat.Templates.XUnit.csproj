@@ -8,7 +8,24 @@
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
     <NoWarn>CA1062;$(NoWarn)</NoWarn>
+    <CollectCoverage>true</CollectCoverage>
+    <CoverletOutputFormat>cobertura</CoverletOutputFormat>
+    <!--#if(!HasTestee)-->
+    <!-- Include here projects to collect test coverage -->
+    <!--<Include>[MyProject]*</Include>-->
+    <!--#endif-->
+    <!--#if(HasTestee)-->
+    <Include>[TesteeProject]*</Include>
+    <!--#endif-->
+    <Exclude>[*]*.Program,[*]*.Startup</Exclude>
+    <ExcludeByAttribute>Obsolete,GeneratedCodeAttribute,CompilerGeneratedAttribute</ExcludeByAttribute>
   </PropertyGroup>
+  <ItemGroup>
+    <None Remove="coverage.cobertura.xml" />
+    <Compile Remove="TestResults\**" />
+    <EmbeddedResource Remove="TestResults\**" />
+    <None Remove="TestResults\**" />
+  </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.9.4" />
     <PackageReference Include="xunit" Version="2.4.1" />
@@ -29,22 +46,6 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-  </ItemGroup>
-  <PropertyGroup>
-    <CollectCoverage>true</CollectCoverage>
-    <CoverletOutputFormat>cobertura</CoverletOutputFormat>
-    <!--#if(!HasTestee)-->
-    <!-- Include here projects to collect test coverage -->
-    <!--<Include>[MyProject]*</Include>-->
-    <!--#endif-->
-    <!--#if(HasTestee)-->
-    <Include>[TesteeProject]*</Include>
-    <!--#endif-->
-    <Exclude>[*]*.Program,[*]*.Startup</Exclude>
-    <ExcludeByAttribute>Obsolete,GeneratedCodeAttribute,CompilerGeneratedAttribute</ExcludeByAttribute>
-  </PropertyGroup>
-  <ItemGroup>
-    <None Remove="coverage.cobertura.xml" />
   </ItemGroup>
   <!--#if(HasTestee)-->
   <ItemGroup Condition="Exists('..\..\src\TesteeProject\TesteeProject.csproj')">
