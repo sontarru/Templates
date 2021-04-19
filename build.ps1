@@ -1,11 +1,8 @@
 [CmdletBinding()]
 param(
     [Parameter(Position = 0)]
-    [ValidateSet('clean', 'restore', 'build', 'test', 'coverage', 'pack')]
-    $Target = 'build',
-    [Parameter()]
-    [ValidateSet('Debug', 'Release')]
-    $Config = 'Debug'
+    [ValidateSet('clean', 'restore', 'install')]
+    $Target = 'build'
 )
 
 Push-Location $PSScriptRoot
@@ -16,21 +13,15 @@ try {
             git clean -dfx -e .vs -e .vscode
         }
         'restore' {
-            dotnet restore
+            Get-ChildItem "$PSScriptRoot\src" -Recurse -Filter *.csproj |
+                ForEach-Object { dotnet restore $_ }
         }
-        'build' {
-            dotnet build -c $Config
-        }
-        'test' {
-            dotnet test -c $Config -l trx
-        }
-        'coverage' {
-            dotnet tool restore &&
-            dotnet tool run reportgenerator -reports:**\coverage.cobertura.xml `
-                -targetdir:.coverage && Start-Process '.coverage\index.htm'
-        }
-        'pack' {
-            dotnet pack -c $Config -o '.build'
+        'install' {
+            Get-ChildItem "$PSScriptRoot\src" |
+                Where-Object { Test-Path "$_\.template.config" } |
+                ForEach-Object { dotnet new -i $_ | Out-Null }
+
+            dotnet new -l | Select-String '^FkThat' -NoEmphasis
         }
     }
 }
