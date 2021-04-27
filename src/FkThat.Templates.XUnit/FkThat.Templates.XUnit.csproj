@@ -8,6 +8,8 @@
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
     <NoWarn>CA1062;$(NoWarn)</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
     <CollectCoverage>true</CollectCoverage>
     <CoverletOutputFormat>cobertura</CoverletOutputFormat>
     <!--#if(!HasTestee)-->
@@ -18,7 +20,7 @@
     <Include>[TesteeProject]*</Include>
     <!--#endif-->
     <Exclude>[*]*.Program,[*]*.Startup</Exclude>
-    <ExcludeByAttribute>Obsolete,GeneratedCodeAttribute,CompilerGeneratedAttribute</ExcludeByAttribute>
+    <ExcludeByAttribute>Obsolete,GeneratedCode,CompilerGenerated</ExcludeByAttribute>
   </PropertyGroup>
   <ItemGroup>
     <None Remove="coverage.cobertura.xml" />
