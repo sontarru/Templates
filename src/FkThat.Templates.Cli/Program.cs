@@ -16,28 +16,37 @@ namespace FkThat.Templates.Cli
         /// <param name="args">The arguments.</param>
         private static async Task Main(string[] args)
         {
-            using var cancellationTokenSource = new CancellationTokenSource();
-
-            System.Console.CancelKeyPress += (s, e) => {
-                cancellationTokenSource.Cancel();
-                e.Cancel = true;
-            };
-
-            var services = new ServiceCollection();
-            ConfigureServices(services);
-            using var container = services.BuildServiceProvider();
-            using var scope = container.CreateScope();
-            var application = scope.ServiceProvider.GetRequiredService<Application>();
-
             try
             {
-                await application.RunAsync(args, cancellationTokenSource.Token)
-                    .ConfigureAwait(false);
+                using CancellationTokenSource cancellationTokenSource = new();
+
+                Console.CancelKeyPress += (s, e) => {
+                    cancellationTokenSource.Cancel();
+                    e.Cancel = true;
+                };
+
+                ServiceCollection services = new();
+                services.AddTdd();
+                services.AddTransient<IApplication, Application>();
+                ConfigureServices(services);
+                using var serviceProvider = services.BuildServiceProvider();
+                using var scope = serviceProvider.CreateScope();
+                var application = scope.ServiceProvider.GetRequiredService<IApplication>();
+
+                try
+                {
+                    await application.RunAsync(args, cancellationTokenSource.Token)
+                        .ConfigureAwait(false);
+                }
+                catch (OperationCanceledException)
+                {
+                    await Console.Error.WriteLineAsync("The application was terminated.")
+                        .ConfigureAwait(false);
+                }
             }
-            catch (OperationCanceledException)
+            catch (Exception e)
             {
-                await System.Console.Error.WriteLineAsync("The application was terminated.")
-                    .ConfigureAwait(false);
+                await Console.Error.WriteLineAsync($"Fatal error:{Environment.NewLine}{e}");
             }
         }
 
@@ -47,8 +56,7 @@ namespace FkThat.Templates.Cli
         /// <param name="services">The service collection to configure.</param>
         private static void ConfigureServices(ServiceCollection services)
         {
-            services.AddTransient<IConsole, ConsoleAdapter>();
-            services.AddTransient<Application>();
+            // Add your services here,
         }
     }
 }

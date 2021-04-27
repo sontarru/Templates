@@ -1,13 +1,14 @@
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using FkThat.Tdd;
 
 namespace FkThat.Templates.Cli
 {
     /// <summary>
     /// Main application class.
     /// </summary>
-    public class Application
+    public class Application : IApplication
     {
         private readonly IConsole _console;
 
@@ -25,12 +26,9 @@ namespace FkThat.Templates.Cli
         /// </summary>
         /// <param name="args">The CLI arguments.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Usage", "CA1801:Review unused parameters",
-            Justification = "These are 'placeholder' parameters.")]
         public async Task RunAsync(IEnumerable<string> args, CancellationToken cancellationToken)
         {
-            await _console.StdOut.WriteLineAsync("Hello, world!")
-                .ConfigureAwait(false);
+            await _console.Out.WriteLineAsync("Hello, world!").ConfigureAwait(false);
         }
     }
 }
