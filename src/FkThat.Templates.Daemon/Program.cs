@@ -19,7 +19,7 @@ namespace FkThat.Templates.Daemon
 
         private static void ConfigureServices(IServiceCollection services)
         {
-            services.AddTransient<IHostedService, HelloDaemon>();
+            services.AddHostedService<HelloDaemon>();
         }
     }
 }

@@ -24,7 +24,7 @@ namespace FkThat.Templates.Quartz
         {
             services.AddTransient<ISchedulerFactory, StdSchedulerFactory>();
             services.AddTransient<IJobFactory, DependencyInjectionJobFactory>();
-            services.AddTransient<IHostedService, SchedulerHostedService>();
+            services.AddHostedService<SchedulerHostedService>();
             // job registrations
             services.AddTransient<HelloJob>();
         }
