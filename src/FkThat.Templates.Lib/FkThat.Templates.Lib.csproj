@@ -16,6 +16,12 @@
     <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
       <_Parameter1>Test.FkThat.Templates.Lib</_Parameter1>
     </AssemblyAttribute>
+    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
+      <_Parameter1>Tests.FkThat.Templates.Lib</_Parameter1>
+    </AssemblyAttribute>
+    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
+      <_Parameter1>UnitTests.FkThat.Templates.Lib</_Parameter1>
+    </AssemblyAttribute>
   </ItemGroup>
   <!--#if(isDependencyInjection)-->
   <ItemGroup>
@@ -26,11 +32,11 @@
   <ItemGroup>
     <!--#if(isLib || isDependencyInjection)-->
     <ProjectReference Condition="Exists('..\AbstractionsProject\AbstractionsProject.csproj')"
-      Include="..\AbstractionsProject\AbstractionsProject.csproj"/>
+      Include="..\AbstractionsProject\AbstractionsProject.csproj" />
     <!--#endif-->
     <!--#if(isDependencyInjection)-->
     <ProjectReference Condition="Exists('..\LibProject\LibProject.csproj')"
-      Include="..\LibProject\LibProject.csproj"/>
+      Include="..\LibProject\LibProject.csproj" />
     <!--#endif-->
   </ItemGroup>
   <!--#endif-->
