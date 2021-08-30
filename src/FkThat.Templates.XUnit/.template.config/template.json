@@ -43,7 +43,7 @@
   "forms": {
     "GetTesteeProject": {
       "identifier": "replace",
-      "pattern": "^Test\\.",
+      "pattern": "^(Unit|Integration)?Test(s)?\\.",
       "replacement": ""
     }
   },
