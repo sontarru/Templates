@@ -10,6 +10,7 @@
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
     <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    <AnalysisMode>Default</AnalysisMode>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
@@ -23,21 +24,4 @@
       <_Parameter1>UnitTests.FkThat.Templates.Lib</_Parameter1>
     </AssemblyAttribute>
   </ItemGroup>
-  <!--#if(isDependencyInjection)-->
-  <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.1" />
-  </ItemGroup>
-  <!--#endif-->
-  <!--#if(!isAbstractions)-->
-  <ItemGroup>
-    <!--#if(isLib || isDependencyInjection)-->
-    <ProjectReference Condition="Exists('..\AbstractionsProject\AbstractionsProject.csproj')"
-      Include="..\AbstractionsProject\AbstractionsProject.csproj" />
-    <!--#endif-->
-    <!--#if(isDependencyInjection)-->
-    <ProjectReference Condition="Exists('..\LibProject\LibProject.csproj')"
-      Include="..\LibProject\LibProject.csproj" />
-    <!--#endif-->
-  </ItemGroup>
-  <!--#endif-->
 </Project>

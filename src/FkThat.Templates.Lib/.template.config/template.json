@@ -15,68 +15,14 @@
   "primaryOutputs": [{
     "path": "FkThat.Templates.Lib.csproj"
   }],
-  "forms": {
-    "GetLib": {
-      "identifier": "replace",
-      "pattern": "\\.(Abstractions|DependencyInjection)$",
-      "replacement": ""
-    },
-    "GetAbstractions": {
-      "identifier": "replace",
-      "pattern": "$",
-      "replacement": ".Abstractions"
-    },
-    "GetDependencyInjection": {
-      "identifier": "replace",
-      "pattern": "$",
-      "replacement": ".DependencyInjection"
-    }
-  },
   "symbols": {
     "no-pack": {
       "description": "Disable NuGet package build.",
       "type": "parameter",
       "datatype": "bool"
     },
-    "Lib": {
-      "type": "derived",
-      "valueSource": "name",
-      "valueTransform": "GetLib",
-      "replaces": "LibProject"
-    },
-    "Abstractions": {
-      "type": "derived",
-      "valueSource": "Lib",
-      "valueTransform": "GetAbstractions",
-      "replaces": "AbstractionsProject"
-    },
-    "DependencyInjection": {
-      "type": "derived",
-      "valueSource": "Lib",
-      "valueTransform": "GetDependencyInjection",
-      "replaces": "DependencyInjectionProject"
-    },
-    "isLib": {
-      "type": "computed",
-      "value": "(name == Lib)"
-    },
-    "isAbstractions": {
-      "type": "computed",
-      "value": "(name == Abstractions)"
-    },
-    "isDependencyInjection": {
-      "type": "computed",
-      "value": "(name == DependencyInjection)"
-    }
   },
   "postActions": [
-    {
-      "condition": "(isDependencyInjection)",
-      "description": "Restore NuGet packages.",
-      "actionId": "210D431B-A78B-4D2F-B762-4ED3E3EA9025",
-      "manualInstructions": [],
-      "continueOnError": true
-    },
     {
       "description": "Add project to solution.",
       "actionId": "D396686C-DE0E-4DE6-906D-291CD29FC5DE",
