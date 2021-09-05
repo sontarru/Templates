@@ -13,7 +13,7 @@
   <ItemGroup>
     <PackageReference Include="FkThat.Tdd.Abstractions" Version="1.1.0" />
     <PackageReference Include="FkThat.Tdd.DependencyInjection" Version="1.1.0" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.1" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.2" />
   </ItemGroup>
   <ItemGroup>
     <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
