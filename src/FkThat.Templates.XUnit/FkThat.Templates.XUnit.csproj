@@ -1,4 +1,5 @@
 <Project Sdk="Microsoft.NET.Sdk">
+    <!-- TesteeProject -->
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <IsPackable>false</IsPackable>
@@ -20,10 +21,9 @@
     <Include>[TesteeProject]*</Include>
     <!--#endif-->
     <Exclude>[*]*.Program,[*]*.Startup</Exclude>
-    <ExcludeByAttribute>Obsolete,GeneratedCode,CompilerGenerated</ExcludeByAttribute>
   </PropertyGroup>
   <ItemGroup>
-    <None Remove="coverage.cobertura.xml" />
+    <None Remove="coverage.*" />
     <Compile Remove="TestResults\**" />
     <EmbeddedResource Remove="TestResults\**" />
     <None Remove="TestResults\**" />
