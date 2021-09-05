@@ -150,36 +150,46 @@ dotnet_naming_rule.private_field_should_be_camel_case_with_underscore.style = ca
 # Symbol specifications
 dotnet_naming_symbols.interface.applicable_kinds = interface
 dotnet_naming_symbols.interface.applicable_accessibilities = public, internal, private, protected, protected_internal
-dotnet_naming_symbols.interface.required_modifiers = 
+dotnet_naming_symbols.interface.required_modifiers =
 dotnet_naming_symbols.types.applicable_kinds = class, struct, interface, enum
 dotnet_naming_symbols.types.applicable_accessibilities = public, internal, private, protected, protected_internal
-dotnet_naming_symbols.types.required_modifiers = 
+dotnet_naming_symbols.types.required_modifiers =
 dotnet_naming_symbols.non_field_members.applicable_kinds = property, event, method
 dotnet_naming_symbols.non_field_members.applicable_accessibilities = public, internal, private, protected, protected_internal
-dotnet_naming_symbols.non_field_members.required_modifiers = 
+dotnet_naming_symbols.non_field_members.required_modifiers =
 dotnet_naming_symbols.parameter.applicable_kinds = parameter
-dotnet_naming_symbols.parameter.applicable_accessibilities = 
-dotnet_naming_symbols.parameter.required_modifiers = 
+dotnet_naming_symbols.parameter.applicable_accessibilities =
+dotnet_naming_symbols.parameter.required_modifiers =
 dotnet_naming_symbols.private_field.applicable_kinds = field
 dotnet_naming_symbols.private_field.applicable_accessibilities = private
-dotnet_naming_symbols.private_field.required_modifiers = 
+dotnet_naming_symbols.private_field.required_modifiers =
 # Naming styles
-dotnet_naming_style.pascal_case.required_prefix = 
-dotnet_naming_style.pascal_case.required_suffix = 
-dotnet_naming_style.pascal_case.word_separator = 
+dotnet_naming_style.pascal_case.required_prefix =
+dotnet_naming_style.pascal_case.required_suffix =
+dotnet_naming_style.pascal_case.word_separator =
 dotnet_naming_style.pascal_case.capitalization = pascal_case
 dotnet_naming_style.begins_with_i.required_prefix = I
-dotnet_naming_style.begins_with_i.required_suffix = 
-dotnet_naming_style.begins_with_i.word_separator = 
+dotnet_naming_style.begins_with_i.required_suffix =
+dotnet_naming_style.begins_with_i.word_separator =
 dotnet_naming_style.begins_with_i.capitalization = pascal_case
-dotnet_naming_style.camel_case.required_prefix = 
-dotnet_naming_style.camel_case.required_suffix = 
-dotnet_naming_style.camel_case.word_separator = 
+dotnet_naming_style.camel_case.required_prefix =
+dotnet_naming_style.camel_case.required_suffix =
+dotnet_naming_style.camel_case.word_separator =
 dotnet_naming_style.camel_case.capitalization = camel_case
 dotnet_naming_style.camel_case_with_underscore.required_prefix = _
-dotnet_naming_style.camel_case_with_underscore.required_suffix = 
-dotnet_naming_style.camel_case_with_underscore.word_separator = 
+dotnet_naming_style.camel_case_with_underscore.required_suffix =
+dotnet_naming_style.camel_case_with_underscore.word_separator =
 dotnet_naming_style.camel_case_with_underscore.capitalization = camel_case
+
+# Warn unnecessary usings
+dotnet_diagnostic.IDE0005.severity = warning
+
+# Disable IDE0130 warning 'Namespace doesn't match folder'
+# since currently it seems to be buggy in VS
+# (expected to be fixed in VS 17)
+# https://github.com/dotnet/roslyn/issues/54058
+# https://github.com/dotnet/roslyn/issues/55014
+dotnet_diagnostic.IDE0130.severity = silent
 
 [*.{yml,yaml,xml,csproj,json,targets,props,sql}]
 # Indentation and spacing
