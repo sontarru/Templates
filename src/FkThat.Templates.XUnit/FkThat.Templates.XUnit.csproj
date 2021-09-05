@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <!-- TesteeProject -->
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
@@ -12,7 +12,7 @@
   </PropertyGroup>
   <PropertyGroup>
     <CollectCoverage>true</CollectCoverage>
-    <CoverletOutputFormat>cobertura</CoverletOutputFormat>
+    <CoverletOutputFormat>opencover</CoverletOutputFormat>
     <!--#if(!HasTestee)-->
     <!-- Include here projects to collect test coverage -->
     <!--<Include>[MyProject]*</Include>-->

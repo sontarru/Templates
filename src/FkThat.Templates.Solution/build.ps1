@@ -26,7 +26,7 @@ try {
         }
         'coverage' {
             dotnet tool restore &&
-            dotnet tool run reportgenerator -reports:**\coverage.cobertura.xml `
+            dotnet tool run reportgenerator -reports:**\coverage.opencover.xml `
                 -targetdir:.coverage && Start-Process '.coverage\index.htm'
         }
         'pack' {
