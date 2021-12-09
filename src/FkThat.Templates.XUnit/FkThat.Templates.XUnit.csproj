@@ -1,26 +1,20 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-  <!-- TesteeProject -->
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <NoWarn>CA1062;$(NoWarn)</NoWarn>
+    <ImplicitUsings>enable</ImplicitUsings>
     <IsPackable>false</IsPackable>
     <!--#if(HasTestee)-->
     <RootNamespace>TesteeProject</RootNamespace>
     <!--#endif-->
-    <LangVersion>latest</LangVersion>
-    <Nullable>enable</Nullable>
-    <NoWarn>CA1062;$(NoWarn)</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
     <CollectCoverage>true</CollectCoverage>
     <CoverletOutputFormat>opencover</CoverletOutputFormat>
-    <!--#if(!HasTestee)-->
-    <!-- Include here projects to collect test coverage -->
-    <!--<Include>[MyProject]*</Include>-->
-    <!--#endif-->
     <!--#if(HasTestee)-->
     <Include>[TesteeProject]*</Include>
     <!--#endif-->
-    <Exclude>[*]*.Program,[*]*.Startup</Exclude>
   </PropertyGroup>
   <ItemGroup>
     <None Remove="coverage.*" />
@@ -42,7 +36,6 @@
     <!--#endif-->
     <!--#if(mock == 'fakeiteasy')-->
     <PackageReference Include="FakeItEasy" Version="7.2.0" />
-    <PackageReference Include="FakeItEasy.AutoFake" Version="3.1.0" />
     <!--#endif-->
     <PackageReference Include="coverlet.msbuild" Version="3.1.0">
       <PrivateAssets>all</PrivateAssets>
@@ -54,4 +47,9 @@
     <ProjectReference Include="..\..\src\TesteeProject\TesteeProject.csproj" />
   </ItemGroup>
   <!--#endif-->
+  <ItemGroup>
+    <Using Include="FakeItEasy"/>
+    <Using Include="FluentAssertions"/>
+    <Using Include="Xunit"/>
+  </ItemGroup>
 </Project>
