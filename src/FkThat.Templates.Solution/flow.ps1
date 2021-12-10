@@ -1,11 +1,8 @@
 [CmdletBinding()]
 param(
     [Parameter(Position = 0, Mandatory = $true)]
-    [ValidateSet('start', 'finish', 'abort')]
+    [ValidateSet('start', 'finish')]
     $Cmd,
-    [Parameter(Position = 1, Mandatory = $true)]
-    [ValidateSet('feature', 'bugfix', 'release', 'hotfix')]
-    $SubCmd,
     [Parameter(Position = 2, Mandatory = $false)]
     [string]
     $Name
@@ -14,68 +11,68 @@ param(
 Push-Location $PSScriptRoot
 
 try {
-    $exeError = "Terminated due to the failure"
+    $main = 'master'
+    $exeError = "Terminated due to the failure."
 
-    # Dirty files
+    # Get dirty files
     $dirty = @()
     $dirty += &{ git ls-files -o --exclude-standard }
     $dirty += &{ git diff-index --name-only HEAD }
 
+    # Validate not dirty
     if($dirty) {
         throw "The folder is not clean. Commit or stash changes first."
     }
 
-    # Base branch for the operation
-    switch -regex ($SubCmd) {
-        'feature|bugfix|release' {
-            $base = 'develop'
-        }
-        'hotfix' {
-            $base = 'master'
-        }
-    }
-
-    # Fallback default name (to the current branch)
-    if (-not $Name) {
-        switch ($Cmd) {
-            'start' {
-                throw 'Missed $Name parameter.'
-            }
-            'finish' {
-                $current = git branch --show-current || `
-                    &{ throw $exeError }
-
-                if (-not ($current -match "^$SubCmd/")) {
-                    throw "$current is not a $SubCmd branch."
-                }
-
-                $Name = $current -replace "^$SubCmd/", ""
-            }
-        }
-    }
-
-    # sync base branch
-    git checkout $base && git pull || `
-        &{ throw $exeError }
-
+    # Validate parameters
     switch($Cmd) {
         'start' {
-            # create the feature/etc branch and set tracking
-            git checkout -b "$SubCmd/$Name" && `
-                git push -u origin "$SubCmd/$Name" || `
+            if (-not $Name) {
+                throw 'Missed $Name parameter.'
+            }
+        }
+        # 'finish','abort','rebase'
+        default {
+            # fallback to the current branch
+            if (-not $Name) {
+                $Name = git branch --show-current
+            }
+
+            if($Name -eq $main) {
+                throw "Cannot $Cmd $main."
+            }
+        }
+    }
+
+    # refresh the $main branch
+    git checkout $main && `
+        git pull || `
+        &{ throw $exeError }
+    
+    switch($Cmd) {
+        'start' {
+            git checkout -b $Name && `
+                git push -u origin $Name || `
                 &{ throw $exeError }
         }
+        # 'finish','abort','rebase'
         'finish' {
-            # cleanup the feature/etc branch
+            # clean remotes and delete the local feature branch
             git remote prune origin && `
-                git branch -d "$SubCmd/$Name" || `
+                git branch -d $Name || `
                 &{ throw $exeError }
         }
         'abort' {
-            # drop both remote and local branches
-            git push -d origin "$SubCmd/$Name" && `
+            # delete remote and local branches, clean remotes
+            git push -d origin $Name && `
                 git remote prune origin && `
-                git branch -d "$SubCmd/$Name" || `
+                git branch -d $Name || `
+                &{ throw $exeError }
+        }
+        'rebase' {
+            #rebase the local branch to the main branch
+            git checkout $Name && `
+                git rebase $main || `
                 &{ throw $exeError }
         }
     }
