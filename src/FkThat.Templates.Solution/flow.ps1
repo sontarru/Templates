@@ -1,7 +1,7 @@
 [CmdletBinding()]
 param(
     [Parameter(Position = 0, Mandatory = $true)]
-    [ValidateSet('start', 'finish')]
+    [ValidateSet('start', 'finish', 'abort', 'rebase')]
     $Cmd,
     [Parameter(Position = 2, Mandatory = $false)]
     [string]
