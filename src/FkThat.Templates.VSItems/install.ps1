@@ -1,7 +1,10 @@
-$TemplateDir = "${env:USERPROFILE}\Documents\Visual Studio 2019\Templates\ItemTemplates"
+$myDocuments = [System.Environment]::GetFolderPath([System.Environment+SpecialFolder]::Personal)
+$itemTemplates = "$myDocuments\Visual Studio 2022\Templates\ItemTemplates"
+
+Remove-Item "$itemTemplates\*.FkThat.*."
 
 Get-ChildItem $PSScriptRoot -Directory | ForEach-Object {
-    $TemplateName = $_.Name
-    $TemplateZip = "$TemplateDir\FkThat.Templates.VSItems.${TemplateName}.zip"
-    Get-ChildItem $_ | Compress-Archive -DestinationPath $TemplateZip -Force
+    $templateName = $_.Name
+    $templateZip = "$itemTemplates\FkThat.Templates.VSItems.${templateName}.zip"
+    Get-ChildItem $_ | Compress-Archive -DestinationPath $templateZip -Force
 }
