@@ -12,6 +12,11 @@ tab_width = 4
 # Encoding
 charset = utf-8
 
+[*.{yml,yaml,xml,csproj,json,targets,props,sql}]
+# Indentation and spacing
+indent_size = 2
+tab_width = 2
+
 [*.cs]
 #### .NET Coding Conventions ####
 # Organize usings
@@ -191,7 +196,5 @@ dotnet_diagnostic.IDE0005.severity = warning
 # https://github.com/dotnet/roslyn/issues/55014
 dotnet_diagnostic.IDE0130.severity = silent
 
-[*.{yml,yaml,xml,csproj,json,targets,props,sql}]
-# Indentation and spacing
-indent_size = 2
-tab_width = 2
+# prefer file-scoped namespace declaration
+csharp_style_namespace_declarations = file_scoped:warning
