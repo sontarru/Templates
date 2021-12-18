@@ -11,23 +11,6 @@
   },
   "sourceName": "FkThat.Templates.XUnit",
   "symbols": {
-    "mock": {
-      "description": "Mocking framework to use.",
-      "type": "parameter",
-      "datatype": "choice",
-      "choices": [
-        {
-          "choice": "moq",
-          "description": "Use the Moq framework."
-        },
-        {
-          "choice": "fakeiteasy",
-          "description": "Use the FakeItEasy framework."
-        }
-      ],
-      "isRequired": false,
-      "defaultValue": "fakeiteasy"
-    },
     "TesteeProject": {
       "description": "The name of the project to test.",
       "type": "derived",
