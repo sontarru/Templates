@@ -1,7 +1,7 @@
 [CmdletBinding()]
 param(
     [Parameter(Position = 0)]
-    [ValidateSet('clean', 'restore', 'install')]
+    [ValidateSet('clean', 'restore', 'install', 'reinit')]
     $Target = 'build'
 )
 
@@ -21,6 +21,9 @@ switch($Target) {
             ForEach-Object { dotnet new -i $_ | Out-Null }
 
         dotnet new -l | Select-String '^FkThat' -NoEmphasis
+    }
+    'reinit' {
+        dotnet Microsoft.TemplateEngine.Cli.CommandParsing.BaseCommandInput --debug:reinit
     }
 }
 
