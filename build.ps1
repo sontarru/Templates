@@ -1,7 +1,7 @@
 [CmdletBinding()]
 param(
     [Parameter(Position = 0)]
-    [ValidateSet('clean', 'restore', 'install', 'reinit')]
+    [ValidateSet('clean', 'restore', 'install',  'uninstall', 'reinit')]
     $Target = 'build'
 )
 
@@ -18,12 +18,17 @@ switch($Target) {
     'install' {
         Get-ChildItem "$PSScriptRoot\src" |
             Where-Object { Test-Path "$_\.template.config" } |
-            ForEach-Object { dotnet new -i $_ | Out-Null }
+            ForEach-Object { dotnet new -i $_ }
 
         dotnet new -l | Select-String '^FkThat' -NoEmphasis
     }
+    'uninstall' {
+        Get-ChildItem "$PSScriptRoot\src" |
+            Where-Object { Test-Path "$_\.template.config" } |
+            ForEach-Object { dotnet new -u $_.FullName }
+    }   
     'reinit' {
-        dotnet Microsoft.TemplateEngine.Cli.CommandParsing.BaseCommandInput --debug:reinit
+        dotnet new --debug:reinit
     }
 }
 
