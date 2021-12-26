@@ -1,4 +1,4 @@
-using FkThat.Templates.Console;
+using FkThat.Templates.ConsoleApp;
 using Microsoft.Extensions.DependencyInjection;
 
 try

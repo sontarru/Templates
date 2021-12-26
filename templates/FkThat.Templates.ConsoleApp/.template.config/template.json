@@ -2,14 +2,14 @@
   "$schema": "http://json.schemastore.org/template",
   "author": "FkThat",
   "classifications": [ "FkThat" ],
-  "identity": "FkThat.Templates.Console",
-  "name": "FkThat Console Application",
+  "identity": "FkThat.Templates.ConsoleApp",
+  "name": "FkThat console application",
   "shortName": "ft-console",
   "tags": { "language": "C#", "type": "project" },
-  "sourceName": "FkThat.Templates.Console",
+  "sourceName": "FkThat.Templates.ConsoleApp",
   "primaryOutputs": [
     {
-      "path": "FkThat.Templates.Console.csproj"
+      "path": "FkThat.Templates.ConsoleApp.csproj"
     }
   ],
   "postActions": [

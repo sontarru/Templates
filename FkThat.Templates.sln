@@ -7,13 +7,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "templates", "templates", "{
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FkThat.Templates.ClassLib", "templates\FkThat.Templates.ClassLib\FkThat.Templates.ClassLib.csproj", "{BAFE152E-5D20-480D-A832-A9341CD2BF19}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FkThat.Templates.Cli", "templates\FkThat.Templates.Cli\FkThat.Templates.Cli.csproj", "{AD525677-0FA7-4EA2-85EA-AD6735CA21BD}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FkThat.Templates.WebApi", "templates\FkThat.Templates.WebApi\FkThat.Templates.WebApi.csproj", "{B0E7661F-35DC-4DBF-87EE-D4F8D3198789}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FkThat.Templates.XUnit", "templates\FkThat.Templates.XUnit\FkThat.Templates.XUnit.csproj", "{49580BA7-AC1E-4ACA-980E-667911ECF11F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FkThat.Templates.Worker", "templates\FkThat.Templates.Worker\FkThat.Templates.Worker.csproj", "{D5D7DBFD-A6F5-4E86-A58E-F68B66F374FE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FkThat.Templates.ConsoleApp", "templates\FkThat.Templates.ConsoleApp\FkThat.Templates.ConsoleApp.csproj", "{78239A05-DEF8-4E1B-9E63-3787657D4073}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,10 +25,6 @@ Global
 		{BAFE152E-5D20-480D-A832-A9341CD2BF19}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BAFE152E-5D20-480D-A832-A9341CD2BF19}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BAFE152E-5D20-480D-A832-A9341CD2BF19}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AD525677-0FA7-4EA2-85EA-AD6735CA21BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AD525677-0FA7-4EA2-85EA-AD6735CA21BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AD525677-0FA7-4EA2-85EA-AD6735CA21BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AD525677-0FA7-4EA2-85EA-AD6735CA21BD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B0E7661F-35DC-4DBF-87EE-D4F8D3198789}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B0E7661F-35DC-4DBF-87EE-D4F8D3198789}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B0E7661F-35DC-4DBF-87EE-D4F8D3198789}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -41,6 +37,10 @@ Global
 		{D5D7DBFD-A6F5-4E86-A58E-F68B66F374FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D5D7DBFD-A6F5-4E86-A58E-F68B66F374FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D5D7DBFD-A6F5-4E86-A58E-F68B66F374FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78239A05-DEF8-4E1B-9E63-3787657D4073}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78239A05-DEF8-4E1B-9E63-3787657D4073}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78239A05-DEF8-4E1B-9E63-3787657D4073}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78239A05-DEF8-4E1B-9E63-3787657D4073}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -50,9 +50,9 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{BAFE152E-5D20-480D-A832-A9341CD2BF19} = {B2702073-5196-479B-A929-B3ABF8B40FB8}
-		{AD525677-0FA7-4EA2-85EA-AD6735CA21BD} = {B2702073-5196-479B-A929-B3ABF8B40FB8}
 		{B0E7661F-35DC-4DBF-87EE-D4F8D3198789} = {B2702073-5196-479B-A929-B3ABF8B40FB8}
 		{49580BA7-AC1E-4ACA-980E-667911ECF11F} = {B2702073-5196-479B-A929-B3ABF8B40FB8}
 		{D5D7DBFD-A6F5-4E86-A58E-F68B66F374FE} = {B2702073-5196-479B-A929-B3ABF8B40FB8}
+		{78239A05-DEF8-4E1B-9E63-3787657D4073} = {B2702073-5196-479B-A929-B3ABF8B40FB8}
 	EndGlobalSection
 EndGlobal
