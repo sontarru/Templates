@@ -10,4 +10,5 @@ $name = "Foo.Bar"
 & $dotnet new ft-xunit -o .test\${name}\test\UnitTests.${name}.ConsoleApp
 & $dotnet new ft-xunit -o .test\${name}\test\UnitTests.${name}.WebApi
 & $dotnet new ft-xunit -o .test\${name}\test\UnitTests.${name}.Worker
-& $dotnet build .test\${name}\${name}.sln
+& $dotnet test .test\${name}\${name}.sln
+& $dotnet pack .test\${name}\${name}.sln --no-build
