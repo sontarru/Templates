@@ -5,10 +5,7 @@
   "identity": "FkThat.Templates.WebApi",
   "name": "FkThat ASP.NET Core WebApi",
   "shortName": "ft-webapi",
-  "tags": {
-    "language": "C#",
-    "type": "project"
-  },
+  "tags": { "language": "C#", "type": "project" },
   "sourceName": "FkThat.Templates.WebApi",
   "primaryOutputs": [
     {

@@ -6,5 +6,27 @@
   "name": "FkThat Console Application",
   "shortName": "ft-cli",
   "tags": { "language": "C#", "type": "project" },
-  "sourceName": "FkThat.Templates.Cli"
+  "sourceName": "FkThat.Templates.Cli",
+  "primaryOutputs": [
+    {
+      "path": "FkThat.Templates.Cli.csproj"
+    }
+  ],
+  "postActions": [
+    {
+      "description": "Restore NuGet packages.",
+      "actionId": "210D431B-A78B-4D2F-B762-4ED3E3EA9025",
+      "manualInstructions": [],
+      "continueOnError": true
+    },
+    {
+      "description": "Add project to solution.",
+      "actionId": "D396686C-DE0E-4DE6-906D-291CD29FC5DE",
+      "continueOnError": true,
+      "manualInstructions": [],
+      "args": {
+        "primaryOutputIndexes": "0"
+      }
+    }
+  ]
 }
