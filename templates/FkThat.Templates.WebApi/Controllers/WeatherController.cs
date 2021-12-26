@@ -1,4 +1,4 @@
-using FkThat.Templates.WebApi6.Models;
+using FkThat.Templates.WebApi.Models;
 
 namespace FkThat.Templates.WebApi.Controllers;
 
