@@ -16,7 +16,6 @@
       "Directory.Build.props",
       "global.json",
       "LICENSE",
-      "README.md",
       "RELEASE-NOTES"
     ]
   }, {
