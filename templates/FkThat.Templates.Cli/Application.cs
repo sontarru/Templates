@@ -1,9 +1,12 @@
-namespace FkThat.Templates.Cli;
+#pragma warning disable CA1822 // Mark members as static
+#pragma warning disable IDE0060 // Remove unused parameter
+
+namespace FkThat.Templates.Console;
 
 /// <summary>
 /// Main application class.
 /// </summary>
-public class Application : IApplication
+public class Application
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="Application"/> class.
@@ -19,6 +22,6 @@ public class Application : IApplication
     /// <param name="cancellationToken">The cancellation token.</param>
     public async Task RunAsync(IEnumerable<string> args, CancellationToken cancellationToken)
     {
-        await Console.Out.WriteLineAsync("Hello, world!").ConfigureAwait(false);
+        await System.Console.Out.WriteLineAsync("Hello, world!").ConfigureAwait(false);
     }
 }
