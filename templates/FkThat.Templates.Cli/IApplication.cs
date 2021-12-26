@@ -1,11 +1,6 @@
-using System.Collections.Generic;
-using System.Threading;
-using System.Threading.Tasks;
+namespace FkThat.Templates.Cli;
 
-namespace FkThat.Templates.Cli
+public interface IApplication
 {
-    public interface IApplication
-    {
-        Task RunAsync(IEnumerable<string> args, CancellationToken cancellationToken);
-    }
+    Task RunAsync(IEnumerable<string> args, CancellationToken cancellationToken);
 }
