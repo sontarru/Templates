@@ -16,6 +16,15 @@
     </AssemblyAttribute>
   </ItemGroup>
   <ItemGroup>
-    <Using Include="Microsoft.AspNetCore.Mvc"/>
+    <Using Include="Microsoft.AspNetCore.Mvc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Update="appsettings.Development.json">
+      <DependentUpon>appsettings.json</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 </Project>
