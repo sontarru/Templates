@@ -6,7 +6,7 @@
   "name": "FkThat Solution",
   "shortName": "ft-sln",
   "tags": { "language": "C#", "type": "project" },
-  "sourceName": "FkThat.Templates",
+  "sourceName": "FkThat.Templates.Solution",
   "sources": [{
     "include": [
       "src/**/*",
@@ -14,7 +14,7 @@
       ".editorconfig",
       ".gitignore",
       "Directory.Build.props",
-      "FkThat.Templates.sln",
+      "FkThat.Templates.Solution.sln",
       "global.json",
       "LICENSE",
       "README.md",
