@@ -3,7 +3,7 @@
   "author": "FkThat",
   "classifications": [ "FkThat" ],
   "identity": "FkThat.Templates",
-  "name": "FkThat Solution",
+  "name": "FkThat solution",
   "shortName": "ft-sln",
   "tags": { "language": "C#", "type": "project" },
   "sourceName": "FkThat.Templates.Solution",
@@ -14,11 +14,13 @@
       ".editorconfig",
       ".gitignore",
       "Directory.Build.props",
-      "FkThat.Templates.Solution.sln",
       "global.json",
       "LICENSE",
       "README.md",
       "RELEASE-NOTES"
     ]
+  }, {
+    "source": "./templates/FkThat.Templates.Solution/",
+    "target": "./"
   }]
 }
