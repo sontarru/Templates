@@ -4,24 +4,17 @@
   "classifications": [
     "FkThat"
   ],
-  "identity": "FkThat.Templates.Lib",
+  "identity": "FkThat.Templates.ClassLib",
   "name": "FkThat Class Library",
-  "shortName": "ft-lib",
+  "shortName": "ft-classlib",
   "tags": {
     "language": "C#",
     "type": "project"
   },
-  "sourceName": "FkThat.Templates.Lib",
+  "sourceName": "FkThat.Templates.ClassLib",
   "primaryOutputs": [{
-    "path": "FkThat.Templates.Lib.csproj"
+    "path": "FkThat.Templates.ClassLib.csproj"
   }],
-  "symbols": {
-    "no-pack": {
-      "description": "Disable NuGet package build.",
-      "type": "parameter",
-      "datatype": "bool"
-    },
-  },
   "postActions": [
     {
       "description": "Add project to solution.",

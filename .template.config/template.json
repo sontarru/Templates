@@ -2,9 +2,9 @@
   "$schema": "http://json.schemastore.org/template",
   "author": "FkThat",
   "classifications": [ "FkThat" ],
-  "identity": "FkThat.Templates.Solution",
+  "identity": "FkThat.Templates",
   "name": "FkThat Solution",
   "shortName": "ft-sln",
   "tags": { "language": "C#", "type": "project" },
-  "sourceName": "FkThat.Templates.Solution"
+  "sourceName": "FkThat.Templates"
 }

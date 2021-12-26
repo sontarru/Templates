@@ -1,34 +1,34 @@
 [CmdletBinding()]
 param(
     [Parameter(Position = 0)]
-    [ValidateSet('clean', 'restore', 'install',  'uninstall', 'reinit')]
-    $Target = 'build'
+    [ValidateSet('clean', 'restore', 'build', 'test', 'cover')]
+    $Target = 'build',
+    [Parameter()]
+    [ValidateSet('Debug', 'Release')]
+    $Config = 'Debug'
 )
 
 switch($Target) {
     'clean' {
-        Push-Location $PSScriptRoot
         git clean -dfx -e .vs -e .vscode
-        Pop-Location
     }
     'restore' {
-        Get-ChildItem "$PSScriptRoot\src" -Recurse -Filter *.csproj |
-            ForEach-Object { dotnet restore $_ }
+        dotnet restore
     }
-    'install' {
-        Get-ChildItem "$PSScriptRoot\src" |
-            Where-Object { Test-Path "$_\.template.config" } |
-            ForEach-Object { dotnet new -i $_ }
-
-        dotnet new -l | Select-String '^FkThat' -NoEmphasis
+    'build' {
+        dotnet build -c $Config
     }
-    'uninstall' {
-        Get-ChildItem "$PSScriptRoot\src" |
-            Where-Object { Test-Path "$_\.template.config" } |
-            ForEach-Object { dotnet new -u $_.FullName }
-    }   
-    'reinit' {
-        dotnet new --debug:reinit
+    'test' {
+        dotnet test -c $Config --logger:trx
+    }
+    'cover' {
+        dotnet tool restore &&
+        dotnet tool run reportgenerator `
+            -reports:test\**\TestResults\coverage.cobertura.xml `
+            -targetdir:TestResults\html && `
+            Start-Process 'TestResults\index.htm'
+    }
+    'pack' {
+        dotnet pack -c $Config -o '.build'
     }
 }
-

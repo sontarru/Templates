@@ -426,9 +426,6 @@ $RECYCLE.BIN/
 # Visual Studio Code
 .vscode
 
-# Code coverage files
-coverage.*
-
 # Solution-specific
 .build
 .test

@@ -1,27 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <Nullable>enable</Nullable>
-    <NoWarn>CA1062;$(NoWarn)</NoWarn>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <IsPackable>false</IsPackable>
     <!--#if(HasTestee)-->
     <RootNamespace>TesteeProject</RootNamespace>
     <!--#endif-->
   </PropertyGroup>
   <PropertyGroup>
-    <CollectCoverage>true</CollectCoverage>
-    <CoverletOutputFormat>cobertura</CoverletOutputFormat>
     <!--#if(HasTestee)-->
     <Include>[TesteeProject]*</Include>
     <!--#endif-->
   </PropertyGroup>
-  <ItemGroup>
-    <None Remove="coverage.*" />
-    <Compile Remove="TestResults\**" />
-    <EmbeddedResource Remove="TestResults\**" />
-    <None Remove="TestResults\**" />
-  </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.0.0" />
     <PackageReference Include="xunit" Version="2.4.1" />
@@ -41,9 +28,4 @@
     <ProjectReference Include="..\..\src\TesteeProject\TesteeProject.csproj" />
   </ItemGroup>
   <!--#endif-->
-  <ItemGroup>
-    <Using Include="FakeItEasy" />
-    <Using Include="FluentAssertions" />
-    <Using Include="Xunit" />
-  </ItemGroup>
 </Project>
