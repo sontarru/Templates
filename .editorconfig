@@ -197,4 +197,5 @@ dotnet_diagnostic.IDE0005.severity = warning
 dotnet_diagnostic.IDE0130.severity = silent
 
 # prefer file-scoped namespace declaration
-csharp_style_namespace_declarations = file_scoped:warning
+csharp_style_namespace_declarations = file_scoped
+dotnet_diagnostic.IDE0161.severity = warning
