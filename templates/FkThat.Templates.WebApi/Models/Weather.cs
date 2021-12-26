@@ -1,4 +1,4 @@
-namespace FkThat.Templates.WebApi6.Models;
+namespace FkThat.Templates.WebApi.Models;
 
 /// <summary>
 /// Represents a weather.

@@ -2,17 +2,17 @@
   "$schema": "http://json.schemastore.org/template",
   "author": "FkThat",
   "classifications": [ "FkThat" ],
-  "identity": "FkThat.Templates.WebApi6",
-  "name": "FkThat ASP.NET Core 6 WebApi",
-  "shortName": "ft-webapi6",
+  "identity": "FkThat.Templates.WebApi",
+  "name": "FkThat ASP.NET Core WebApi",
+  "shortName": "ft-webapi",
   "tags": {
     "language": "C#",
     "type": "project"
   },
-  "sourceName": "FkThat.Templates.WebApi6",
+  "sourceName": "FkThat.Templates.WebApi",
   "primaryOutputs": [
     {
-      "path": "FkThat.Templates.WebApi6.csproj"
+      "path": "FkThat.Templates.WebApi.csproj"
     }
   ],
   "symbols": {

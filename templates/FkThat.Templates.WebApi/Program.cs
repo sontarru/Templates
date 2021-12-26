@@ -14,7 +14,7 @@ builder.Services.AddCors(options => {
 });
 
 builder.Services.AddOpenApiDocument(configure => {
-    configure.Title = "FkThat.Templates.WebApi6";
+    configure.Title = "FkThat.Templates.WebApi";
 });
 
 // Build application.
@@ -35,7 +35,7 @@ app.MapControllers();
 app.UseOpenApi();
 
 app.UseSwaggerUi3(configure => {
-    configure.DocumentTitle = "FkThat.Templates.WebApi6";
+    configure.DocumentTitle = "FkThat.Templates.WebApi";
 });
 
 app.Run();

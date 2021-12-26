@@ -1,6 +1,6 @@
 using FkThat.Templates.WebApi6.Models;
 
-namespace FkThat.Templates.WebApi6.Controllers;
+namespace FkThat.Templates.WebApi.Controllers;
 
 /// <summary>
 /// Represents a weather controller.
