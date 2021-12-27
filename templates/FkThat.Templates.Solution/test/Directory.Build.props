@@ -3,16 +3,11 @@
   <PropertyGroup>
     <CollectCoverage>true</CollectCoverage>
     <CoverletOutputFormat>cobertura</CoverletOutputFormat>
-    <CoverletOutput>./TestResults/</CoverletOutput>
+    <CoverletOutput>$(ProjectDir)TestResults/</CoverletOutput>
   </PropertyGroup>
   <ItemGroup>
-    <Using Include="FakeItEasy" />
-    <Using Include="FluentAssertions" />
-    <Using Include="Xunit" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Remove="TestResults\**" />
-    <EmbeddedResource Remove="TestResults\**" />
-    <None Remove="TestResults\**" />
+    <Compile Remove="$(ProjectDir)TestResults/**" />
+    <EmbeddedResource Remove="$(ProjectDir)TestResults/**" />
+    <None Remove="$(ProjectDir)TestResults/**" />
   </ItemGroup>
 </Project>
