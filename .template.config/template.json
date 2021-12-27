@@ -9,14 +9,10 @@
   "sourceName": "FkThat.Templates.Solution",
   "sources": [{
     "include": [
-      "src/**/*",
-      "test/**/*",
       ".editorconfig",
       ".gitignore",
-      "Directory.Build.props",
       "global.json",
-      "LICENSE",
-      "RELEASE-NOTES"
+      "LICENSE"
     ]
   }, {
     "source": "./templates/FkThat.Templates.Solution/",
