@@ -12,6 +12,15 @@
     "type": "project"
   },
   "sourceName": "FkThat.Templates.ClassLib",
+  "symbols": {
+    "packable": {
+      "displayName": "packable",
+      "description": "The project is packable.",
+      "type": "parameter",
+      "datatype": "bool",
+      "defaultValue": "false"
+    }
+  },
   "primaryOutputs": [{
     "path": "FkThat.Templates.ClassLib.csproj"
   }],
