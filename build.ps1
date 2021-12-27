@@ -26,7 +26,7 @@ switch($Target) {
         dotnet tool run reportgenerator `
             -reports:test\**\TestResults\coverage.cobertura.xml `
             -targetdir:TestResults\html && `
-            Start-Process 'TestResults\index.htm'
+            Start-Process 'TestResults\html\index.htm'
     }
     'pack' {
         dotnet pack -c $Config -o '.build'
