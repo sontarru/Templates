@@ -1,6 +1,10 @@
 $dotnet = "$env:ProgramFiles\dotnet\dotnet.exe"
 $name = "Foo.Bar"
 
+if(Test-Path .test) {
+    Remove-Item .test -Recurse
+}
+
 & $dotnet new ft-sln -o .test\${name}
 & $dotnet new ft-classlib -o .test\${name}\src\${name}.ClassLib
 & $dotnet new ft-console -o .test\${name}\src\${name}.ConsoleApp
