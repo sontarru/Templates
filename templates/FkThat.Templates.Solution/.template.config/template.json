@@ -6,16 +6,5 @@
   "name": "FkThat solution",
   "shortName": "ft-sln",
   "tags": { "language": "C#", "type": "project" },
-  "sourceName": "FkThat.Templates.Solution",
-  "sources": [{
-    "include": [
-      ".editorconfig",
-      ".gitignore",
-      "global.json",
-      "LICENSE"
-    ]
-  }, {
-    "source": "./templates/FkThat.Templates.Solution/",
-    "target": "./"
-  }]
+  "sourceName": "FkThat.Templates.Solution"
 }
