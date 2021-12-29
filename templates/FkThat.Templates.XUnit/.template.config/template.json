@@ -3,7 +3,7 @@
   "author": "FkThat",
   "classifications": [ "FkThat" ],
   "identity": "FkThat.Templates.XUnit",
-  "name": "FkThat xUnit Test Project",
+  "name": "FkThat xUnit test project",
   "shortName": "ft-xunit",
   "tags": { "language": "C#", "type": "project" },
   "sourceName": "FkThat.Templates.XUnit",

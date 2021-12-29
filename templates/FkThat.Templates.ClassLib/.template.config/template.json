@@ -5,7 +5,7 @@
     "FkThat"
   ],
   "identity": "FkThat.Templates.ClassLib",
-  "name": "FkThat Class Library",
+  "name": "FkThat class library",
   "shortName": "ft-classlib",
   "tags": {
     "language": "C#",
