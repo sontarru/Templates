@@ -3,7 +3,7 @@
   "author": "FkThat",
   "classifications": [ "FkThat" ],
   "identity": "FkThat.Templates.Worker",
-  "name": "FkThat Worker Application",
+  "name": "FkThat worker application",
   "shortName": "ft-worker",
   "tags": { "language": "C#", "type": "project" },
   "sourceName": "FkThat.Templates.Worker",
