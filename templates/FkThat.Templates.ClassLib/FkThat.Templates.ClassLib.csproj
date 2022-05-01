@@ -4,9 +4,4 @@
     <IsPackable>true</IsPackable>
   </PropertyGroup>
   <!--#endif-->
-  <ItemGroup>
-    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
-      <_Parameter1>UnitTests.FkThat.Templates.ClassLib</_Parameter1>
-    </AssemblyAttribute>
-  </ItemGroup>
 </Project>
