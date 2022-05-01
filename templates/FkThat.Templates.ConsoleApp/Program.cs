@@ -26,9 +26,3 @@ catch (OperationCanceledException)
         "The application was terminated.")
         .ConfigureAwait(false);
 }
-catch (Exception e)
-{
-    await Console.Error.WriteLineAsync(
-        $"Fatal error:{Environment.NewLine}{e}")
-        .ConfigureAwait(false);
-}
