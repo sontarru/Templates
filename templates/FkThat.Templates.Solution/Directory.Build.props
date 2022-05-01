@@ -14,7 +14,7 @@
   <PropertyGroup>
     <Authors>FkThat</Authors>
     <Company>FkThat</Company>
-    <Copyright>© FkThat, 2021</Copyright>
+    <Copyright>© FkThat, 2022</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <AssemblyVersion>$(VersionPrefix).0</AssemblyVersion>
     <FileVersion>$(VersionPrefix).0</FileVersion>
@@ -26,9 +26,6 @@
     <PackageTags>fkthat</PackageTags>
     <Description>FkThat.Templates.Solution</Description>
     <PackageReleaseNotes>@(ReleaseNoteLines, '%0a')</PackageReleaseNotes>
-   </PropertyGroup>
-  <!-- include symbols -->
-  <PropertyGroup>
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>

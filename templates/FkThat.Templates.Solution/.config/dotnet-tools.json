@@ -1,4 +1,5 @@
 {
+  // Can be used by CI to restore the coverage report generator
   "version": 1,
   "isRoot": true,
   "tools": {
