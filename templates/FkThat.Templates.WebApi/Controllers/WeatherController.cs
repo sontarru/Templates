@@ -1,3 +1,4 @@
+using System.Security.Cryptography;
 using FkThat.Templates.WebApi.Models;
 
 namespace FkThat.Templates.WebApi.Controllers;
@@ -8,6 +9,7 @@ namespace FkThat.Templates.WebApi.Controllers;
 /// <seealso cref="ControllerBase"/>
 [ApiController]
 [Route("api/[controller]")]
+[CLSCompliant(false)]
 public class WeatherController : ControllerBase
 {
     /// <summary>
@@ -17,6 +19,6 @@ public class WeatherController : ControllerBase
     public IReadOnlyCollection<Weather> GetForecast() =>
         Enumerable.Range(0, 7).Select(i => new Weather(
             Date: DateTime.Today.AddDays(i),
-            TemperatureC: Random.Shared.Next(-20, 41)))
-        .ToArray();
+            TemperatureC: RandomNumberGenerator.GetInt32(60) - 20))
+            .ToArray();
 }
