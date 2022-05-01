@@ -1,12 +1,2 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <!--#if(HasTestee)-->
-    <Include>[TesteeProject]*</Include>
-    <!--#endif-->
-  </PropertyGroup>
-  <!--#if(HasTestee)-->
-  <ItemGroup Condition="Exists('..\..\src\TesteeProject\TesteeProject.csproj')">
-    <ProjectReference Include="..\..\src\TesteeProject\TesteeProject.csproj" />
-  </ItemGroup>
-  <!--#endif-->
 </Project>
