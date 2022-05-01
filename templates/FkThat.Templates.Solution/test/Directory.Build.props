@@ -31,5 +31,8 @@
     <Using Include="FluentAssertions" />
     <Using Include="Xunit" />
   </ItemGroup>
+  <ItemGroup Condition="Exists('..\..\src\$(TargetProjectName)\$(TargetProjectName).csproj')">
+    <ProjectReference Include="..\..\src\$(TargetProjectName)\$(TargetProjectName).csproj" />
+  </ItemGroup>
 </Project>
 
