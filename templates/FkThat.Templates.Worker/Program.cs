@@ -10,4 +10,4 @@ builder.ConfigureServices(services => {
     services.AddHostedService<Worker>();
 });
 
-await builder.Build().RunAsync();
+await builder.Build().RunAsync().ConfigureAwait(false);
