@@ -21,7 +21,7 @@
       "defaultValue": "",
       "replaces": "__namespace"
     },
-    "access-modifier": {
+    "accessModifier": {
       "description": "The item access modifier",
       "type": "parameter",
       "datatype": "choice",
