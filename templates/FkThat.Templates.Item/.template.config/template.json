@@ -1,0 +1,93 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "FkThat",
+  "classifications": [
+    "FkThat"
+  ],
+  "identity": "FkThat.Templates.Item",
+  "name": "FkThat C# item",
+  "shortName": "ft-item",
+  "tags": {
+    "language": "C#",
+    "type": "item"
+  },
+  "sourceName": "TheItem",
+  "symbols": {
+    "namespace": {
+      "description": "The item namespace",
+      "type": "parameter",
+      "datatype": "string",
+      "isRequired": true,
+      "defaultValue": "",
+      "replaces": "__namespace"
+    },
+    "access-modifier": {
+      "description": "The item access modifier",
+      "type": "parameter",
+      "datatype": "choice",
+      "isRequired": false,
+      "defaultValue": "public",
+      "replaces": "__accessModifier",
+      "choices": [
+        {
+          "choice": "public",
+          "description": "The item is public"
+        },
+        {
+          "choice": "internal",
+          "description": "The item is internal"
+        }
+      ]
+    },
+    "itemType": {
+      "description": "The item type",
+      "type": "parameter",
+      "datatype": "choice",
+      "isRequired": false,
+      "defaultValue": "class",
+      "choices": [
+        {
+          "choice": "class",
+          "description": "Class"
+        },
+        {
+          "choice": "interface",
+          "description": "Interface"
+        },
+        {
+          "choice": "enum",
+          "description": "Enumeration"
+        },
+        {
+          "choice": "controller",
+          "description": "MVC Controller"
+        },
+        {
+          "choice": "worker",
+          "description": "Background worker"
+        }
+      ],
+      "replaces": "item_type"
+    },
+    "IS_CLASS": {
+      "type": "computed",
+      "value": "(itemType == \"class\")"
+    },
+    "IS_INTERFACE": {
+      "type": "computed",
+      "value": "(itemType == \"interface\")"
+    },
+    "IS_ENUM": {
+      "type": "computed",
+      "value": "(itemType == \"enum\")"
+    },
+    "IS_CONTROLLER": {
+      "type": "computed",
+      "value": "(itemType == \"controller\")"
+    },
+    "IS_WORKER": {
+      "type": "computed",
+      "value": "(itemType == \"worker\")"
+    }
+  }
+}
