@@ -13,6 +13,7 @@ dotnet new ft-xunit -o .test\${name}\test\UnitTests.${name}.ClassLib
 dotnet new ft-xunit -o .test\${name}\test\UnitTests.${name}.ConsoleApp
 dotnet new ft-xunit -o .test\${name}\test\UnitTests.${name}.WebApi
 dotnet new ft-xunit -o .test\${name}\test\UnitTests.${name}.Workers
+dotnet new ft-xunit -o .test\${name}\test\SomeTests.${name}
 
 Push-Location .test\$name
 dotnet restore && `

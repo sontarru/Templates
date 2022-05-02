@@ -1,2 +1,16 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+  <!--#if(HasTargetProject)-->
+  <PropertyGroup>
+    <RootNamespace>TargetProjectName</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup>
+    <CollectCoverage>true</CollectCoverage>
+    <CoverletOutputFormat>cobertura</CoverletOutputFormat>
+    <CoverletOutput>TestResults/</CoverletOutput>
+    <Include>[TargetProjectName]*</Include>
+  </PropertyGroup>
+  <ItemGroup Condition="Exists('..\..\src\TargetProjectName\TargetProjectName.csproj')">
+    <ProjectReference Include="..\..\src\TargetProjectName\TargetProjectName.csproj" />
+  </ItemGroup>
+  <!--#endif-->
 </Project>

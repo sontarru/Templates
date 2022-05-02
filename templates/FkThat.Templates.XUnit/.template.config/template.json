@@ -5,8 +5,31 @@
   "identity": "FkThat.Templates.XUnit",
   "name": "FkThat xUnit test project",
   "shortName": "ft-xunit",
-  "tags": { "language": "C#", "type": "project" },
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
   "sourceName": "FkThat.Templates.XUnit",
+  "symbols": {
+    "TargetProjectName": {
+      "description": "The name of the project to test.",
+      "type": "derived",
+      "replaces": "TargetProjectName",
+      "valueSource": "name",
+      "valueTransform": "GetTargetProjectName"
+    },
+    "HasTargetProject": {
+      "type": "computed",
+      "value": "(!(TargetProjectName == name))"
+    }
+  },
+  "forms": {
+    "GetTargetProjectName": {
+      "identifier": "replace",
+      "pattern": "^UnitTests\\.",
+      "replacement": ""
+    }
+  },
   "primaryOutputs": [
     {
       "path": "FkThat.Templates.XUnit.csproj"
