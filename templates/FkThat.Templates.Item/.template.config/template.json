@@ -66,8 +66,7 @@
           "choice": "worker",
           "description": "Background worker"
         }
-      ],
-      "replaces": "item_type"
+      ]
     },
     "IS_CLASS": {
       "type": "computed",
