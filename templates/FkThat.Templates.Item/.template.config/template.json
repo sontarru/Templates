@@ -21,13 +21,13 @@
       "defaultValue": "",
       "replaces": "__namespace"
     },
-    "accessModifier": {
+    "visibility": {
       "description": "The item access modifier",
       "type": "parameter",
       "datatype": "choice",
       "isRequired": false,
       "defaultValue": "public",
-      "replaces": "__accessModifier",
+      "replaces": "__visibility",
       "choices": [
         {
           "choice": "public",
@@ -39,7 +39,7 @@
         }
       ]
     },
-    "itemType": {
+    "template": {
       "description": "The item type",
       "type": "parameter",
       "datatype": "choice",
@@ -70,23 +70,27 @@
     },
     "IS_CLASS": {
       "type": "computed",
-      "value": "(itemType == \"class\")"
+      "value": "(template == \"class\")"
     },
     "IS_INTERFACE": {
       "type": "computed",
-      "value": "(itemType == \"interface\")"
+      "value": "(template == \"interface\")"
     },
     "IS_ENUM": {
       "type": "computed",
-      "value": "(itemType == \"enum\")"
+      "value": "(template == \"enum\")"
     },
     "IS_CONTROLLER": {
       "type": "computed",
-      "value": "(itemType == \"controller\")"
+      "value": "(template == \"controller\")"
     },
     "IS_WORKER": {
       "type": "computed",
-      "value": "(itemType == \"worker\")"
+      "value": "(template == \"worker\")"
+    },
+    "IS_PUBLIC": {
+      "type": "computed",
+      "value": "(visibility == \"public\")"
     }
   }
 }

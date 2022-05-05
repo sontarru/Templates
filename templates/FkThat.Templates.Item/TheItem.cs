@@ -1,17 +1,22 @@
 namespace __namespace;
 
+#if IS_PUBLIC
+///<summary>
+///  Represents TheItem.
+///</summary>
+#endif
 #if IS_CLASS
-__accessModifier class TheItem
+__visibility class TheItem
 {
 }
 #endif
 #if IS_INTERFACE
-__accessModifier interface TheItem
+__visibility interface TheItem
 {
 }
 #endif
 #if IS_ENUM
-__accessModifier enum TheItem
+__visibility enum TheItem
 {
 }
 #endif
@@ -19,13 +24,23 @@ __accessModifier enum TheItem
 [ClsCompliant(false)]
 [ApiController]
 [Route("api/[controller]")]
-__accessModifier class TheItem: ControllerBase
+__visibility class TheItem: ControllerBase
 {
 }
 #endif
 #if IS_WORKER
-__accessModifier class TheItem: BackgroundService
+__visibility class TheItem: BackgroundService
 {
+#if IS_PUBLIC
+    /// <summary>
+    /// This method is called when the <see cref="IHostedService"/> starts. The implementation
+    /// should return a task that represents the lifetime of the long running operation(s) being
+    /// performed.
+    /// </summary>
+    /// <param name="stoppingToken">
+    /// Triggered when <see cref="IHostedService.StopAsync(CancellationToken)"/> is called.
+    /// </param>
+#endif
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
         while (!stoppingToken.IsCancellationRequested)
