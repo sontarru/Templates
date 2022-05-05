@@ -68,6 +68,11 @@
         }
       ]
     },
+    "static": {
+      "description": "The item is static",
+      "type": "parameter",
+      "datatype": "bool"
+    },
     "IS_CLASS": {
       "type": "computed",
       "value": "(template == \"class\")"
@@ -91,6 +96,11 @@
     "IS_PUBLIC": {
       "type": "computed",
       "value": "(visibility == \"public\")"
+    },
+    "IS_STATIC": {
+      "type": "computed",
+      "value": "(static ?? \" static\" : \"\")",
+      "replaces": "__static"
     }
   }
 }

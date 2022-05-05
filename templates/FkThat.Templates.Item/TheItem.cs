@@ -6,7 +6,7 @@ namespace __namespace;
 ///</summary>
 #endif
 #if IS_CLASS
-__visibility class TheItem
+__visibility__static class TheItem
 {
 }
 #endif
@@ -16,7 +16,7 @@ __visibility interface TheItem
 }
 #endif
 #if IS_ENUM
-__visibility enum TheItem
+__visibility__static enum TheItem
 {
 }
 #endif
