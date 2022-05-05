@@ -2,7 +2,7 @@ namespace __namespace;
 
 #if IS_PUBLIC
 ///<summary>
-///  Represents TheItem.
+/// Represents TheItem.
 ///</summary>
 #endif
 #if IS_CLASS
