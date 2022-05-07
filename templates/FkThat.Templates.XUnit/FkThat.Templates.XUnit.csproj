@@ -4,9 +4,6 @@
     <RootNamespace>TargetProjectName</RootNamespace>
   </PropertyGroup>
   <PropertyGroup>
-    <CollectCoverage>true</CollectCoverage>
-    <CoverletOutputFormat>cobertura</CoverletOutputFormat>
-    <CoverletOutput>TestResults/</CoverletOutput>
     <Include>[TargetProjectName]*</Include>
   </PropertyGroup>
   <ItemGroup Condition="Exists('..\..\src\TargetProjectName\TargetProjectName.csproj')">
