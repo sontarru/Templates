@@ -16,7 +16,7 @@ __visibility interface TheItem
 }
 #endif
 #if IS_ENUM
-__visibility__static enum TheItem
+__visibility enum TheItem
 {
 }
 #endif

@@ -98,8 +98,18 @@
       "value": "(visibility == \"public\")"
     },
     "IS_STATIC": {
-      "type": "computed",
-      "value": "(static ?? \" static\" : \"\")",
+      "type": "generated",
+      "datatype": "text",
+      "generator": "switch",
+      "parameters": {
+        "evaluator": "C++",
+        "cases": [
+          {
+            "condition": "(static)",
+            "value": " static"
+          }
+        ]
+      },
       "replaces": "__static"
     }
   }
