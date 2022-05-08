@@ -1,16 +1,16 @@
 <Project>
   <PropertyGroup>
+    <VersionPrefix>0.0.0</VersionPrefix>
+  </PropertyGroup>
+  <!-- Build properties -->
+  <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <IsPackable>false</IsPackable>
     <Nullable>enable</Nullable>
     <NoWarn>CA1062;$(NoWarn)</NoWarn>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
-  <!-- Version -->
-  <PropertyGroup>
-    <VersionPrefix>0.0.0</VersionPrefix>
-  </PropertyGroup>
-  <!-- package properties -->
+  <!-- Assembly and package properties -->
   <PropertyGroup>
     <Authors>FkThat</Authors>
     <Company>FkThat</Company>
@@ -23,14 +23,15 @@
     <RepositoryUrl>https://github.com/fkthat/FkThat.Templates.Solution</RepositoryUrl>
     <RepositoryBranch>$(RepositoryBranch)</RepositoryBranch>
     <RepositoryCommit>$(RepositoryCommit)</RepositoryCommit>
-    <PackageTags>fkthat</PackageTags>
-    <Description>FkThat.Templates.Solution</Description>
+    <PackageTags></PackageTags>
+    <Description></Description>
     <PackageReleaseNotes>@(ReleaseNoteLines, '%0a')</PackageReleaseNotes>
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
+  <!-- Release notes from the file -->
   <Target Name="PreparePackageReleaseNotesFromFile" BeforeTargets="GenerateNuspec">
-    <ReadLinesFromFile File="../../RELEASE-NOTES" >
+    <ReadLinesFromFile File="$(MSBuildThisFileDirectory)RELEASE-NOTES" >
       <Output TaskParameter="Lines" ItemName="ReleaseNoteLines"/>
     </ReadLinesFromFile>
   </Target>
