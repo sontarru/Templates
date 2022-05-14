@@ -1,13 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <!--#if(HasTargetProject)-->
   <PropertyGroup>
-    <RootNamespace>TargetProjectName</RootNamespace>
+    <RootNamespace>__TargetProjectName</RootNamespace>
   </PropertyGroup>
-  <PropertyGroup>
-    <Include>[TargetProjectName]*</Include>
-  </PropertyGroup>
-  <ItemGroup Condition="Exists('..\..\src\TargetProjectName\TargetProjectName.csproj')">
-    <ProjectReference Include="..\..\src\TargetProjectName\TargetProjectName.csproj" />
+  <ItemGroup Condition="Exists('..\..\src\__TargetProjectName\__TargetProjectName.csproj')">
+    <ProjectReference Include="..\..\src\__TargetProjectName\__TargetProjectName.csproj" />
   </ItemGroup>
   <!--#endif-->
 </Project>

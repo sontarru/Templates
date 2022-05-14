@@ -14,7 +14,7 @@
     "TargetProjectName": {
       "description": "The name of the project to test.",
       "type": "derived",
-      "replaces": "TargetProjectName",
+      "replaces": "__TargetProjectName",
       "valueSource": "name",
       "valueTransform": "GetTargetProjectName"
     },

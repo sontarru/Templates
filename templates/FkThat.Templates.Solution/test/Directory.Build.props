@@ -1,9 +1,13 @@
 <Project>
   <Import Project="$([MSBuild]::GetPathOfFileAbove('Directory.Build.props', '$(MSBuildThisFileDirectory)../'))" />
   <PropertyGroup>
+    <TargetProjectName>$([System.Text.RegularExpressions.Regex]::Replace('$(ProjectName)', '^UnitTests\.', ''))</TargetProjectName>
+  </PropertyGroup>
+  <PropertyGroup>
     <CollectCoverage>true</CollectCoverage>
     <CoverletOutputFormat>cobertura</CoverletOutputFormat>
     <CoverletOutput>TestResults/</CoverletOutput>
+    <RootNamespace>$(TargetProjectName)</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="coverlet.msbuild" Version="3.1.2">
