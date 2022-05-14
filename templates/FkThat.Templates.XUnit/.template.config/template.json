@@ -26,7 +26,7 @@
   "forms": {
     "GetTargetProjectName": {
       "identifier": "replace",
-      "pattern": "^UnitTests\\.",
+      "pattern": "^.*Tests\\.",
       "replacement": ""
     }
   },
