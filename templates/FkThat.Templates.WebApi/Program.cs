@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -39,3 +40,11 @@ app.UseSwaggerUi3(configure => {
 });
 
 app.Run();
+
+///<summary>
+/// Reqiured for integration tests.
+///</summary>
+[SuppressMessage("Design", "CA1050:Declare types in namespaces", Justification =
+    "This is added just to make the Program class public.")]
+public partial class Program
+{ }
