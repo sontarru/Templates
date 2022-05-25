@@ -8,12 +8,8 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleToAttribute">
-      <_Parameter1>UnitTests.$(ProjectName)</_Parameter1>
-    </AssemblyAttribute>
-    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleToAttribute">
-      <_Parameter1>IntegrationTests.$(ProjectName)</_Parameter1>
-    </AssemblyAttribute>
+    <InternalsVisibleTo Include="UnitTests.$(ProjectName)"/>
+    <InternalsVisibleTo Include="IntegrationTests.$(ProjectName)"/>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)AssemblyInfo.cs" Visible="false" />
