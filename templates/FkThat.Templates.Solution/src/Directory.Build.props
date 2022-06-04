@@ -10,8 +10,8 @@
   <ItemGroup>
     <InternalsVisibleTo Include="UnitTests.$(ProjectName)"/>
     <InternalsVisibleTo Include="IntegrationTests.$(ProjectName)"/>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)AssemblyInfo.cs" Visible="false" />
+    <AssemblyAttribute Include="System.CLSCompliantAttribute">
+        <_Parameter1>true</_Parameter1>
+    </AssemblyAttribute>
   </ItemGroup>
 </Project>
