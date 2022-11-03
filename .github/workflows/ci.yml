@@ -1,0 +1,70 @@
+name: CI
+
+on:
+  pull_request:
+    branches:
+      - develop
+
+  push:
+    branches:
+      - develop
+    paths-ignore:
+      - "LICENSE"
+      - "README.md"
+
+  # allow manual start
+  workflow_dispatch:
+
+env:
+  build_configuration: Release
+  version_suffix: CI-${{github.run_number}}
+  artifacts_name: Build-${{github.run_number}}
+
+jobs:
+  build:
+    name: Build and test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Setup .NET SDK
+        uses: actions/setup-dotnet@v2
+      - name: Restore dependencies
+        run: dotnet restore
+      - name: Build solution
+        run: dotnet build -c ${{env.build_configuration}} --no-restore
+      - name: Run tests
+        run: dotnet test -c ${{env.build_configuration}} --no-build
+      - name: Create NuGet packages
+        run: >-
+          dotnet pack -c ${{env.build_configuration}} -o build
+          --version-suffix ${{env.version_suffix}} --no-build
+          -p:RepositoryBranch=${{github.ref}}
+          -p:RepositoryCommit=${{github.sha}}
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{env.artifacts_name}}
+          path: build/
+  publish:
+    if: github.ref == 'refs/heads/develop'
+    name: Publish
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: read
+    steps:
+      - name: Download artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: ${{env.artifacts_name}}
+          path: build/
+      - name: Setup .NET SDK
+        uses: actions/setup-dotnet@v2
+        with:
+          source-url: https://nuget.pkg.github.com/fkthat/index.json
+        env:
+          NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      - name: Publish NuGet packages
+        run: dotnet nuget push build/*.nupkg
