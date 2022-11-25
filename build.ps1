@@ -1,1 +1,2 @@
-nuget pack .\FkThat.Templates.nuspec -NoDefaultExcludes -OutputDir .\.Build
+$dotnet = "$env:ProgramFiles\dotnet\dotnet.exe"
+& $dotnet pack .\FkThat.Templates.csproj -o .\.Build --no-build
