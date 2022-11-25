@@ -24,6 +24,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
       - name: Create NuGet package
         run: >-
           dotnet pack ./FkThat.Templates.csproj  -o ./.build -p:Version=${{env.version}}
@@ -45,11 +47,11 @@ jobs:
         with:
           name: ${{env.artifacts_name}}
           path: build/
-      - name: Setup .NET SDK
+      - name: Setup .NET
         uses: actions/setup-dotnet@v3
         with:
           source-url: https://nuget.pkg.github.com/fkthat/index.json
         env:
           NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
-      - name: Publish NuGet packages
-        run: dotnet nuget push build/*.nupkg -k ${{secrets.GITHUB_TOKEN}}
+      - name: Push NuGet packages
+        run: dotnet nuget push build/*.nupkg
