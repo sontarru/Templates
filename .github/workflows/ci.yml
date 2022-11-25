@@ -46,7 +46,7 @@ jobs:
           name: ${{env.artifacts_name}}
           path: build/
       - name: Setup .NET SDK
-        uses: actions/setup-dotnet@v2
+        uses: actions/setup-dotnet@v3
         with:
           source-url: https://nuget.pkg.github.com/fkthat/index.json
         env:
