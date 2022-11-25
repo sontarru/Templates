@@ -1,12 +1,9 @@
-#pragma warning disable CA1822 // Mark members as static
-#pragma warning disable IDE0060 // Remove unused parameter
-
 namespace FkThat.Templates.ConsoleApp;
 
 /// <summary>
 /// Main application class.
 /// </summary>
-public class Application
+public class Application : IApplication
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="Application"/> class.
