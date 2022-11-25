@@ -14,10 +14,10 @@ try
 
     // Configure your services here
 
-    services.AddSingleton<Application>();
+    services.AddSingleton<IApplication, Application>();
     using var serviceProvider = services.BuildServiceProvider();
     using var scope = serviceProvider.CreateScope();
-    var application = scope.ServiceProvider.GetRequiredService<Application>();
+    var application = scope.ServiceProvider.GetRequiredService<IApplication>();
     await application.RunAsync(args, cancellationTokenSource.Token).ConfigureAwait(false);
 }
 catch (OperationCanceledException)
