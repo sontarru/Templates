@@ -26,7 +26,7 @@ jobs:
         uses: actions/checkout@v3
       - name: Create NuGet package
         run: >-
-          dotnet pack FkThat.Templates.csproj  -o ./.build -Version ${{env.version}}
+          dotnet pack ./FkThat.Templates.csproj  -o ./.build -p:Version=${{env.version}}
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with:
