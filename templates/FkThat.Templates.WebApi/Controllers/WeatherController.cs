@@ -9,7 +9,6 @@ namespace FkThat.Templates.WebApi.Controllers;
 /// <seealso cref="ControllerBase"/>
 [ApiController]
 [Route("api/[controller]")]
-[CLSCompliant(false)]
 public class WeatherController : ControllerBase
 {
     /// <summary>

@@ -1,53 +1,38 @@
 name: CI
 
 on:
-  pull_request:
-    branches:
-      - develop
-
   push:
     branches:
       - develop
     paths-ignore:
       - "LICENSE"
       - "README.md"
+      - "*.ps1"
+      - "Directory.Build.props"
 
   # allow manual start
   workflow_dispatch:
 
 env:
-  build_configuration: Release
-  version_suffix: CI-${{github.run_number}}
-  artifacts_name: Build-${{github.run_number}}
+  version: 0.0.${{github.run_number}}
+  artifacts_name: build-${{github.run_number}}
 
 jobs:
   build:
-    name: Build and test
+    name: Build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-      - name: Setup .NET SDK
-        uses: actions/setup-dotnet@v2
-      - name: Restore dependencies
-        run: dotnet restore
-      - name: Build solution
-        run: dotnet build -c ${{env.build_configuration}} --no-restore
-      - name: Run tests
-        run: dotnet test -c ${{env.build_configuration}} --no-build
-      - name: Create NuGet packages
+      - name: Create NuGet package
         run: >-
-          dotnet pack -c ${{env.build_configuration}} -o build
-          --version-suffix ${{env.version_suffix}} --no-build
-          -p:RepositoryBranch=${{github.ref}}
-          -p:RepositoryCommit=${{github.sha}}
+          dotnet pack ./FkThat.Templates.csproj  -o ./.build -p:Version=${{env.version}}
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with:
           name: ${{env.artifacts_name}}
-          path: build/
+          path: .build/
   publish:
-    if: github.ref == 'refs/heads/develop'
     name: Publish
     needs: build
     runs-on: ubuntu-latest
