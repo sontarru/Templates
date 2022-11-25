@@ -49,7 +49,5 @@ jobs:
         uses: actions/setup-dotnet@v3
         with:
           source-url: https://nuget.pkg.github.com/fkthat/index.json
-        env:
-          NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
       - name: Publish NuGet packages
-        run: dotnet nuget push build/*.nupkg
+        run: dotnet nuget push build/*.nupkg -k ${{secrets.GITHUB_TOKEN}}
