@@ -1,24 +1,33 @@
+using System.CommandLine;
+
 namespace FkThat.Templates.ConsoleApp;
 
-/// <summary>
-/// Main application class.
-/// </summary>
+/// <inheritdoc/>
 public class Application : IApplication
 {
+    private readonly RootCommand _helloCmd;
+
     /// <summary>
     /// Initializes a new instance of the <see cref="Application"/> class.
     /// </summary>
-    public Application()
+    public Application(ICommandFactory commandFactory)
     {
+        Option<string> whoOption = new(new[] { "--who", "-w" }, () => "World");
+
+        _helloCmd = new RootCommand();
+        _helloCmd.AddOption(whoOption);
+
+        _helloCmd.SetHandler(async (context) => {
+            var cmd = commandFactory.CreateCommand<ICommand<string>, HelloCmd>();
+            var who = context.ParseResult.GetValueForOption(whoOption) ?? "";
+            var cancellationToken = context.GetCancellationToken();
+            await cmd.ExecAsync(who, cancellationToken);
+        });
     }
 
-    /// <summary>
-    /// Runs the application asynchronously.
-    /// </summary>
-    /// <param name="args">The CLI arguments.</param>
-    /// <param name="cancellationToken">The cancellation token.</param>
-    public async Task RunAsync(IEnumerable<string> args, CancellationToken cancellationToken)
+    /// <inheritdoc/>
+    public async Task RunAsync(string[] args)
     {
-        await Console.Out.WriteLineAsync("Hello, world!").ConfigureAwait(false);
+        await _helloCmd.InvokeAsync(args);
     }
 }

@@ -6,9 +6,8 @@ namespace FkThat.Templates.ConsoleApp;
 public interface IApplication
 {
     /// <summary>
-    /// Runs the application asynchronously.
+    /// Runs the application.
     /// </summary>
     /// <param name="args">The CLI arguments.</param>
-    /// <param name="cancellationToken">The cancellation token.</param>
-    Task RunAsync(IEnumerable<string> args, CancellationToken cancellationToken);
+    Task RunAsync(string[] args);
 }
