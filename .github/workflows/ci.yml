@@ -1,57 +1,46 @@
 name: CI
 
 on:
+  workflow_dispatch:
+
   push:
     branches:
       - develop
-    paths-ignore:
-      - "LICENSE"
-      - "README.md"
-      - "*.ps1"
-      - "Directory.Build.props"
-
-  # allow manual start
-  workflow_dispatch:
-
-env:
-  version: 0.0.${{github.run_number}}
-  artifacts_name: build-${{github.run_number}}
 
 jobs:
-  build:
-    name: Build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v3
-      - name: Create NuGet package
-        run: >-
-          dotnet pack ./FkThat.Templates.csproj  -o ./.build -p:Version=${{env.version}}
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v3
-        with:
-          name: ${{env.artifacts_name}}
-          path: .build/
-  publish:
-    name: Publish
-    needs: build
+  ci:
+    name: Pack and push
     runs-on: ubuntu-latest
     permissions:
       packages: write
       contents: read
+
     steps:
-      - name: Download artifacts
-        uses: actions/download-artifact@v3
-        with:
-          name: ${{env.artifacts_name}}
-          path: build/
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
-        with:
-          source-url: https://nuget.pkg.github.com/fkthat/index.json
+
+      - name: Setup NuGet
+        run: >-
+          dotnet nuget add source https://nuget.pkg.github.com/fkthat/index.json
+          -n github -u fkthat -p $NUGET_TOKEN --store-password-in-clear-text
         env:
-          NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
-      - name: Push NuGet packages
-        run: dotnet nuget push build/*.nupkg
+          NUGET_TOKEN: ${{secrets.NUGET_TOKEN}}
+
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Pack
+        run: dotnet pack FkThat.Templates.csproj
+
+      - name: Parse tag name
+        if: >-
+          github.event_name == 'workflow_dispatch' &&
+          github.ref_type == 'tag'
+        run: |
+          if [[ $GITHUB_REF_NAME =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo push=yes >> $GITHUB_ENV
+          fi
+
+      - name: Push
+        if: env.push == 'yes'
+        run: dotnet nuget push **/*.nupkg -s github
