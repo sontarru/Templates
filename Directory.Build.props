@@ -1,9 +1,9 @@
+<!-- Keep it here to be able to run 'dotnet build/etc' against the templates. -->
 <Project>
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
-    <IsPackable>false</IsPackable>
     <Nullable>enable</Nullable>
-    <NoWarn>CA1062;$(NoWarn)</NoWarn>
     <ImplicitUsings>enable</ImplicitUsings>
+    <IsPackable>false</IsPackable>
   </PropertyGroup>
 </Project>

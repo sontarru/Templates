@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FkThat.Templates.Worker", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FkThat.Templates.ConsoleApp", "templates\FkThat.Templates.ConsoleApp\FkThat.Templates.ConsoleApp.csproj", "{78239A05-DEF8-4E1B-9E63-3787657D4073}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FkThat.Templates", "templates\FkThat.Templates\FkThat.Templates.csproj", "{5685271C-6B09-4396-883B-AC764A27D919}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +43,10 @@ Global
 		{78239A05-DEF8-4E1B-9E63-3787657D4073}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{78239A05-DEF8-4E1B-9E63-3787657D4073}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{78239A05-DEF8-4E1B-9E63-3787657D4073}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5685271C-6B09-4396-883B-AC764A27D919}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5685271C-6B09-4396-883B-AC764A27D919}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5685271C-6B09-4396-883B-AC764A27D919}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5685271C-6B09-4396-883B-AC764A27D919}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -54,5 +60,6 @@ Global
 		{49580BA7-AC1E-4ACA-980E-667911ECF11F} = {B2702073-5196-479B-A929-B3ABF8B40FB8}
 		{D5D7DBFD-A6F5-4E86-A58E-F68B66F374FE} = {B2702073-5196-479B-A929-B3ABF8B40FB8}
 		{78239A05-DEF8-4E1B-9E63-3787657D4073} = {B2702073-5196-479B-A929-B3ABF8B40FB8}
+		{5685271C-6B09-4396-883B-AC764A27D919} = {B2702073-5196-479B-A929-B3ABF8B40FB8}
 	EndGlobalSection
 EndGlobal

@@ -1,7 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Version>1.0.1</Version>
-    <TargetFramework>net7.0</TargetFramework>
+    <Version>1.1.0</Version>
     <IsPackable>true</IsPackable>
     <PackageType>Template</PackageType>
     <Authors>FkThat</Authors>
@@ -23,12 +22,11 @@
     <SuppressDependenciesWhenPacking>true</SuppressDependenciesWhenPacking>
   </PropertyGroup>
   <ItemGroup>
-    <Content Include="templates\**\*" Exclude="**\bin\**;**\obj\**"/>
+    <Content Include="..\FkThat.Templates.*\**\*" Exclude="**\bin\**;**\obj\**"/>
     <Compile Remove="**\*"/>
   </ItemGroup>
-  <!-- Release notes from the file -->
   <Target Name="PreparePackageReleaseNotesFromFile" BeforeTargets="GenerateNuspec">
-    <ReadLinesFromFile File="$(MSBuildThisFileDirectory)RELEASE-NOTES" >
+    <ReadLinesFromFile File="RELEASE-NOTES" >
       <Output TaskParameter="Lines" ItemName="ReleaseNoteLines"/>
     </ReadLinesFromFile>
   </Target>

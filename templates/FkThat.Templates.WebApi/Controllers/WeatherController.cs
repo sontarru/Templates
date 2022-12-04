@@ -1,3 +1,5 @@
+#pragma warning disable CS3021
+
 using System.Security.Cryptography;
 using FkThat.Templates.WebApi.Models;
 

@@ -1,17 +1,10 @@
 <Project>
   <PropertyGroup>
     <VersionPrefix>0.0.0</VersionPrefix>
-  </PropertyGroup>
-  <!-- Build properties -->
-  <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
     <IsPackable>false</IsPackable>
     <Nullable>enable</Nullable>
-    <NoWarn>CA1062;$(NoWarn)</NoWarn>
     <ImplicitUsings>enable</ImplicitUsings>
-  </PropertyGroup>
-  <!-- Assembly and package properties -->
-  <PropertyGroup>
     <Authors>FkThat</Authors>
     <Company>FkThat</Company>
     <Copyright>© FkThat, 2022</Copyright>
@@ -29,9 +22,9 @@
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
-  <!-- Release notes from the file -->
-  <Target Name="PreparePackageReleaseNotesFromFile" BeforeTargets="GenerateNuspec">
-    <ReadLinesFromFile File="$(MSBuildThisFileDirectory)RELEASE-NOTES" >
+  <Target Name="PreparePackageReleaseNotesFromFile" BeforeTargets="GenerateNuspec"
+    Condition="Exists('RELEASE-NOTES')">
+    <ReadLinesFromFile File="RELEASE-NOTES" >
       <Output TaskParameter="Lines" ItemName="ReleaseNoteLines"/>
     </ReadLinesFromFile>
   </Target>
