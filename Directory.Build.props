@@ -1,9 +1,44 @@
-<!-- Keep it here to be able to run 'dotnet build/etc' against the templates. -->
 <Project>
+  <!-- Version -->
+  <PropertyGroup>
+    <VersionPrefix>1.2.0</VersionPrefix>
+  </PropertyGroup>
+  <!-- Build properties -->
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <IsPackable>false</IsPackable>
   </PropertyGroup>
+  <!-- Package properties -->
+  <PropertyGroup>
+    <Authors>FkThat</Authors>
+    <Company>FkThat</Company>
+    <Copyright>© FkThat, 2022</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/fkthat/Templates</PackageProjectUrl>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/fkthat/Templates</RepositoryUrl>
+    <RepositoryBranch>$(RepositoryBranch)</RepositoryBranch>
+    <RepositoryCommit>$(RepositoryCommit)</RepositoryCommit>
+    <PackageTags>template;C#</PackageTags>
+    <Description>Custom .NET SDK templates.</Description>
+    <PackageReleaseNotes>@(ReleaseNoteLines, '%0a')</PackageReleaseNotes>
+  </PropertyGroup>
+  <!-- Template package properties -->
+  <PropertyGroup>
+    <PackageType>Template</PackageType>
+    <NoDefaultExcludes>true</NoDefaultExcludes>
+    <IncludeContentInPack>true</IncludeContentInPack>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <ContentTargetFolders>content</ContentTargetFolders>
+    <SuppressDependenciesWhenPacking>true</SuppressDependenciesWhenPacking>
+  </PropertyGroup>
+  <!-- Read release notes from the file -->
+  <Target Name="PreparePackageReleaseNotesFromFile" BeforeTargets="GenerateNuspec"
+    Condition="Exists('$(MSBuildThisFileDirectory)\RELEASE-NOTES')">
+    <ReadLinesFromFile File="$(MSBuildThisFileDirectory)\RELEASE-NOTES" >
+      <Output TaskParameter="Lines" ItemName="ReleaseNotes"/>
+    </ReadLinesFromFile>
+  </Target>
 </Project>

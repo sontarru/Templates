@@ -1,14 +1,6 @@
 <Project>
   <Import Project="$([MSBuild]::GetPathOfFileAbove('Directory.Build.props', '$(MSBuildThisFileDirectory)../'))" />
-  <PropertyGroup>
-    <TargetProjectName>$([System.Text.RegularExpressions.Regex]::Replace('$(ProjectName)', '^.*Tests\.', ''))</TargetProjectName>
-  </PropertyGroup>
-  <PropertyGroup>
-    <CollectCoverage>true</CollectCoverage>
-    <CoverletOutputFormat>cobertura</CoverletOutputFormat>
-    <CoverletOutput>TestResults/</CoverletOutput>
-    <Include>[$(TargetProjectName)]*</Include>
-  </PropertyGroup>
+  <!-- Default package reference -->
   <ItemGroup>
     <PackageReference Include="coverlet.msbuild">
       <PrivateAssets>all</PrivateAssets>
@@ -23,6 +15,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
   </ItemGroup>
+  <!-- Default usings -->
   <ItemGroup>
     <Using Include="FakeItEasy" />
     <Using Include="FluentAssertions" />

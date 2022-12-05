@@ -1,10 +1,1 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-  <!--#if(HasTargetProject)-->
-  <PropertyGroup>
-    <RootNamespace>__TargetProjectName</RootNamespace>
-  </PropertyGroup>
-  <ItemGroup Condition="Exists('..\..\src\__TargetProjectName\__TargetProjectName.csproj')">
-    <ProjectReference Include="..\..\src\__TargetProjectName\__TargetProjectName.csproj" />
-  </ItemGroup>
-  <!--#endif-->
-</Project>
+﻿<Project Sdk="Microsoft.NET.Sdk"/>
