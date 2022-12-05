@@ -9,6 +9,7 @@ on:
       - main
     tags:
       - v*.*.*
+      - v*.*.*-*
 jobs:
   ci:
     name: CI
@@ -27,14 +28,24 @@ jobs:
           NUGET_PAT: ${{secrets.NUGET_PAT}}
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Pack
-        run: dotnet pack templates/FkThat.Templates/FkThat.Templates.csproj
       - name: Parse tag name
         if: github.ref_type == 'tag'
         run: |
-          if [[ $GITHUB_REF_NAME =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
-            echo push=yes >> $GITHUB_ENV
+          if [[ $GITHUB_REF_NAME =~ ^v[0-9]+\.[0-9]+\.[0-9]+(-.*)?$ ]]; then
+            echo PUSH=yes >> $GITHUB_ENV
+            VERSION_SUFFIX=`echo $GITHUB_REF_NAME | sed "s/[^-]*-//"`
+            echo VERSION_SUFFIX=$VERSION_SUFFIX >> $GITHUB_ENV
           fi
+      - name: Pack (preview)
+        if: env.version_suffix != ''
+        run: dotnet pack templates/FkThat.Templates --version-suffix $VERSION_SUFFIX
+        env:
+          VERSION_SUFFIX: ${{env.VERSION_SUFFIX}}
+
+      - name: Pack (release)
+        if: env.version_suffix == ''
+        run: dotnet pack templates/FkThat.Templates
+
       - name: Push
-        if: env.push == 'yes'
-        run: dotnet nuget push templates/FkThat.Templates/**/*.nupkg -s github
+        if: env.PUSH == 'yes'
+        run: dotnet nuget push **/*.nupkg -s github

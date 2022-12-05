@@ -10,26 +10,6 @@
     "type": "project"
   },
   "sourceName": "FkThat.Templates.XUnit",
-  "symbols": {
-    "TargetProjectName": {
-      "description": "The name of the project to test.",
-      "type": "derived",
-      "replaces": "__TargetProjectName",
-      "valueSource": "name",
-      "valueTransform": "GetTargetProjectName"
-    },
-    "HasTargetProject": {
-      "type": "computed",
-      "value": "(!(TargetProjectName == name))"
-    }
-  },
-  "forms": {
-    "GetTargetProjectName": {
-      "identifier": "replace",
-      "pattern": "^.*Tests\\.",
-      "replacement": ""
-    }
-  },
   "primaryOutputs": [
     {
       "path": "FkThat.Templates.XUnit.csproj"
