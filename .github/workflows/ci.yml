@@ -1,46 +1,40 @@
 name: CI
-
 on:
   workflow_dispatch:
-
+  pull_request:
+    branches:
+      - main
   push:
     branches:
-      - develop
-
+      - main
+    tags:
+      - v*.*.*
 jobs:
   ci:
-    name: Pack and push
+    name: CI
     runs-on: ubuntu-latest
     permissions:
       packages: write
       contents: read
-
     steps:
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
-
       - name: Setup NuGet
         run: >-
           dotnet nuget add source https://nuget.pkg.github.com/fkthat/index.json
-          -n github -u fkthat -p $NUGET_TOKEN --store-password-in-clear-text
+          -n github -u fkthat -p $NUGET_PAT --store-password-in-clear-text
         env:
-          NUGET_TOKEN: ${{secrets.NUGET_TOKEN}}
-
+          NUGET_PAT: ${{secrets.NUGET_PAT}}
       - name: Checkout
         uses: actions/checkout@v3
-
       - name: Pack
         run: dotnet pack templates/FkThat.Templates/FkThat.Templates.csproj
-
       - name: Parse tag name
-        if: >-
-          github.event_name == 'workflow_dispatch' &&
-          github.ref_type == 'tag'
+        if: github.ref_type == 'tag'
         run: |
           if [[ $GITHUB_REF_NAME =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
             echo push=yes >> $GITHUB_ENV
           fi
-
       - name: Push
         if: env.push == 'yes'
-        run: dotnet nuget push **/*.nupkg -s github
+        run: dotnet nuget push templates/FkThat.Templates/**/*.nupkg -s github
