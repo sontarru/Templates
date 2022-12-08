@@ -1,8 +1,4 @@
 <Project>
-  <!-- Version -->
-  <PropertyGroup>
-    <VersionPrefix>1.2.0</VersionPrefix>
-  </PropertyGroup>
   <!-- Build properties -->
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
