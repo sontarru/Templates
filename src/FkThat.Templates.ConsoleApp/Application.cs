@@ -17,17 +17,18 @@ public class Application : IApplication
         _helloCmd = new RootCommand();
         _helloCmd.AddOption(whoOption);
 
-        _helloCmd.SetHandler(async (context) => {
+        _helloCmd.SetHandler(async (context) =>
+        {
             var cmd = commandFactory.CreateCommand<ICommand<string>, HelloCmd>();
             var who = context.ParseResult.GetValueForOption(whoOption) ?? "";
             var cancellationToken = context.GetCancellationToken();
-            await cmd.ExecAsync(who, cancellationToken);
+            await cmd.ExecAsync(who, cancellationToken).ConfigureAwait(false);
         });
     }
 
     /// <inheritdoc/>
     public async Task RunAsync(string[] args)
     {
-        await _helloCmd.InvokeAsync(args);
+        await _helloCmd.InvokeAsync(args).ConfigureAwait(false);
     }
 }

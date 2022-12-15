@@ -1,9 +1,0 @@
-<Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <IsPackable>true</IsPackable>
-  </PropertyGroup>
-  <ItemGroup>
-    <Content Include="..\FkThat.Templates.*\**\*" Exclude="**\bin\**;**\obj\**"/>
-    <Compile Remove="**\*"/>
-  </ItemGroup>
-</Project>

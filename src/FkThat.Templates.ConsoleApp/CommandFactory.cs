@@ -17,5 +17,6 @@ public class CommandFactory : ICommandFactory
     }
 
     /// <inheritdoc/>
-    public I CreateCommand<I, T>() where T : class, I => (I)_sp.GetRequiredService<T>();
+    public TCommandInterface CreateCommand<TCommandInterface, TCommand>()
+        where TCommand : class, TCommandInterface => _sp.GetRequiredService<TCommand>();
 }

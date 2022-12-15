@@ -1,0 +1,7 @@
+<Project>
+  <PropertyGroup>
+    <RepositoryName>Templates</RepositoryName>
+    <PackageTags>dotnet CLI;templates;C#</PackageTags>
+    <Description>Custom .NET SDK templates.</Description>
+  </PropertyGroup>
+</Project>
