@@ -1,17 +1,17 @@
 namespace FkThat.Templates.Worker;
 
 /// <summary>
-/// Sample background worker.
+/// Sample background service.
 /// </summary>
-public class Worker : BackgroundService
+public class HelloService : BackgroundService
 {
-    private readonly ILogger<Worker> _logger;
+    private readonly ILogger<HelloService> _logger;
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="Worker"/> class.
+    /// Initializes a new instance of the <see cref="HelloService"/> class.
     /// </summary>
     /// <param name="logger">The logger.</param>
-    public Worker(ILogger<Worker> logger)
+    public HelloService(ILogger<HelloService> logger)
     {
         _logger = logger;
     }
@@ -28,8 +28,8 @@ public class Worker : BackgroundService
         while (true)
         {
             stoppingToken.ThrowIfCancellationRequested();
-            _logger.LogInformation("The worker is running.");
-            await Task.Delay(TimeSpan.FromSeconds(3), stoppingToken);
+            _logger.HelloWorld();
+            await Task.Delay(TimeSpan.FromSeconds(3), stoppingToken).ConfigureAwait(false);
         }
     }
 }

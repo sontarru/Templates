@@ -1,38 +1,35 @@
-<!-- Stuff common for the solution -->
 <Project>
-  <!-- Version -->
+  <Import Project="$(MSBuildThisFileDirectory)\Solution.props"/>
+
   <PropertyGroup>
-    <VersionPrefix>0.0.0</VersionPrefix>
+    <ProjectName>$(MSBuildProjectName)</ProjectName>
   </PropertyGroup>
+
   <!-- Build properties -->
   <PropertyGroup>
+    <VersionPrefix>0.0.0</VersionPrefix>
     <TargetFramework>net7.0</TargetFramework>
-    <IsPackable>false</IsPackable>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <IsPackable>false</IsPackable>
   </PropertyGroup>
-  <!-- Assembly properties -->
+
+  <!-- Assembly and package properties -->
   <PropertyGroup>
-    <Company>FkThat</Company>
-    <Copyright>© FkThat, 2022</Copyright>
     <AssemblyVersion>$(VersionPrefix).0</AssemblyVersion>
     <FileVersion>$(VersionPrefix).0</FileVersion>
-  </PropertyGroup>
-  <!-- Package properties -->
-  <PropertyGroup>
+    <Company>FkThat</Company>
     <Authors>FkThat</Authors>
-    <Description></Description>
-    <PackageTags></PackageTags>
+    <Copyright>© FkThat, 2022</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageProjectUrl>https://github.com/fkthat/FkThat.Templates.Solution</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/fkthat/$(RepositoryName)</PackageProjectUrl>
     <RepositoryType>git</RepositoryType>
-    <RepositoryUrl>https://github.com/fkthat/FkThat.Templates.Solution</RepositoryUrl>
+    <RepositoryUrl>https://github.com/fkthat/$(RepositoryName)</RepositoryUrl>
     <RepositoryBranch>$(RepositoryBranch)</RepositoryBranch>
     <RepositoryCommit>$(RepositoryCommit)</RepositoryCommit>
-    <PackageReleaseNotes>@(ReleaseNotes, '%0a')</PackageReleaseNotes>
-    <IncludeSymbols>true</IncludeSymbols>
-    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <PackageReleaseNotes>@(ReleaseNoteLines, '%0a')</PackageReleaseNotes>
   </PropertyGroup>
+
   <!-- Read release notes from the file -->
   <Target Name="PreparePackageReleaseNotesFromFile" BeforeTargets="GenerateNuspec"
     Condition="Exists('$(MSBuildThisFileDirectory)\RELEASE-NOTES')">
@@ -40,4 +37,5 @@
       <Output TaskParameter="Lines" ItemName="ReleaseNotes"/>
     </ReadLinesFromFile>
   </Target>
+
 </Project>

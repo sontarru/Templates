@@ -1,4 +1,5 @@
 using FkThat.Templates.ConsoleApp;
+
 using Microsoft.Extensions.DependencyInjection;
 
 ServiceCollection services = new();
@@ -9,4 +10,4 @@ services.AddTransient<HelloCmd>();
 
 using var scope = services.BuildServiceProvider().CreateScope();
 var app = scope.ServiceProvider.GetRequiredService<IApplication>();
-await app.RunAsync(args);
+await app.RunAsync(args).ConfigureAwait(false);
