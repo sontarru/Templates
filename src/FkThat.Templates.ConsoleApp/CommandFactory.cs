@@ -10,10 +10,10 @@ public class CommandFactory : ICommandFactory
     /// <summary>
     /// Initialize a new instance of <c cref="CommandFactory"/>.
     /// </summary>
-    /// <param name="sp">The service provider.</param>
-    public CommandFactory(IServiceProvider sp)
+    /// <param name="serviceProvider">The service provider.</param>
+    public CommandFactory(IServiceProvider serviceProvider)
     {
-        _sp = sp;
+        _sp = serviceProvider ?? throw new ArgumentNullException(nameof(serviceProvider));
     }
 
     /// <inheritdoc/>

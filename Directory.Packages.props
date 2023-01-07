@@ -19,5 +19,6 @@
     <PackageVersion Include="coverlet.msbuild" Version="3.1.2"/>
     <PackageVersion Include="xunit" Version="2.4.1" />
     <PackageVersion Include="xunit.runner.visualstudio" Version="2.4.5"/>
+    <PackageVersion Include="FkThat.Gists" Version="0.0.1"/>
   </ItemGroup>
 </Project>
