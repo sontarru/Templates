@@ -21,6 +21,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{C2F4286B-6
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests.FkThat.Templates.ClassLib", "test\UnitTests.FkThat.Templates.ClassLib\UnitTests.FkThat.Templates.ClassLib.csproj", "{396992A8-5828-4CD8-B43D-869423D9A871}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests.FkThat.Templates.ConsoleApp", "test\UnitTests.FkThat.Templates.ConsoleApp\UnitTests.FkThat.Templates.ConsoleApp.csproj", "{1B9AD2D2-2262-446D-81F7-1A2A39A87366}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,10 @@ Global
 		{396992A8-5828-4CD8-B43D-869423D9A871}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{396992A8-5828-4CD8-B43D-869423D9A871}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{396992A8-5828-4CD8-B43D-869423D9A871}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B9AD2D2-2262-446D-81F7-1A2A39A87366}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B9AD2D2-2262-446D-81F7-1A2A39A87366}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B9AD2D2-2262-446D-81F7-1A2A39A87366}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B9AD2D2-2262-446D-81F7-1A2A39A87366}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -70,5 +76,6 @@ Global
 		{8A664F3F-8EAA-49EB-BB8F-5B2D0FB5EF22} = {3A48FAAD-28B8-4D28-A97C-6A96F5196053}
 		{3EC60A5A-AADE-49CF-A6F4-D7AAED5F243B} = {3A48FAAD-28B8-4D28-A97C-6A96F5196053}
 		{396992A8-5828-4CD8-B43D-869423D9A871} = {C2F4286B-6CC3-469B-9063-52DA8DCCD8A7}
+		{1B9AD2D2-2262-446D-81F7-1A2A39A87366} = {C2F4286B-6CC3-469B-9063-52DA8DCCD8A7}
 	EndGlobalSection
 EndGlobal
