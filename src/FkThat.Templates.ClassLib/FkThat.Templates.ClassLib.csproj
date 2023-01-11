@@ -1,6 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
+  <!--#if(packable)-->
   <PropertyGroup>
-    <!-- Change to true to make the project packable -->
-    <IsPackable>false</IsPackable>
+    <IsPackable>true</IsPackable>
   </PropertyGroup>
+  <!--#endif-->
 </Project>
