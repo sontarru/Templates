@@ -1,29 +1,28 @@
 <Project>
+  <Import Project="$(MSBuildThisFileDirectory)Version.props"/>
   <PropertyGroup>
-    <!-- Version -->
-    <VersionPrefix>0.0.1</VersionPrefix>
     <!-- Build -->
     <TargetFramework>net7.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <!-- Assembly -->
-    <Product>Templates</Product>
+    <Product>FkThat.Templates.Solution</Product>
     <AssemblyVersion>$(VersionPrefix)</AssemblyVersion>
     <FileVersion>$(VersionPrefix)</FileVersion>
     <InformationalVersion>$(VersionPrefix)</InformationalVersion>
     <Company>FkThat</Company>
     <Copyright>© FkThat, 2022</Copyright>
-    <Description>Custom .NET CLI templates.</Description>
+    <Description>FkThat.Templates.Solution</Description>
     <!-- Package -->
     <IsPackable>false</IsPackable>
     <PackRelease>true</PackRelease>
     <Authors>FkThat</Authors>
     <RepositoryType>git</RepositoryType>
-    <RepositoryUrl>https://github.com/fkthat/Templates</RepositoryUrl>
+    <RepositoryUrl>https://github.com/fkthat/FkThat.Templates.Solution</RepositoryUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageProjectUrl>https://github.com/fkthat/Templates</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/fkthat/FkThat.Templates.Solution</PackageProjectUrl>
     <PackageReleaseNotes>@(ReleaseNotes, '%0a')</PackageReleaseNotes>
-    <PackageTags>cli;templates</PackageTags>
+    <PackageTags></PackageTags>
   </PropertyGroup>
   <!-- Read RELEASE-NOTES -->
   <Target Name="PreparePackageReleaseNotesFromFile" BeforeTargets="GenerateNuspec"

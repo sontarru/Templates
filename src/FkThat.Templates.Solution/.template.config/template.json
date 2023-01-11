@@ -23,6 +23,7 @@
         "exclude": [
           "README.md",
           "RELEASE-NOTES",
+          "Version.props",
           "*.sln"
         ]
       }
