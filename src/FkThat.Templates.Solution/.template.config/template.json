@@ -6,5 +6,26 @@
   "name": "FkThat solution",
   "shortName": "ft-sln",
   "tags": { "language": "C#", "type": "project" },
-  "sourceName": "FkThat.Templates.Solution"
+  "sourceName": "FkThat.Templates.Solution",
+  "symbols": {
+    "update": {
+      "type": "parameter",
+      "description": "Update an existing solution.",
+      "isRequired": false,
+      "datatype": "bool",
+      "defaultValue": "false"
+    }
+  },
+  "sources": [{
+    "modifiers": [
+      {
+        "condition": "(update)",
+        "exclude": [
+          "README.md",
+          "RELEASE-NOTES",
+          "*.sln"
+        ]
+      }
+    ]
+  }]
 }
