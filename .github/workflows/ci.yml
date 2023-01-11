@@ -1,14 +1,18 @@
 name: CI
 on:
   workflow_dispatch:
+    inputs:
+      push:
+        description: Push NuGet.
+        required: false
+        type: boolean
+        default: false
   pull_request:
     branches:
       - main
   push:
     branches:
       - main
-env:
-  VERSION_PREFIX: 0.0.0
 jobs:
   ci:
     name: CI
@@ -17,19 +21,10 @@ jobs:
       packages: write
       contents: read
     steps:
-      - name: Setup environment variables
-        run: |
-          if [[ $GITHUB_EVENT_NAME == 'workflow_dispatch' && \
-                $GITHUB_REF_TYPE == 'tag' && \
-                $GITHUB_REF_NAME =~ ^v[0-9]+\.[0-9]+\.[0-9]+(-.*)?$ ]]; then
-            echo VERSION_PREFIX=`echo $GITHUB_REF_NAME | sed "s/^v//;s/-.*//"` >> $GITHUB_ENV
-            echo VERSION_SUFFIX=`echo $GITHUB_REF_NAME | sed "s/[^-]*//;s/^-//"` >> $GITHUB_ENV
-            echo PUBLISH=yes >> $GITHUB_ENV
-          fi
       - name: Setup .NET SDK
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: 7.0.101
+          dotnet-version: 7.0.102
       - name: Setup NuGet
         run: >-
           dotnet nuget add source https://nuget.pkg.github.com/fkthat/index.json
@@ -41,16 +36,11 @@ jobs:
       - name: Restore
         run: dotnet restore
       - name: Build
-        run: dotnet build -c Release --no-restore -p:VersionPrefix=$VERSION_PREFIX
-        env:
-          VERSION_PREFIX: ${{env.VERSION_PREFIX}}
+        run: dotnet build -c Release --no-restore
       - name: Test
         run: dotnet test -c Release --no-build
       - name: Pack
-        run: dotnet pack -c Release -p:VersionPrefix=$VERSION_PREFIX -p:VersionSuffix=$VERSION_SUFFIX
-        env:
-          VERSION_PREFIX: ${{env.VERSION_PREFIX}}
-          VERSION_SUFFIX: ${{env.VERSION_SUFFIX}}
+        run: dotnet pack -c Release --no-build
       - name: Push
-        if: env.PUBLISH == 'yes'
+        if: inputs.push
         run: dotnet nuget push **/*.nupkg -s github
