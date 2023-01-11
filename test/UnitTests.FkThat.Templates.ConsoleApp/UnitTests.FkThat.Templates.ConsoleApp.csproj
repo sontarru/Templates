@@ -1,6 +1,5 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <!-- Code coverage settings -->
-    <Exclude>[*]Program</Exclude>
-  </PropertyGroup>
+  <Target Name="ShowProps">
+    <Message Text="TargetProjectName = $(TargetProjectName)"/>
+  </Target>
 </Project>

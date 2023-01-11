@@ -1,36 +1,35 @@
 <Project>
-
-  <!-- Build properties -->
   <PropertyGroup>
+    <!-- Version -->
+    <VersionPrefix>0.0.1</VersionPrefix>
+    <!-- Build -->
     <TargetFramework>net7.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <IsPackable>false</IsPackable>
-  </PropertyGroup>
-
-  <!-- Assembly and package properties -->
-  <PropertyGroup>
-    <VersionPrefix>0.0.0</VersionPrefix>
-    <AssemblyVersion>$(VersionPrefix).0</AssemblyVersion>
-    <FileVersion>$(VersionPrefix).0</FileVersion>
+    <!-- Assembly -->
+    <Product>Templates</Product>
+    <AssemblyVersion>$(VersionPrefix)</AssemblyVersion>
+    <FileVersion>$(VersionPrefix)</FileVersion>
+    <InformationalVersion>$(VersionPrefix)</InformationalVersion>
     <Company>FkThat</Company>
-    <Authors>FkThat</Authors>
     <Copyright>© FkThat, 2022</Copyright>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Description>Custom .NET CLI templates.</Description>
+    <!-- Package -->
+    <IsPackable>false</IsPackable>
+    <PackRelease>true</PackRelease>
+    <Authors>FkThat</Authors>
     <RepositoryType>git</RepositoryType>
-    <PackageProjectUrl>https://github.com/fkthat/FkThat.Templates.Solution</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/fkthat/FkThat.Templates.Solution</RepositoryUrl>
-    <PackageReleaseNotes>@(ReleaseNoteLines, '%0a')</PackageReleaseNotes>
-    <PackageTags></PackageTags>
-    <Description>FkThat.Templates.Solution</Description>
+    <RepositoryUrl>https://github.com/fkthat/Templates</RepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/fkthat/Templates</PackageProjectUrl>
+    <PackageReleaseNotes>@(ReleaseNotes, '%0a')</PackageReleaseNotes>
+    <PackageTags>cli;templates</PackageTags>
   </PropertyGroup>
-
-  <!-- Read release notes from the file -->
+  <!-- Read RELEASE-NOTES -->
   <Target Name="PreparePackageReleaseNotesFromFile" BeforeTargets="GenerateNuspec"
     Condition="Exists('$(MSBuildThisFileDirectory)RELEASE-NOTES')">
     <ReadLinesFromFile File="$(MSBuildThisFileDirectory)RELEASE-NOTES" >
       <Output TaskParameter="Lines" ItemName="ReleaseNotes"/>
     </ReadLinesFromFile>
   </Target>
-
 </Project>
