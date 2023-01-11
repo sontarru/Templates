@@ -15,6 +15,7 @@
   "symbols": {
     "packable": {
       "type": "parameter",
+      "description": "Set IsPackable to true.",
       "isRequired": false,
       "datatype": "bool",
       "defaultValue": "false"
