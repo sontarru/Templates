@@ -1,19 +1,37 @@
 <Project>
   <PropertyGroup>
-    <!-- Build -->
+    <VersionPrefix>0.0.1</VersionPrefix>
+  </PropertyGroup>
+  <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <!-- Assembly -->
+    <IsPackable>false</IsPackable>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    <AnalysisLevel>latest-All</AnalysisLevel>
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+    <IsTransformWebConfigDisabled>true</IsTransformWebConfigDisabled>
+    <WarnOnPackingNonPackableProject>false</WarnOnPackingNonPackableProject>
+  </PropertyGroup>
+  <PropertyGroup>
     <Product>FkThat.Templates.Solution</Product>
     <Company>FkThat</Company>
-    <Copyright>© FkThat, 2022</Copyright>
-    <!-- Package -->
-    <IsPackable>false</IsPackable>
+    <Copyright>© FkThat, 2023</Copyright>
     <Authors>FkThat</Authors>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/fkthat/FkThat.Templates.Solution</RepositoryUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/fkthat/FkThat.Templates.Solution</PackageProjectUrl>
+    <Description></Description>
+    <PackageTags></PackageTags>
+    <PackageReleaseNotes>@(ReleaseNotes, '%0a')</PackageReleaseNotes>
   </PropertyGroup>
-</Project>
+  <Target Name="PreparePackageReleaseNotesFromFile" BeforeTargets="GenerateNuspec"
+    Condition="Exists('$(MSBuildProjectDir)RELEASE-NOTES')">
+    <ReadLinesFromFile File="$(MSBuildProjectDir)RELEASE-NOTES" >
+      <Output TaskParameter="Lines" ItemName="ReleaseNotes"/>
+    </ReadLinesFromFile>
+  </Target>
+<PropertyGroup>

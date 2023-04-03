@@ -46,5 +46,5 @@ app.Run();
 ///</summary>
 [SuppressMessage("Design", "CA1050:Declare types in namespaces", Justification =
     "This is added just to make the Program class public.")]
-public partial class Program
+public sealed partial class Program
 { }

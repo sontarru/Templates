@@ -10,3 +10,6 @@ builder.UseSerilog((context, configuration) =>
 builder.ConfigureServices(services => services.AddHostedService<HelloWorker>());
 
 await builder.Build().RunAsync().ConfigureAwait(false);
+
+// https://github.com/dotnet/roslyn-analyzers/issues/6141
+sealed partial class Program {}

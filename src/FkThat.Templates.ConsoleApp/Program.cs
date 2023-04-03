@@ -1,13 +1,5 @@
-using FkThat.Templates.ConsoleApp;
+// suppress CA1303
+System.Console.WriteLine($"Hello, World{(char)33}");
 
-using Microsoft.Extensions.DependencyInjection;
-
-ServiceCollection services = new();
-
-services.AddTransient<IApplication, Application>();
-services.AddTransient<ICommandFactory, CommandFactory>();
-services.AddTransient<HelloCmd>();
-
-using var scope = services.BuildServiceProvider().CreateScope();
-var app = scope.ServiceProvider.GetRequiredService<IApplication>();
-await app.RunAsync(args).ConfigureAwait(false);
+// https://github.com/dotnet/roslyn-analyzers/issues/6141
+sealed partial class Program {}

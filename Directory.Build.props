@@ -1,20 +1,14 @@
 <Project>
   <PropertyGroup>
-    <!-- Build -->
     <TargetFramework>net7.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <!-- Assembly -->
-    <Product>Templates</Product>
-    <Company>FkThat</Company>
-    <Copyright>© FkThat, 2022</Copyright>
-    <!-- Package -->
     <IsPackable>false</IsPackable>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    <AnalysisLevel>latest-All</AnalysisLevel>
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
     <WarnOnPackingNonPackableProject>false</WarnOnPackingNonPackableProject>
-    <Authors>FkThat</Authors>
-    <RepositoryType>git</RepositoryType>
-    <RepositoryUrl>https://github.com/fkthat/Templates</RepositoryUrl>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageProjectUrl>https://github.com/fkthat/Templates</PackageProjectUrl>
   </PropertyGroup>
 </Project>
