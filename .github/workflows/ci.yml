@@ -34,9 +34,8 @@ jobs:
         run: dotnet build --no-restore
       - name: Pack
         run: dotnet pack --no-build
-
-#      - name: Push
-#        if: >-
-#          github.event_name == 'push' &&
-#          github.ref_name == 'main'
-#        run: dotnet nuget push **/*.nupkg -s $NUGET_SRC --skip-duplicate
+      - name: Push
+        if: >-
+          github.event_name == 'push' &&
+          github.ref_name == 'main'
+        run: dotnet nuget push **/*.nupkg -s $NUGET_SRC
