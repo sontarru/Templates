@@ -28,8 +28,12 @@ jobs:
           -u fkthat -p $REGISTRY_PAT --store-password-in-clear-text
       - name: Checkout
         uses: actions/checkout@v3
+      - name: Restore
+        run: dotnet restore
+      - name: Build
+        run: dotnet build --no-restore
       - name: Pack
-        run: dotnet pack FkThat.Templates
+        run: dotnet pack --no-build
 
 #      - name: Push
 #        if: >-
