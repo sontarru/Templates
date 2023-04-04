@@ -1,23 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <VersionPrefix>0.0.1</VersionPrefix>
-  </PropertyGroup>
-  <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
     <IsPackable>true</IsPackable>
     <NoDefaultExcludes>true</NoDefaultExcludes>
-  </PropertyGroup>
-  <PropertyGroup>
-    <Product>FkThat.Templates</Product>
-    <Company>FkThat</Company>
-    <Copyright>© FkThat, 2023</Copyright>
-    <Authors>FkThat</Authors>
-    <RepositoryType>git</RepositoryType>
-    <RepositoryUrl>https://github.com/fkthat/Templates</RepositoryUrl>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageProjectUrl>https://github.com/fkthat/Templates</PackageProjectUrl>
-    <Description>FkThat's dotnet CLI templates.</Description>
-    <PackageTags>dotnet;cli;c#;templates</PackageTags>
   </PropertyGroup>
   <ItemGroup>
     <Content Include="..\FkThat.Templates.*\**\*" Exclude="**\bin\**;**\obj\**"/>

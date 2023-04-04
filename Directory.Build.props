@@ -1,5 +1,8 @@
 <Project>
   <PropertyGroup>
+    <VersionPrefix>0.0.2</VersionPrefix>
+  </PropertyGroup>
+  <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
@@ -10,5 +13,17 @@
     <AnalysisLevel>latest-All</AnalysisLevel>
     <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
     <WarnOnPackingNonPackableProject>false</WarnOnPackingNonPackableProject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Product>FkThat.Templates</Product>
+    <Company>FkThat</Company>
+    <Copyright>© FkThat, 2023</Copyright>
+    <Authors>FkThat</Authors>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/fkthat/Templates</RepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/fkthat/Templates</PackageProjectUrl>
+    <Description>FkThat's dotnet CLI templates.</Description>
+    <PackageTags>dotnet;cli;c#;templates</PackageTags>
   </PropertyGroup>
 </Project>
