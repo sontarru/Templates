@@ -34,4 +34,4 @@
       <Output TaskParameter="Lines" ItemName="ReleaseNotes"/>
     </ReadLinesFromFile>
   </Target>
-<PropertyGroup>
+</Project>
