@@ -15,22 +15,12 @@
   "symbols": {
     "packable": {
       "type": "parameter",
-      "description": "Set IsPackable to true.",
+      "description": "The class library is packable.",
       "isRequired": false,
       "datatype": "bool",
       "defaultValue": "false"
     }
   },
-  "sources": [{
-    "modifiers": [
-      {
-        "condition": "(!packable)",
-        "exclude": [
-          "RELEASE-NOTES"
-        ]
-      }
-    ]
-  }],
   "primaryOutputs": [{
     "path": "FkThat.Templates.ClassLib.csproj"
   }],
