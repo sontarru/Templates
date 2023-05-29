@@ -7,12 +7,6 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <IsPackable>false</IsPackable>
-    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <EnableNETAnalyzers>true</EnableNETAnalyzers>
-    <AnalysisLevel>latest-All</AnalysisLevel>
-    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
-    <WarnOnPackingNonPackableProject>false</WarnOnPackingNonPackableProject>
   </PropertyGroup>
   <PropertyGroup>
     <Product>FkThat.Templates</Product>
@@ -25,5 +19,12 @@
     <PackageProjectUrl>https://github.com/fkthat/Templates</PackageProjectUrl>
     <Description>FkThat's dotnet CLI templates.</Description>
     <PackageTags>dotnet;cli;c#;templates</PackageTags>
+    <PackageReleaseNotes>@(ReleaseNotes, '%0a')</PackageReleaseNotes>
   </PropertyGroup>
+  <Target Name="PreparePackageReleaseNotesFromFile" BeforeTargets="GenerateNuspec"
+    Condition="Exists('$(MSBuildProjectDir)RELEASE-NOTES')">
+    <ReadLinesFromFile File="$(MSBuildProjectDir)RELEASE-NOTES" >
+      <Output TaskParameter="Lines" ItemName="ReleaseNotes"/>
+    </ReadLinesFromFile>
+  </Target>
 </Project>
