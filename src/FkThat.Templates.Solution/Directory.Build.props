@@ -7,13 +7,6 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <IsPackable>false</IsPackable>
-    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <EnableNETAnalyzers>true</EnableNETAnalyzers>
-    <AnalysisLevel>latest-All</AnalysisLevel>
-    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
-    <IsTransformWebConfigDisabled>true</IsTransformWebConfigDisabled>
-    <WarnOnPackingNonPackableProject>false</WarnOnPackingNonPackableProject>
   </PropertyGroup>
   <PropertyGroup>
     <Product>FkThat.Templates.Solution</Product>
@@ -24,7 +17,7 @@
     <RepositoryUrl>https://github.com/fkthat/FkThat.Templates.Solution</RepositoryUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/fkthat/FkThat.Templates.Solution</PackageProjectUrl>
-    <Description></Description>
+    <Description>FkThat.Templates.Solution</Description>
     <PackageTags></PackageTags>
     <PackageReleaseNotes>@(ReleaseNotes, '%0a')</PackageReleaseNotes>
   </PropertyGroup>
