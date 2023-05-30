@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
-  <!--#if(packable)-->
+  <!--#if(packable)
   <PropertyGroup>
     <IsPackable>true</IsPackable>
   </PropertyGroup>
-  <!--#endif-->
+  #endif-->
 </Project>
