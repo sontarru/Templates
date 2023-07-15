@@ -40,4 +40,4 @@ app.UseSwaggerUi3(configure => {
     configure.DocumentTitle = "FkThat.Templates.WebApi";
 });
 
-await app.RunAsync();
+await app.RunAsync().ConfigureAwait(false);
