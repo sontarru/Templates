@@ -1,7 +1,8 @@
-using System.Diagnostics.CodeAnalysis;
 using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Configure logging
 
 builder.Host.UseSerilog((context, configuration) =>
     configuration.ReadFrom.Configuration(context.Configuration));
@@ -39,12 +40,4 @@ app.UseSwaggerUi3(configure => {
     configure.DocumentTitle = "FkThat.Templates.WebApi";
 });
 
-app.Run();
-
-///<summary>
-/// Reqiured for integration tests.
-///</summary>
-[SuppressMessage("Design", "CA1050:Declare types in namespaces", Justification =
-    "This is added just to make the Program class public.")]
-public sealed partial class Program
-{ }
+await app.RunAsync();

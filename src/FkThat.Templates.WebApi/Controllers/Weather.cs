@@ -1,7 +1,7 @@
-namespace FkThat.Templates.WebApi.Models;
+namespace FkThat.Templates.WebApi.Controllers;
 
 /// <summary>
-/// Represents a weather.
+/// Represents weather.
 /// </summary>
 /// <param name="Date">The date of the weather.</param>
 /// <param name="TemperatureC">The Celsius temperature.</param>
