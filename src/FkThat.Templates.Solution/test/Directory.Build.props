@@ -5,6 +5,8 @@
     <CoverletOutputFormat>cobertura</CoverletOutputFormat>
     <CoverletOutput>TestResults/</CoverletOutput>
     <DefaultItemExcludes>TestResults\**</DefaultItemExcludes>
+    <!-- Exclude the bootstrap code from code coverage -->
+    <Exclude>[*]*.Program;[*]*.Startup</Exclude>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="coverlet.msbuild">
@@ -27,5 +29,18 @@
   </ItemGroup>
   <ItemGroup>
     <InternalsVisibleTo Include="DynamicProxyGenAssembly2"/>
+  </ItemGroup>
+  <!--
+    Assume that the test projects always follow the naming pattern:
+      SystemUnderTest.csproj -> SystemUnderTest.Tests.csproj
+  -->
+  <PropertyGroup>
+    <SutProjectName>$([System.Text.RegularExpressions.Regex]::Replace('$(MSBuildProjectName)', '\.Tests$', ''))</SutProjectName>
+    <SutProjectPath>..\..\src\$(SutProjectName)\$(SutProjectName).csproj</SutProjectPath>
+    <!-- Include only the Sut project into code coverage -->
+    <Include>[$(SutProjectName)]*</Include>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="$(SutProjectPath)"/>
   </ItemGroup>
 </Project>
