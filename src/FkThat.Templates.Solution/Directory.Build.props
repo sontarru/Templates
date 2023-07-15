@@ -10,9 +10,9 @@
   </PropertyGroup>
   <PropertyGroup>
     <Product>FkThat.Templates.Solution</Product>
-    <Company>FkThat</Company>
-    <Copyright>© FkThat, 2023</Copyright>
-    <Authors>FkThat</Authors>
+    <Company>fkthat.net</Company>
+    <Copyright>© fkthat.net, 2023</Copyright>
+    <Authors>fkthat</Authors>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/fkthat/FkThat.Templates.Solution</RepositoryUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
