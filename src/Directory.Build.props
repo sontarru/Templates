@@ -11,7 +11,7 @@
   </PropertyGroup>
   <ItemGroup>
     <InternalsVisibleTo Include="DynamicProxyGenAssembly2"/>
-    <InternalsVisibleTo Include="$(MSBuildProjectName)"/>
+    <InternalsVisibleTo Include="$(MSBuildProjectName).Tests"/>
     <AssemblyAttribute Include="System.CLSCompliantAttribute">
         <_Parameter1>true</_Parameter1>
     </AssemblyAttribute>
