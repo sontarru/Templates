@@ -33,8 +33,9 @@
       SystemUnderTest.csproj -> SystemUnderTest.Tests.csproj
   -->
   <PropertyGroup>
-    <SutProjectName>$([System.Text.RegularExpressions.Regex]::Replace('$(MSBuildProjectName)', '\.Tests$', ''))</SutProjectName>
+    <SutProjectName>$([System.Text.RegularExpressions.Regex]::Replace('$(MSBuildProjectName)', '\.Tests(\.Integration)?$', ''))</SutProjectName>
     <SutProjectPath>..\..\src\$(SutProjectName)\$(SutProjectName).csproj</SutProjectPath>
+    <RootNamespace>$(SutProjectName)</RootNamespace>
     <!-- Include only the Sut project into code coverage -->
     <Include>[$(SutProjectName)]*</Include>
     <!-- Exclude the bootstrap code from code coverage -->
