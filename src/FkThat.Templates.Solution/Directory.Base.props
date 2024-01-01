@@ -1,0 +1,9 @@
+<Project>
+  <!-- Base project properties -->
+  <PropertyGroup>
+    <VersionPrefix>0.0.1</VersionPrefix>
+    <RepositoryName>FkThat.Templates.Solution</RepositoryName>
+    <Description>FkThat.Templates.Solution</Description>
+    <PackageTags></PackageTags>
+  </PropertyGroup>
+</Project>

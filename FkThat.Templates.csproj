@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <IsPackable>true</IsPackable>
+    <NoDefaultExcludes>true</NoDefaultExcludes>
+    <ContentTargetFolders>content</ContentTargetFolders>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="**\*"/>
+    <Content Include="src\**\*" Exclude="**\bin\**;**\obj\**"/>
+    <Content Include="Directory.Build.props" PackagePath="content\src\FkThat.Templates.Solution"/>
+    <Content Include="Directory.Packages.props" PackagePath="content\src\FkThat.Templates.Solution"/>
+    <Content Include="nuget.config" PackagePath="content\src\FkThat.Templates.Solution"/>
+    <Content Include=".editorconfig" PackagePath="content\src\FkThat.Templates.Solution"/>
+    <Content Include=".gitignore" PackagePath="content\src\FkThat.Templates.Solution"/>
+    <Content Include="LICENSE" PackagePath="content\src\FkThat.Templates.Solution"/>
+    <None Include="README.md" Pack="true" PackagePath="\"/>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

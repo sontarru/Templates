@@ -1,30 +1,108 @@
 <Project>
-  <PropertyGroup>
-    <VersionPrefix>0.0.14</VersionPrefix>
-  </PropertyGroup>
+  <Import Project="$(MSBuildThisFileDirectory)Directory.Base.props"/>
+  <!-- Common build settings -->
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <!-- By default is not packable -->
     <IsPackable>false</IsPackable>
   </PropertyGroup>
+  <!-- Assembly & package properties -->
   <PropertyGroup>
-    <Product>FkThat.Templates</Product>
     <Company>fkthat.net</Company>
     <Copyright>© fkthat.net, 2023</Copyright>
     <Authors>fkthat</Authors>
     <RepositoryType>git</RepositoryType>
-    <RepositoryUrl>https://github.com/fkthat/Templates</RepositoryUrl>
+    <RepositoryUrl>https://github.com/fkthat/$(RepositoryName)</RepositoryUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageProjectUrl>https://github.com/fkthat/Templates</PackageProjectUrl>
-    <Description>FkThat's dotnet CLI templates.</Description>
-    <PackageTags>dotnet;cli;c#;templates</PackageTags>
+    <PackageProjectUrl>https://github.com/fkthat/$(RepositoryName)</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+  <!-- Embed release notes into the package (if the project is packable) -->
+  <PropertyGroup>
     <PackageReleaseNotes>@(ReleaseNotes, '%0a')</PackageReleaseNotes>
   </PropertyGroup>
-  <Target Name="PreparePackageReleaseNotesFromFile" BeforeTargets="GenerateNuspec"
-    Condition="Exists('$(MSBuildProjectDir)RELEASE-NOTES')">
-    <ReadLinesFromFile File="$(MSBuildProjectDir)RELEASE-NOTES" >
+  <Target Name="PreparePackageReleaseNotesFromFile" BeforeTargets="GenerateNuspec">
+    <ReadLinesFromFile File="RELEASE-NOTES" >
       <Output TaskParameter="Lines" ItemName="ReleaseNotes"/>
     </ReadLinesFromFile>
   </Target>
+  <!-- Make internals visible to Castle (for tests) -->
+  <ItemGroup>
+    <InternalsVisibleTo Include="DynamicProxyGenAssembly2"/>
+  </ItemGroup>
+  <!--
+    Settings depending on the type of the project (work or test)
+  -->
+  <Choose>
+    <!-- Settings for both unit and integration tests -->
+    <When Condition="$([System.Text.RegularExpressions.Regex]::IsMatch('$(MSBuildProjectName)', '.*\.Tests(\.Integration)?$'))">
+      <!-- reference testing packages -->
+      <ItemGroup>
+        <PackageReference Include="FakeItEasy" />
+        <PackageReference Include="FluentAssertions" />
+        <PackageReference Include="Microsoft.NET.Test.Sdk" />
+        <PackageReference Include="xunit" />
+        <PackageReference Include="xunit.runner.visualstudio">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+      </ItemGroup>
+      <!-- implicit usings -->
+      <ItemGroup>
+        <Using Include="FakeItEasy" />
+        <Using Include="FluentAssertions" />
+        <Using Include="Xunit" />
+      </ItemGroup>
+      <!-- reference SUT -->
+      <PropertyGroup>
+        <SutProjectName>$([System.Text.RegularExpressions.Regex]::Replace('$(MSBuildProjectName)', '\.Tests(\.Integration)?$', ''))</SutProjectName>
+        <SutProjectPath>..\..\src\$(SutProjectName)\$(SutProjectName).csproj</SutProjectPath>
+        <RootNamespace>$(SutProjectName)</RootNamespace>
+      </PropertyGroup>
+      <ItemGroup Condition="Exists($(SutProjectPath))">
+        <ProjectReference Include="$(SutProjectPath)"/>
+      </ItemGroup>
+    </When>
+    <!-- Settings for unit tests -->
+    <When Condition="$([System.Text.RegularExpressions.Regex]::IsMatch('$(MSBuildProjectName)', '.*\.Tests$'))">
+      <!-- Code coverage -->
+      <ItemGroup>
+        <PackageReference Include="coverlet.msbuild">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+      </ItemGroup>
+      <PropertyGroup>
+        <CollectCoverage>true</CollectCoverage>
+        <CoverletOutputFormat>cobertura</CoverletOutputFormat>
+        <CoverletOutput>TestResults/</CoverletOutput>
+        <DefaultItemExcludes>TestResults\**</DefaultItemExcludes>
+        <!-- Include only the Sut project into code coverage -->
+        <Include>[$(SutProjectName)]*</Include>
+        <!-- Exclude the bootstrap code from code coverage -->
+        <Exclude>[*]Program,[*]*.Program,[*]*.Startup</Exclude>
+      </PropertyGroup>
+    </When>
+    <!-- Settings for work projects -->
+    <Otherwise>
+      <PropertyGroup>
+        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <EnableNETAnalyzers>true</EnableNETAnalyzers>
+        <AnalysisLevel>latest-All</AnalysisLevel>
+        <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+        <WarnOnPackingNonPackableProject>false</WarnOnPackingNonPackableProject>
+        <IsTransformWebConfigDisabled>true</IsTransformWebConfigDisabled>
+      </PropertyGroup>
+      <ItemGroup>
+        <InternalsVisibleTo Include="$(MSBuildProjectName).Tests"/>
+        <InternalsVisibleTo Include="$(MSBuildProjectName).Tests.Integration"/>
+        <AssemblyAttribute Include="System.CLSCompliantAttribute">
+            <_Parameter1>true</_Parameter1>
+        </AssemblyAttribute>
+      </ItemGroup>
+    </Otherwise>
+  </Choose>
 </Project>
