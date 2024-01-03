@@ -8,7 +8,7 @@
     <!-- By default is not packable -->
     <IsPackable>false</IsPackable>
   </PropertyGroup>
-  <!-- Assembly & package properties -->
+  <!-- Assembly & Package properties -->
   <PropertyGroup>
     <Company>fkthat.net</Company>
     <Copyright>© fkthat.net, 2023</Copyright>
@@ -17,7 +17,6 @@
     <RepositoryUrl>https://github.com/fkthat/$(RepositoryName)</RepositoryUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/fkthat/$(RepositoryName)</PackageProjectUrl>
-    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
   <!-- Embed release notes into the package (if the project is packable) -->
   <PropertyGroup>
@@ -64,26 +63,29 @@
       <ItemGroup Condition="Exists($(SutProjectPath))">
         <ProjectReference Include="$(SutProjectPath)"/>
       </ItemGroup>
-    </When>
-    <!-- Settings for unit tests -->
-    <When Condition="$([System.Text.RegularExpressions.Regex]::IsMatch('$(MSBuildProjectName)', '.*\.Tests$'))">
-      <!-- Code coverage -->
-      <ItemGroup>
-        <PackageReference Include="coverlet.msbuild">
-          <PrivateAssets>all</PrivateAssets>
-          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-        </PackageReference>
-      </ItemGroup>
-      <PropertyGroup>
-        <CollectCoverage>true</CollectCoverage>
-        <CoverletOutputFormat>cobertura</CoverletOutputFormat>
-        <CoverletOutput>TestResults/</CoverletOutput>
-        <DefaultItemExcludes>TestResults\**</DefaultItemExcludes>
-        <!-- Include only the Sut project into code coverage -->
-        <Include>[$(SutProjectName)]*</Include>
-        <!-- Exclude the bootstrap code from code coverage -->
-        <Exclude>[*]Program,[*]*.Program,[*]*.Startup</Exclude>
-      </PropertyGroup>
+      <!-- Settings for unit tests -->
+      <Choose>
+        <When
+          Condition="$([System.Text.RegularExpressions.Regex]::IsMatch('$(MSBuildProjectName)', '.*\.Tests$'))">
+          <!-- Code coverage -->
+          <ItemGroup>
+            <PackageReference Include="coverlet.msbuild">
+              <PrivateAssets>all</PrivateAssets>
+              <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+            </PackageReference>
+          </ItemGroup>
+          <PropertyGroup>
+            <CollectCoverage>true</CollectCoverage>
+            <CoverletOutputFormat>cobertura</CoverletOutputFormat>
+            <CoverletOutput>TestResults/</CoverletOutput>
+            <DefaultItemExcludes>TestResults\**</DefaultItemExcludes>
+            <!-- Include only the Sut project into code coverage -->
+            <Include>[$(SutProjectName)]*</Include>
+            <!-- Exclude the bootstrap code from code coverage -->
+            <Exclude>[*]Program,[*]*.Program,[*]*.Startup</Exclude>
+          </PropertyGroup>
+        </When>
+      </Choose>
     </When>
     <!-- Settings for work projects -->
     <Otherwise>
