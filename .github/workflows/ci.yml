@@ -19,12 +19,12 @@ jobs:
     env:
       NUGET_SRC: github
       REGISTRY_URL: https://nuget.pkg.github.com/fkthat/index.json
-      REGISTRY_PAT: ${{secrets.REGISTRY_PAT}}
+      GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
     steps:
       - name: Setup NuGet
         run: >-
           dotnet nuget add source $REGISTRY_URL -n $NUGET_SRC
-          -u fkthat -p $REGISTRY_PAT --store-password-in-clear-text
+          -u fkthat -p $GITHUB_TOKEN --store-password-in-clear-text
       - name: Checkout
         uses: actions/checkout@v3
       - name: Restore
