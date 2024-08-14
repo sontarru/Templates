@@ -4,6 +4,7 @@
     <IsPackable>true</IsPackable>
     <NoDefaultExcludes>true</NoDefaultExcludes>
     <ContentTargetFolders>content</ContentTargetFolders>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
   <ItemGroup>
     <Compile Remove="**\*"/>

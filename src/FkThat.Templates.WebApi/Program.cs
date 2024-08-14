@@ -11,11 +11,13 @@ builder.Host.UseSerilog((context, configuration) =>
 
 builder.Services.AddControllers();
 
-builder.Services.AddCors(options => {
+builder.Services.AddCors(options =>
+{
     // configure CORS here
 });
 
-builder.Services.AddOpenApiDocument(configure => {
+builder.Services.AddOpenApiDocument(configure =>
+{
     configure.Title = "FkThat.Templates.WebApi";
 });
 
@@ -36,8 +38,7 @@ app.UseAuthorization();
 app.MapControllers();
 app.UseOpenApi();
 
-app.UseSwaggerUi3(configure => {
-    configure.DocumentTitle = "FkThat.Templates.WebApi";
-});
+app.UseSwaggerUi(configure =>
+    configure.DocumentTitle = "FkThat.Templates.WebApi");
 
 await app.RunAsync().ConfigureAwait(false);
