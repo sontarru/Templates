@@ -21,7 +21,7 @@
       {
         "condition": "(update)",
         "exclude": [
-          "Directory.Base.props",
+          "Directory.Version.props",
           "README.md",
           "RELEASE-NOTES",
           "*.sln"
