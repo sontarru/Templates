@@ -1,32 +1,10 @@
 {
   "$schema": "http://json.schemastore.org/template",
-  "author": "FkThat",
+  "author": "fkthat",
   "classifications": [ "FkThat" ],
   "identity": "FkThat.Templates.Solution",
   "name": "FkThat solution",
   "shortName": "ft-sln",
   "tags": { "language": "C#", "type": "project" },
-  "sourceName": "FkThat.Templates.Solution",
-  "symbols": {
-    "update": {
-      "type": "parameter",
-      "description": "Update an existing solution.",
-      "isRequired": false,
-      "datatype": "bool",
-      "defaultValue": "false"
-    }
-  },
-  "sources": [{
-    "modifiers": [
-      {
-        "condition": "(update)",
-        "exclude": [
-          "Directory.Version.props",
-          "README.md",
-          "RELEASE-NOTES",
-          "*.sln"
-        ]
-      }
-    ]
-  }]
+  "sourceName": "FkThat.Templates.Solution"
 }

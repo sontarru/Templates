@@ -1,0 +1,33 @@
+<Project>
+
+  <!-- Base project properties -->
+  <PropertyGroup>
+    <VersionPrefix>0.0.1</VersionPrefix>
+    <RepositoryName>FkThat.Templates.Solution</RepositoryName>
+    <Description>FkThat.Templates.Solution</Description>
+    <PackageTags>fkthat;tdd;solid</PackageTags>
+  </PropertyGroup>
+
+  <!-- Base project properties -->
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <!-- By default is not packable -->
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <!-- Assembly & Package properties -->
+  <PropertyGroup>
+    <Company>fkthat</Company>
+    <Copyright>© fkthat, 2025</Copyright>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/fkthat/FkThat.Templates.Solution</RepositoryUrl>
+  </PropertyGroup>
+
+  <!-- Make internals visible to Castle (for tests) -->
+  <ItemGroup>
+    <InternalsVisibleTo Include="DynamicProxyGenAssembly2"/>
+  </ItemGroup>
+
+</Project>
