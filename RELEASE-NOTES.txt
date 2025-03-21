@@ -1,2 +1,10 @@
 v0.0.1
+
 The first release.
+
+Included templates:
+
+- Solution (ft-sln)
+- ClassLib (ft-classlib)
+- XUnit (ft-xunit)
+- Console (ft-console)
