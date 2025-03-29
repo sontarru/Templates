@@ -1,5 +1,5 @@
 <Project>
-  <Import Project="'$(MSBuildThisFileDirectory)\Directory.Local.props"/>
+  <Import Project="$(MSBuildThisFileDirectory)Directory.Local.props"/>
 
   <!-- Build properties -->
   <PropertyGroup>
@@ -13,7 +13,7 @@
     <IsPackable>false</IsPackable>
   </PropertyGroup>
 
-  <!-- Make internals visible to Castle (erquired for tests) -->
+  <!-- Make internals visible to Castle (rerquired for tests) -->
   <ItemGroup>
     <InternalsVisibleTo Include="DynamicProxyGenAssembly2"/>
   </ItemGroup>
