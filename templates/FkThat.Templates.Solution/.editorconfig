@@ -381,28 +381,32 @@ dotnet_naming_style.s_camelcase.capitalization = camel_case
 #
 
 [*]
+
+# Supported by the VS 'Editor Guidelines' extension
 guidelines = 100
 
 [*.cs]
-dotnet_naming_rule.types_and_namespaces_should_be_pascalcase.severity = error
-dotnet_naming_rule.interfaces_should_be_ipascalcase.severity = error
-dotnet_naming_rule.type_parameters_should_be_tpascalcase.severity = error
-dotnet_naming_rule.methods_should_be_pascalcase.severity = error
-dotnet_naming_rule.properties_should_be_pascalcase.severity = error
-dotnet_naming_rule.events_should_be_pascalcase.severity = error
-dotnet_naming_rule.local_variables_should_be_camelcase.severity = error
-dotnet_naming_rule.local_constants_should_be_camelcase.severity = error
-dotnet_naming_rule.parameters_should_be_camelcase.severity = error
-dotnet_naming_rule.public_fields_should_be_pascalcase.severity = error
-dotnet_naming_rule.private_fields_should_be__camelcase.severity = error
-dotnet_naming_rule.private_static_fields_should_be_s_camelcase.severity = error
-dotnet_naming_rule.public_constant_fields_should_be_pascalcase.severity = error
-dotnet_naming_rule.private_constant_fields_should_be_pascalcase.severity = error
-dotnet_naming_rule.public_static_readonly_fields_should_be_pascalcase.severity = error
-dotnet_naming_rule.private_static_readonly_fields_should_be_pascalcase.severity = error
-dotnet_naming_rule.enums_should_be_pascalcase.severity = error
-dotnet_naming_rule.local_functions_should_be_pascalcase.severity = error
-dotnet_naming_rule.non_field_members_should_be_pascalcase.severity = error
+
+# Increase default severity for naming rules
+dotnet_naming_rule.types_and_namespaces_should_be_pascalcase.severity = warning
+dotnet_naming_rule.interfaces_should_be_ipascalcase.severity = warning
+dotnet_naming_rule.type_parameters_should_be_tpascalcase.severity = warning
+dotnet_naming_rule.methods_should_be_pascalcase.severity = warning
+dotnet_naming_rule.properties_should_be_pascalcase.severity = warning
+dotnet_naming_rule.events_should_be_pascalcase.severity = warning
+dotnet_naming_rule.local_variables_should_be_camelcase.severity = warning
+dotnet_naming_rule.local_constants_should_be_camelcase.severity = warning
+dotnet_naming_rule.parameters_should_be_camelcase.severity = warning
+dotnet_naming_rule.public_fields_should_be_pascalcase.severity = warning
+dotnet_naming_rule.private_fields_should_be__camelcase.severity = warning
+dotnet_naming_rule.private_static_fields_should_be_s_camelcase.severity = warning
+dotnet_naming_rule.public_constant_fields_should_be_pascalcase.severity = warning
+dotnet_naming_rule.private_constant_fields_should_be_pascalcase.severity = warning
+dotnet_naming_rule.public_static_readonly_fields_should_be_pascalcase.severity = warning
+dotnet_naming_rule.private_static_readonly_fields_should_be_pascalcase.severity = warning
+dotnet_naming_rule.enums_should_be_pascalcase.severity = warning
+dotnet_naming_rule.local_functions_should_be_pascalcase.severity = warning
+dotnet_naming_rule.non_field_members_should_be_pascalcase.severity = warning
 
 # CA1021: Avoid out parameters
 dotnet_diagnostic.CA1021.severity = warning
@@ -411,3 +415,4 @@ dotnet_diagnostic.CA1021.severity = warning
 csharp_style_var_elsewhere =  true:suggestion
 csharp_style_var_for_built_in_types =  true:suggestion
 csharp_style_var_when_type_is_apparent =  true:suggestion
+
