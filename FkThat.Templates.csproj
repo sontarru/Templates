@@ -8,6 +8,7 @@
   <!-- Build properties -->
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
+    <NoWarn>NU5128</NoWarn>
   </PropertyGroup>
 
   <!-- Package properties -->
@@ -25,9 +26,9 @@
     <Copyright>© fkthat, 2025</Copyright>
     <RepositoryName>Templates</RepositoryName>
     <RepositoryType>git</RepositoryType>
-    <RepositoryUrl>https://github.com/fkthat/FkThat.Templates.Solution</RepositoryUrl>
+    <RepositoryUrl>https://github.com/fkthat/FkThat.Templates</RepositoryUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageProjectUrl>https://github.com/fkthat/FkThat.Templates.S0olution</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/fkthat/FkThat.Templates</PackageProjectUrl>
     <PackageTags>dotnet;cli;template</PackageTags>
   </PropertyGroup>
 
@@ -44,7 +45,7 @@
     <PackageReleaseNotes>@(ReleaseNotes, '%0a')</PackageReleaseNotes>
   </PropertyGroup>
   <Target Name="PreparePackageReleaseNotesFromFile" BeforeTargets="GenerateNuspec">
-    <ReadLinesFromFile File="RELEASE-NOTES" >
+    <ReadLinesFromFile File="RELEASE-NOTES.txt" >
       <Output TaskParameter="Lines" ItemName="ReleaseNotes"/>
     </ReadLinesFromFile>
   </Target>

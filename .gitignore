@@ -482,3 +482,6 @@ $RECYCLE.BIN/
 
 # Vim temporary swap files
 *.swp
+
+# I use this for testing `dotnet new ft-*`
+Foo/
