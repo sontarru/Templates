@@ -21,10 +21,10 @@
 
   <!-- Package README file: https://devblogs.microsoft.com/nuget/add-a-readme-to-your-nuget-package/ -->
   <PropertyGroup>
-      <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
   <ItemGroup>
-      <None Include="..\..\README.md" Pack="true" PackagePath="\" Visible="false"/>
+    <None Include="..\..\README.md" Pack="true" PackagePath="\" Visible="false" />
   </ItemGroup>
 
   <!-- Embed release notes into the package (if the project is packable) -->

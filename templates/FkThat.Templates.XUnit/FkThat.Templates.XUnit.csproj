@@ -1,2 +1,24 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+  <!--#if(Mock != "None" || Assertions != "None")-->
+  <ItemGroup>
+  <!--#endif-->
+    <!--#if(Mock == "FakeItEasy")-->
+    <PackageReference Include="FakeItEasy"/>
+    <Using Include="FakeItEasy" />
+    <!--#endif-->
+    <!--#if(Mock == "Moq")-->
+    <PackageReference Include="Moq"/>
+    <Using Include="Moq" />
+    <!--#endif-->
+    <!--#if(Assertions == "AwesomeAssertions")-->
+    <PackageReference Include="AwesomeAssertions"/>
+    <Using Include="FluentAssertions" />
+    <!--#endif-->
+    <!--#if(Assertions == "FluentAssertions")-->
+    <PackageReference Include="FluentAssertions"/>
+    <Using Include="FluentAssertions" />
+    <!--#endif-->
+  <!--#if(Mock != "None" || Assertions != "None")-->
+  </ItemGroup>
+  <!--#endif-->
 </Project>

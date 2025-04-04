@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json.schemastore.org/dotnetcli.host",
+  "symbolInfo": {
+      "Mock": {
+        "longName": "mock",
+        "shortName": "m"
+      },
+      "Assertions": {
+        "longName": "assertions",
+        "shortName": "as"
+      }
+  }
+}

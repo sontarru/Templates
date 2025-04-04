@@ -1,5 +1,5 @@
 <Project>
-  <Import Project="$(MSBuildThisFileDirectory)Directory.Local.props"/>
+  <Import Project="$(MSBuildThisFileDirectory)Directory.Solution.props"/>
 
   <!-- Build properties -->
   <PropertyGroup>

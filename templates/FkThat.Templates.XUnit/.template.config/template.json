@@ -31,5 +31,49 @@
         "primaryOutputIndexes": "0"
       }
     }
-  ]
+  ],
+  "symbols": {
+    "Mock": {
+      "description": "Adds a package reference to the mock library.",
+      "type": "parameter",
+      "datatype": "choice",
+      "choices": [
+        {
+          "choice": "None",
+          "description": "Do not add any mock library."
+        },
+        {
+          "choice": "FakeItEasy",
+          "description": "Adds the FakeItEasy library."
+        },
+        {
+          "choice": "Moq",
+          "description": "Adds the Moq library."
+        }
+      ],
+      "isRequired": false,
+      "defaultValue": "FakeItEasy"
+    },
+    "Assertions": {
+      "description": "Adds a package reference to the assertions library.",
+      "type": "parameter",
+      "datatype": "choice",
+      "choices": [
+        {
+          "choice": "None",
+          "description": "Do not add any assertions library."
+        },
+        {
+          "choice": "AwesomeAssertions",
+          "description": "Adds the AwesomeAssertions library."
+        },
+        {
+          "choice": "FluentAssertions",
+          "description": "Adds the FluentAssertions library."
+        }
+      ],
+      "isRequired": false,
+      "defaultValue": "AwesomeAssertions"
+    }
+  }
 }
