@@ -1,2 +1,4 @@
-v1.0.1
-Fix Sontar.Sln Directory.Solution.props.
+v1.0.2
+- Fix FluentAssertions namespace to AwesomeAssertions.
+- Fix typo in test/Directory.Build.props of the solution template.:w
+

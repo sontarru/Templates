@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <!-- Ajust the root namespace if not defined earlier. -->
-  <PropertyGroup Conditon="'$(RootNamespace)' == ''">
+  <PropertyGroup Condition="'$(RootNamespace)' == ''">
     <RootNamespace>$(SutProjectName)</RootNamespace>
   </PropertyGroup>
 
@@ -44,7 +44,7 @@
   <ItemGroup>
     <Using Include="Xunit" />
     <Using Include="FakeItEasy" />
-    <Using Include="FluentAssertions" />
+    <Using Include="AwesomeAssertions" />
   </ItemGroup>
 
   <!-- SUT project reference -->
