@@ -54,4 +54,6 @@
   <ItemGroup Condition="Exists($(SutProjectPath))">
     <ProjectReference Include="$(SutProjectPath)"/>
   </ItemGroup>
+
+  <Import Project="$(MSBuildThisFileDirectory)Directory.Src.props"/>
 </Project>

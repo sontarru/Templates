@@ -1,4 +1,7 @@
-<!-- Properties not overritable on template update -->
+<!--
+This file is not affected by template update and can be used for
+customization at the solution level.
+ -->
 <Project>
   <!-- Version -->
   <PropertyGroup>

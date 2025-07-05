@@ -44,4 +44,6 @@
       <_Parameter1>true</_Parameter1>
     </AssemblyAttribute>
   </ItemGroup>
+
+  <Import Project="$(MSBuildThisFileDirectory)Directory.Src.props"/>
 </Project>
