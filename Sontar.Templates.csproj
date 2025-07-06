@@ -13,7 +13,7 @@
 
   <!-- Package properties -->
   <PropertyGroup>
-    <VersionPrefix>1.1.1</VersionPrefix>
+    <VersionPrefix>1.1.2</VersionPrefix>
     <IsPackable>true</IsPackable>
     <PackageType>Template</PackageType>
     <IncludeContentInPack>true</IncludeContentInPack>

@@ -55,5 +55,5 @@
     <ProjectReference Include="$(SutProjectPath)"/>
   </ItemGroup>
 
-  <Import Project="$(MSBuildThisFileDirectory)Directory.Src.props"/>
+  <Import Project="$(MSBuildThisFileDirectory)Directory.Test.props"/>
 </Project>
