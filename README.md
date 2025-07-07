@@ -140,6 +140,8 @@ test
      `./test/Foo.Tests/Foo.Tests.csproj` and there's a project `.src/Foo/Foo.csproj` inside the `src`
      directory then the former one will be automatically referenced from the first.
 
+1. Simple CI pipepline boilerplate for [GitHub Actions](https://docs.github.com/en/actions).
+
 1. Projects created from these templates with `dotnet new` automatically adds themselves to their
    solution.
 
@@ -148,4 +150,26 @@ the solution level in the `./Directory.Solution.props` file, at the `src` or `te
 `./Directory.Src.props` and `./Directory.Test.props` files, or at the project level in the
 particular `*.csproj` file.
 
+## Updating an existiong solution
 
+An existing solution can be updated by invoking:
+
+```powershell
+dotnet new Sontar.Sln --force --update
+```
+
+By default it overrides only `Directory.Build.props` files. The files `.editorconfig`, `.gitignore`,
+`Directory.Packages.props`, `global.json`, `nuget.config`, and `.github/workflows/ci.yml` can be
+updated as well by adding corresponding options to the `dotnet new` command above:
+
+```powershell
+dotnet new Sontar.Sln --force --update [--editorconfig | -ec] [--gitignore | -gi]
+    [--packages-props | -pp] [--global-json | gj] [--nuget-config | -nc]
+    [--github-workflows | -gw]
+```
+
+Available template options can be viewed by invoking:
+
+```powershell
+dotnet new Sontar.Sln --help
+```

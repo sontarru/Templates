@@ -17,10 +17,6 @@
         "longName": "packages-props",
         "shortName": "pp"
       },
-      "UpdateSolutionProps": {
-        "longName": "solution-props",
-        "shortName": "sp"
-      },
       "UpdateGlobalJson": {
         "longName": "global-json",
         "shortName": "gj"

@@ -39,14 +39,6 @@
       "datatype": "bool",
       "defaultValue": "false"
     },
-    "UpdateSolutionProps": {
-      "isEnabled": "Update == true",
-      "description": "Overwrites the `Directory.Solution.props` file.",
-      "type": "parameter",
-      "isRequired": false,
-      "datatype": "bool",
-      "defaultValue": "false"
-    },
     "UpdateGlobalJson": {
       "isEnabled": "Update == true",
       "description": "Overwrites the `global.json` file.",
