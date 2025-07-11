@@ -43,6 +43,9 @@
     <AssemblyAttribute Include="System.CLSCompliantAttribute">
       <_Parameter1>true</_Parameter1>
     </AssemblyAttribute>
+    <AssemblyAttribute Include="System.Resources.NeutralResourcesLanguageAttribute">
+      <_Parameter1>en</_Parameter1>
+    </AssemblyAttribute>
   </ItemGroup>
 
   <Import Project="$(MSBuildThisFileDirectory)Directory.Src.props"/>
