@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "sontar.ru",
+  "classifications": [ "Sontar" ],
+  "identity": "Sontar.Web",
+  "name": "Web application",
+  "shortName": "Sontar.Web",
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+  "sourceName": "Sontar.Web",
+  "symbols": {
+    "HttpPort":{
+      "type": "generated",
+      "generator": "port",
+      "replaces": "5025"
+    },
+    "HttpsPort":{
+      "type": "generated",
+      "generator": "port",
+      "replaces": "7029"
+    }
+  },
+  "primaryOutputs": [{
+    "path": "Sontar.Web.csproj"
+  }],
+  "postActions": [
+    {
+      "description": "Add project to solution.",
+      "actionId": "D396686C-DE0E-4DE6-906D-291CD29FC5DE",
+      "continueOnError": true,
+      "manualInstructions": [],
+      "args": {
+        "primaryOutputIndexes": "0"
+      }
+    }
+  ]
+}
