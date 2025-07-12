@@ -5,7 +5,8 @@ customization at the solution level.
 <Project>
   <!-- Version -->
   <PropertyGroup>
-    <VersionPrefix>0.0.1</VersionPrefix>
+    <VersionPrefix>1.0.0</VersionPrefix>
+    <VersionSuffix><!-- add here like dev, pre, etc --></VersionSuffix>
   </PropertyGroup>
 
   <!-- Assembly & Package properties -->
