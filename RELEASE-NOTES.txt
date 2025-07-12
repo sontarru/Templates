@@ -1,6 +1,8 @@
 v2.0.0
 - Rename templates.
+- Add Docker support to the Sontar.Web template.
 - Add NeutralResourcesLanguageAttribute to the ./src/Directory.Build.props.
+- Update SDK version to 9.0.302.
 
 v1.2.0
 - Update solution template options.
