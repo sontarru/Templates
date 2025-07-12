@@ -2,16 +2,16 @@
   "$schema": "http://json.schemastore.org/template",
   "author": "sontar.ru",
   "classifications": [ "Sontar" ],
-  "identity": "Sontar.Templates.Cli",
+  "identity": "Sontar.Cli",
   "name": "Console application",
   "shortName": "Sontar.Cli",
   "tags": {
     "language": "C#",
     "type": "project"
   },
-  "sourceName": "Sontar.Templates.Cli",
+  "sourceName": "Sontar.Cli",
   "primaryOutputs": [{
-    "path": "Sontar.Templates.Cli.csproj"
+    "path": "Sontar.Cli.csproj"
   }],
   "postActions": [
     {

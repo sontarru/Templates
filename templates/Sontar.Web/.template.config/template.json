@@ -2,14 +2,14 @@
   "$schema": "http://json.schemastore.org/template",
   "author": "sontar.ru",
   "classifications": [ "Sontar" ],
-  "identity": "Sontar.Templates.Web",
+  "identity": "Sontar.Web",
   "name": "Web application",
   "shortName": "Sontar.Web",
   "tags": {
     "language": "C#",
     "type": "project"
   },
-  "sourceName": "Sontar.Templates.Web",
+  "sourceName": "Sontar.Web",
   "symbols": {
     "HttpPort":{
       "type": "generated",
@@ -23,7 +23,7 @@
     }
   },
   "primaryOutputs": [{
-    "path": "Sontar.Templates.Web.csproj"
+    "path": "Sontar.Web.csproj"
   }],
   "postActions": [
     {

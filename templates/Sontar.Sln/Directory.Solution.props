@@ -10,16 +10,16 @@ customization at the solution level.
 
   <!-- Assembly & Package properties -->
   <PropertyGroup>
-    <Product>Sontar.Templates.Sln</Product>
-    <Description>Sontar.Templates.Sln</Description>
+    <Product>Sontar.Sln</Product>
+    <Description>Sontar.Sln</Description>
     <Authors>sontar.ru</Authors>
     <Company>sontar.ru</Company>
     <Copyright>© sontar.ru, 2025</Copyright>
     <RepositoryType>git</RepositoryType>
-    <RepositoryName>Sontar.Templates.Sln</RepositoryName>
-    <RepositoryUrl>https://github.com/sontarru/Sontar.Templates.Sln</RepositoryUrl>
+    <RepositoryName>Sontar.Sln</RepositoryName>
+    <RepositoryUrl>https://github.com/sontarru/Sontar.Sln</RepositoryUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageProjectUrl>https://github.com/sontarru/Sontar.Templates.Sln</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/sontarru/Sontar.Sln</PackageProjectUrl>
     <PackageTags></PackageTags>
   </PropertyGroup>
 </Project>

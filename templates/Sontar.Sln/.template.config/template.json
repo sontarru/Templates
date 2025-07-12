@@ -2,11 +2,11 @@
   "$schema": "http://json.schemastore.org/template",
   "author": "sontar.ru",
   "classifications": [ "Sontar" ],
-  "identity": "Sontar.Templates.Sln",
+  "identity": "Sontar.Sln",
   "name": "Solution",
   "shortName": "Sontar.Sln",
   "tags": { "language": "C#", "type": "project" },
-  "sourceName": "Sontar.Templates.Sln",
+  "sourceName": "Sontar.Sln",
   "symbols": {
     "Update": {
       "description": "Updates the solution template (overwrites only `Directory.Build.props` files).",

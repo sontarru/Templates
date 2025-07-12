@@ -2,14 +2,14 @@
   "$schema": "http://json.schemastore.org/template",
   "author": "sontar.ru",
   "classifications": [ "Sontar" ],
-  "identity": "Sontar.Templates.Lib",
+  "identity": "Sontar.Lib",
   "name": "Class library",
   "shortName": "Sontar.Lib",
   "tags": {
     "language": "C#",
     "type": "project"
   },
-  "sourceName": "Sontar.Templates.Lib",
+  "sourceName": "Sontar.Lib",
   "symbols": {
     "packable": {
       "type": "parameter",
@@ -20,7 +20,7 @@
     }
   },
   "primaryOutputs": [{
-    "path": "Sontar.Templates.Lib.csproj"
+    "path": "Sontar.Lib.csproj"
   }],
   "postActions": [
     {

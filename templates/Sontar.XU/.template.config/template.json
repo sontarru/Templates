@@ -2,17 +2,17 @@
   "$schema": "http://json.schemastore.org/template",
   "author": "sontar.ru",
   "classifications": [ "Sontar" ],
-  "identity": "Sontar.Templates.XU",
+  "identity": "Sontar.XU",
   "name": "XUnit test project",
   "shortName": "Sontar.XU",
   "tags": {
     "language": "C#",
     "type": "project"
   },
-  "sourceName": "Sontar.Templates.XU",
+  "sourceName": "Sontar.XU",
   "primaryOutputs": [
     {
-      "path": "Sontar.Templates.XU.csproj"
+      "path": "Sontar.XU.csproj"
     }
   ],
   "postActions": [
