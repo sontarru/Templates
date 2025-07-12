@@ -1,5 +1,6 @@
-v1.2.1
-- Add NeutralResourcesLanguageAttribute to the ./src/Directory.Build.props
+v2.0.0
+- Rename templates.
+- Add NeutralResourcesLanguageAttribute to the ./src/Directory.Build.props.
 
 v1.2.0
 - Update solution template options.
