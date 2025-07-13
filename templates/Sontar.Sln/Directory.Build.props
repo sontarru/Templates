@@ -6,9 +6,10 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
-  <!-- By default all projects are not packable -->
+  <!-- By default all projects are neither packable nor publishable -->
   <PropertyGroup>
     <IsPackable>false</IsPackable>
+    <IsPublishable>false</IsPublishable>
   </PropertyGroup>
 
   <!-- Make internals visible to Castle (rerquired for tests) -->
