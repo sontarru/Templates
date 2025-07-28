@@ -1,1 +1,0 @@
-# Sontar.Templates.Sln

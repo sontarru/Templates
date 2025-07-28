@@ -125,7 +125,7 @@ test
    - Code coverage collection with the [Coverlet](https://github.com/coverlet-coverage/coverlet)
      framework.
 
-   - Auto-referencing some packages required for test project:
+   - Auto-referencing some packages required for test projects:
      [Microsoft.NET.Test.Sdk](https://www.nuget.org/packages/Microsoft.NET.Test.Sdk),
      [xunit](https://www.nuget.org/packages/xunit),
      [xunit.runner.visualstudio](https://www.nuget.org/packages/xunit.runner.visualstudio).
@@ -134,10 +134,10 @@ test
      [AwesomeAssertion](https://www.nuget.org/packages/AwesomeAssertions) packages.
 
    - Additional [implicit usings](https://learn.microsoft.com/en-us/dotnet/core/project-sdk/msbuild-props#implicitusings)
-     for referenced packages.
+     for the referenced packages.
 
-   - Auto-referencing the corresponding "testee" project. If the test project is named e.g.
-     `./test/Foo.Tests/Foo.Tests.csproj` and there's a project `.src/Foo/Foo.csproj` inside the `src`
+   - Auto-referencing the corresponding "testee" project. If the name of a test project is e.g.
+     `./test/Foo.Tests/Foo.Tests.csproj` and there's a project `./src/Foo/Foo.csproj` inside the `src`
      directory then the former one will be automatically referenced from the first.
 
 1. Simple CI pipepline boilerplate for [GitHub Actions](https://docs.github.com/en/actions).

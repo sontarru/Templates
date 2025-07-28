@@ -1,0 +1,26 @@
+<!--
+This file is not affected by template update and can be used for
+customization at the solution level.
+ -->
+<Project>
+  <!-- Version -->
+  <PropertyGroup>
+    <VersionPrefix>1.0.0</VersionPrefix>
+    <VersionSuffix><!-- add here like dev, pre, etc --></VersionSuffix>
+  </PropertyGroup>
+
+  <!-- Assembly & Package properties -->
+  <PropertyGroup>
+    <Product>Sontar.Sln</Product>
+    <Description>Sontar.Sln</Description>
+    <Authors>sontar.ru</Authors>
+    <Company>sontar.ru</Company>
+    <Copyright>© sontar.ru, 2025</Copyright>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryName>Sontar.Sln</RepositoryName>
+    <RepositoryUrl>https://github.com/sontarru/Sontar.Sln</RepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/sontarru/Sontar.Sln</PackageProjectUrl>
+    <PackageTags></PackageTags>
+  </PropertyGroup>
+</Project>

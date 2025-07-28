@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "sontar.ru",
+  "classifications": [ "Sontar" ],
+  "identity": "Sontar.Cli",
+  "name": "Console application",
+  "shortName": "Sontar.Cli",
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+  "sourceName": "Sontar.Cli",
+  "primaryOutputs": [{
+    "path": "Sontar.Cli.csproj"
+  }],
+  "postActions": [
+    {
+      "description": "Add project to solution.",
+      "actionId": "D396686C-DE0E-4DE6-906D-291CD29FC5DE",
+      "continueOnError": true,
+      "manualInstructions": [],
+      "args": {
+        "primaryOutputIndexes": "0"
+      }
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+<Project>
+  <!-- Build properties -->
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <!-- By default all projects are neither packable nor publishable -->
+  <PropertyGroup>
+    <IsPackable>false</IsPackable>
+    <IsPublishable>false</IsPublishable>
+  </PropertyGroup>
+
+  <!-- Make internals visible to Castle (rerquired for tests) -->
+  <ItemGroup>
+    <InternalsVisibleTo Include="DynamicProxyGenAssembly2"/>
+  </ItemGroup>
+
+  <!-- Ovewritting the settings -->
+  <Import Project="$(MSBuildThisFileDirectory)Directory.Solution.props"/>
+</Project>
