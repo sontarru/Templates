@@ -62,6 +62,30 @@
       "isRequired": false,
       "datatype": "bool",
       "defaultValue": "false"
+    },
+    "GitHubRepoOwner": {
+      "description": "The owner of the GitHub repository.",
+      "type": "parameter",
+      "isRequired": false,
+      "datatype": "string",
+      "defaultValue": "sontarru",
+      "replaces": "sontarru"
+    },
+    "GitHubRepoName": {
+      "description": "The name of the GitHub repository.",
+      "type": "parameter",
+      "isRequired": false,
+      "datatype": "string",
+      "defaultValue": "",
+      "replaces": "{GitHubRepoName}"
+    },
+    "Company": {
+      "description": "The company.",
+      "type": "parameter",
+      "isRequired": false,
+      "datatype": "string",
+      "defaultValue": "sontar.ru",
+      "replaces": "sontar.ru"
     }
   },
   "sources": [

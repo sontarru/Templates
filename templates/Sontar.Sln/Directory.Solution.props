@@ -6,21 +6,32 @@ customization at the solution level.
   <!-- Version -->
   <PropertyGroup>
     <VersionPrefix>1.0.0</VersionPrefix>
-    <VersionSuffix><!-- add here like dev, pre, etc --></VersionSuffix>
+    <VersionSuffix></VersionSuffix>
+  </PropertyGroup>
+
+  <!-- These come from the template symbols-->
+  <PropertyGroup>
+    <GitHubRepoOwner>sontarru</GitHubRepoOwner>
+    <!--#if(GitHubRepoName != '')-->
+    <GitHubRepoName>{GitHubRepoName}</GitHubRepoName>
+    <!--#else-->
+    <GitHubRepoName>Sontar.Sln</GitHubRepoName>
+    <!--#endif-->
+    <Company>sontar.ru</Company>
   </PropertyGroup>
 
   <!-- Assembly & Package properties -->
   <PropertyGroup>
     <Product>Sontar.Sln</Product>
     <Description>Sontar.Sln</Description>
-    <Authors>sontar.ru</Authors>
-    <Company>sontar.ru</Company>
-    <Copyright>© sontar.ru, 2025</Copyright>
+    <Authors>$(Company)</Authors>
+    <Company>$(Company)</Company>
+    <Copyright>© $(Company), 2025</Copyright>
     <RepositoryType>git</RepositoryType>
-    <RepositoryName>Sontar.Sln</RepositoryName>
-    <RepositoryUrl>https://github.com/sontarru/Sontar.Sln</RepositoryUrl>
+    <RepositoryName>$(GitHubRepoName)</RepositoryName>
+    <RepositoryUrl>https://github.com/$(GitHubRepoOwner)/$(GitHubRepoName)</RepositoryUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageProjectUrl>https://github.com/sontarru/Sontar.Sln</PackageProjectUrl>
-    <PackageTags></PackageTags>
+    <PackageProjectUrl>https://github.com/$(GitHubRepoOwner)/$(GitHubRepoName)</PackageProjectUrl>
+    <PackageTags><!-- insert tags here --></PackageTags>
   </PropertyGroup>
 </Project>
