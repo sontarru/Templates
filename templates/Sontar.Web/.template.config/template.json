@@ -20,6 +20,13 @@
       "type": "generated",
       "generator": "port",
       "replaces": "7029"
+    },
+    "publishable": {
+      "type": "parameter",
+      "description": "The project is publishable.",
+      "isRequired": false,
+      "datatype": "bool",
+      "defaultValue": "false"
     }
   },
   "primaryOutputs": [{
