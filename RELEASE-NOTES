@@ -1,30 +1,45 @@
 v2.0.0
-- Rename templates.
-- Update Sontar.Sln template:
-  - Update global.json SDK verision to 9.0.302
-  - Add NeutralResourcesLanguageAttribute to the ./src/Directory.Build.props.
-- Update Sontar.Web template:
-  - Add 'public partial Program ...' to the Program.cs to support integration tests.
-- Various small fixes.
+
+Rename templates.
+
+Sontar.Sln template:
+
+- Update global.json SDK verision to 9.0.302
+- Add NeutralResourcesLanguageAttribute to the ./src/Directory.Build.props.
+- Add extra symbols (parameters) to the template.
+
+Sontar.Web template:
+
+- Add 'public partial Program ...' to the Program.cs to support integration tests.
+- Add Docker support.
+
+Various fixes.
 
 v1.2.0
-- Update solution template options.
+
+Update solution template options.
 
 v1.1.2
-- Fix test/Directory.Build.props.
+
+Fix test/Directory.Build.props.
 
 v1.1.1
-- Update README.md.
+
+Update README.md.
 
 v1.1.0
-- Add ./src/Directory.Src.props and ./test/Directory.Test.props files
+
+Add ./src/Directory.Src.props and ./test/Directory.Test.props files
 
 v1.0.2
-- Fix FluentAssertions namespace to AwesomeAssertions.
-- Fix typo in test/Directory.Build.props of the solution template.
+
+Fix FluentAssertions namespace to AwesomeAssertions.
+Fix typo in test/Directory.Build.props of the solution template.
 
 v1.0.1
+
 Fix Sontar.Sln Directory.Solution.props.
 
 v1.0.0
+
 Initial release.

@@ -145,6 +145,8 @@ test
 1. Projects created from these templates with `dotnet new` automatically adds themselves to their
    solution.
 
+1. Docker support for the web project template.
+
 Any properties and settings from `Directory.Build.props` files can be overwritten or extended at
 the solution level in the `./Directory.Solution.props` file, at the `src` or `test` level in the
 `./Directory.Src.props` and `./Directory.Test.props` files, or at the project level in the

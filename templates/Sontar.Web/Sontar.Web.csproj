@@ -1,5 +1,22 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
+  <!--#if(publishable)-->
   <PropertyGroup>
     <IsPublishable>true</IsPublishable>
   </PropertyGroup>
+
+  <!-- https://learn.microsoft.com/en-us/dotnet/core/containers/overview/ -->
+  <PropertyGroup>
+    <ContainerRepository>$(GitHubRepoOwner)/$(GitHubRepoName)</ContainerRepository>
+    <ContainerBaseImage>mcr.microsoft.com/dotnet/runtime:9.0-alpine</ContainerBaseImage>
+    <ContainerRuntimeIdentifier>linux-x64</ContainerRuntimeIdentifier>
+    <ContainerImageFormat>OCI</ContainerImageFormat>
+  </PropertyGroup>
+
+  <!-- Workaround https://github.com/dotnet/sdk-container-builds/issues/236 -->
+  <Target Name="SetContainerImageTag" BeforeTargets="PublishContainer">
+    <ItemGroup>
+      <ContainerImageTags Include="$(Version)" />
+    </ItemGroup>
+  </Target>
+  <!--#endif-->
 </Project>
