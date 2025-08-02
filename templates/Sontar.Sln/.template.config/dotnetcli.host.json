@@ -28,6 +28,18 @@
       "UpdateGithubWorkflows": {
         "longName": "github-workflows",
         "shortName": "gw"
+      },
+      "GitHubRepoOwner": {
+        "longName": "github-repo-owner",
+        "shortName": "ghro"
+      },
+      "GitHubRepoName": {
+        "longName": "github-repo-name",
+        "shortName": "ghrn"
+      },
+      "Company": {
+        "longName": "company",
+        "shortName": "co"
       }
     }
 }
