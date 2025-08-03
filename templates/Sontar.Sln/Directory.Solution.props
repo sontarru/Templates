@@ -25,7 +25,6 @@ customization at the solution level.
     <Product>Sontar.Sln</Product>
     <Description>Sontar.Sln</Description>
     <Authors>$(Company)</Authors>
-    <Company>$(Company)</Company>
     <Copyright>© $(Company), 2025</Copyright>
     <RepositoryType>git</RepositoryType>
     <RepositoryName>$(GitHubRepoName)</RepositoryName>

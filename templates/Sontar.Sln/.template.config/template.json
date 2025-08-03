@@ -15,17 +15,9 @@
       "datatype": "bool",
       "defaultValue": "false"
     },
-    "UpdateEditorconfig": {
+    "UpdateSolutionProps": {
       "isEnabled": "Update == true",
-      "description": "Overwrites the `.editorconfig`.",
-      "type": "parameter",
-      "isRequired": false,
-      "datatype": "bool",
-      "defaultValue": "false"
-    },
-    "UpdateGitignore": {
-      "isEnabled": "Update == true",
-      "description": "Overwrites the `.gitignore` file.",
+      "description": "Overwrites the `Directory.Solution.props` file.",
       "type": "parameter",
       "isRequired": false,
       "datatype": "bool",
@@ -34,6 +26,22 @@
     "UpdatePackagesProps": {
       "isEnabled": "Update == true",
       "description": "Overwrites the `Directory.Packages.props` file.",
+      "type": "parameter",
+      "isRequired": false,
+      "datatype": "bool",
+      "defaultValue": "false"
+    },
+    "UpdateEditorconfig": {
+      "isEnabled": "Update == true",
+      "description": "Overwrites the `.editorconfig` file.",
+      "type": "parameter",
+      "isRequired": false,
+      "datatype": "bool",
+      "defaultValue": "false"
+    },
+    "UpdateGitignore": {
+      "isEnabled": "Update == true",
+      "description": "Overwrites the `.gitignore` file.",
       "type": "parameter",
       "isRequired": false,
       "datatype": "bool",
@@ -55,7 +63,7 @@
       "datatype": "bool",
       "defaultValue": "false"
     },
-    "UpdateGithubWorkflows": {
+    "UpdateGitHubWorkflows": {
       "isEnabled": "Update == true",
       "description": "Overwrites the `.github/workflows/**/*` file.",
       "type": "parameter",
@@ -86,12 +94,39 @@
       "datatype": "string",
       "defaultValue": "sontar.ru",
       "replaces": "sontar.ru"
+    },
+    "GitHubActionsWorkflow": {
+      "description": "Add a GitHub actions CI workflow.",
+      "type": "parameter",
+      "isRequired": false,
+      "datatype": "choice",
+      "defaultValue": "none",
+      "choices": [
+        {
+          "choice": "none",
+          "description": "No CI."
+        },
+        {
+          "choice": "nuget",
+          "description": "NuGet package CI."
+        },
+        {
+          "choice": "docker",
+          "description": "Docker image CI."
+        }
+      ]
     }
   },
   "sources": [
     {
       // the other options are default
-      "condition": "Update == false"
+      "condition": "Update == false",
+      "modifiers": [
+        {
+          "condition": "GitHubActionsWorkflow == 'none'",
+          "exclude": [ ".github/**/*" ]
+        }
+      ]
     },
     {
       "condition": "Update == true",
@@ -100,20 +135,20 @@
       ],
       "modifiers": [
         {
-          "condition": "UpdateEditorconfig == true",
-          "include": [ ".editorconfig" ]
-        },
-        {
-          "condition": "UpdateGitignore == true",
-          "include": [ ".gitignore" ]
+          "condition": "UpdateSolutionProps == true",
+          "include": [ "Directory.Solution.props" ]
         },
         {
           "condition": "UpdatePackagesProps == true",
           "include": [ "Directory.Packages.props" ]
         },
         {
-          "condition": "UpdateSolutionProps == true",
-          "include": [ "Directory.Solution.props" ]
+          "condition": "UpdateEditorconfig == true",
+          "include": [ ".editorconfig" ]
+        },
+        {
+          "condition": "UpdateGitignore == true",
+          "include": [ ".gitignore" ]
         },
         {
           "condition": "UpdateGlobalJson == true",
@@ -124,8 +159,8 @@
           "include": [ "nuget.config" ]
         },
         {
-          "condition": "UpdateGithubWorkflows == true",
-          "include": [ ".github/workflows/**/*" ]
+          "condition": "UpdateGitHubWorkflows == true",
+          "include": [ ".github/**/*" ]
         }
       ]
     }

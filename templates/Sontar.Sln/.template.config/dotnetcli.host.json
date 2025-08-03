@@ -5,29 +5,33 @@
         "longName": "update",
         "shortName": "up"
       },
-      "UpdateEditorconfig": {
-        "longName": "editorconfig",
-        "shortName": "ec"
-      },
-      "UpdateGitignore": {
-        "longName": "gitignore",
-        "shortName": "gi"
+      "UpdateSolutionProps": {
+        "longName": "update-solution-props",
+        "shortName": "upsp"
       },
       "UpdatePackagesProps": {
-        "longName": "packages-props",
-        "shortName": "pp"
+        "longName": "update-packages-props",
+        "shortName": "uppp"
+      },
+      "UpdateEditorconfig": {
+        "longName": "update-editorconfig",
+        "shortName": "upec"
+      },
+      "UpdateGitignore": {
+        "longName": "update-gitignore",
+        "shortName": "upgi"
       },
       "UpdateGlobalJson": {
-        "longName": "global-json",
-        "shortName": "gj"
+        "longName": "update-global-json",
+        "shortName": "upgj"
       },
       "UpdateNugetConfig": {
-        "longName": "nuget-config",
-        "shortName": "nc"
+        "longName": "update-nuget-config",
+        "shortName": "upnc"
       },
-      "UpdateGithubWorkflows": {
-        "longName": "github-workflows",
-        "shortName": "gw"
+      "UpdateGitHubWorkflows": {
+        "longName": "update-github-workflows",
+        "shortName": "upgw"
       },
       "GitHubRepoOwner": {
         "longName": "github-repo-owner",
@@ -40,6 +44,10 @@
       "Company": {
         "longName": "company",
         "shortName": "co"
+      },
+      "GitHubActionsWorkflow": {
+        "longName": "github-action-workwlow",
+        "shortName": "ci"
       }
     }
 }
