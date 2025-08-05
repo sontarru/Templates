@@ -19,34 +19,58 @@ permissions:
   contents: read
   packages: write
 
+env:
+  Configuration: Release
+  # Change this to the custom PAT if required.
+  GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+#if (GitHubActionsWorkflow == 'docker')
+  GITHUB_REPO_OWNER: ${{github.repository_owner}}
+  GITHUB_CONTAINER_REGISTRY: ghcr.io
+#else
+  # for some reason without the 'else' branch it doesn't work
+#endif
+
 jobs:
-  ci:
-    name: Build and publish
+  main:
+    name: Build, test, publish
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
+    - name: Checkout sources
+      uses: actions/checkout@v4
 
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v4
-        with:
-          source-url: https://nuget.pkg.github.com/fkthat/index.json
-        env:
-          NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        source-url: https://nuget.pkg.github.com/sontarru/index.json
+      env:
+        NUGET_AUTH_TOKEN: ${{env.GITHUB_TOKEN}}
 
-      - name: Restore dependencies
-        run: dotnet restore
+    - name: Restore projects' dependencies
+      run: dotnet restore
 
-      - name: Build solution
-        run: dotnet build --no-restore -c Release
+    - name: Build solution
+      run: dotnet build --no-restore
 
-      - name: Run tests
-        run: dotnet test --no-build -c Release
+    - name: Run tests
+      run: dotnet test --no-build
 
-      - name: Pack NuGet
-        run: dotnet pack --no-build -c Release
+#if (GitHubActionsWorkflow == 'nuget')
+    - name: Create NuGet package(s)
+      run: dotnet pack --no-build
 
-      - name: Push NuGet
-        if: github.event_name == 'release'
-        run: dotnet nuget push **/*.nupkg --skip-duplicate
+    - name: Push NuGet package(s) to the registry
+      if: github.event_name == 'release'
+      run: dotnet nuget push **/*.nupkg --skip-duplicate
+#elseif (GitHubActionsWorkflow == 'docker')
+    - name: Login to container registry
+      if: github.event_name == 'release'
+      run: docker login -u $GITHUB_REPO_OWNER -p $GITHUB_TOKEN $GITHUB_CONTAINER_REGISTRY
+
+    - name: Build and publish docker image(s)
+      if: github.event_name == 'release'
+      run: >-
+        dotnet publish /t:PublishContainer
+        /p:ContainerRegistry=$GITHUB_CONTAINER_REGISTRY
+        --no-build
+#endif
