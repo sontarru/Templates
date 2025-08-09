@@ -46,7 +46,7 @@
         "shortName": "co"
       },
       "GitHubActionsWorkflow": {
-        "longName": "github-action-workwlow",
+        "longName": "github-actions-workwlow",
         "shortName": "ci"
       }
     }
